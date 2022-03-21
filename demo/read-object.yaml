@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: read-object
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      securityContext:
+        runAsUser: 1000
+      containers:
+      - name: read-object
+        env:
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: tf-aws-secrets
+                key: AWS_ACCESS_KEY_ID
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: tf-aws-secrets
+                key: AWS_SECRET_ACCESS_KEY
+          - name: AWS_S3_BUCKET_NAME
+            value: appvia-mys3bucket-123
+          - name: AWS_DEFAULT_REGION
+            value: eu-west-2
+        image: amazon/aws-cli:2.4.26
+        command: ["sh"]
+        args:
+          - -e
+          - -c
+          - |
+            aws s3 cp s3://\$(AWS_S3_BUCKET_NAME)/demo -
+      restartPolicy: Never
