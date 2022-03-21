@@ -1,4 +1,5 @@
-setup/terranetes-config
+setup/local-config
 **/.terraform
 *.tfstate
 *.tfstate.*
+.terraform.*
