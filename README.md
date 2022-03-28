@@ -13,6 +13,8 @@ Terranetes enables application developers to self-serve cloud resources with min
 
 ## Community
 Terranetes is a community-driven project and therefore we welcome your contribution. Refer to our [contributing guidelines](../docs/contributing-guidelines.md) for more information on how you can help.
-- Discuss Terranetes on the [Kubernetes]() or [Appvia]() Slack channels
+- Discuss further on the [Kubernetes](https://slack.k8s.io/) or [Appvia](https://join.slack.com/t/appvia-community/shared_invite/zt-rcqz9vif-eDDQrbD_EAZBxsem30c2bQ) `#terranetes` Slack channels
 - Follow us on [Twitter](https://twitter.com/appvia_io), or contact us via [Email](info@appvia.io)
 - Join our regular community events at the [London Public Cloud Kubernetes Meetup](https://www.meetup.com/public-cloud-kubernetes-london/)
+
+You can find similar open source tools on [appvia.io/community-tools](https://www.appvia.io/community-tools).
