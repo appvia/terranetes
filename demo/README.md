@@ -1,4 +1,4 @@
-# Terranetes
+# Use Helm to create cloud resources
 
 1. First, we need a Kubernetes cluster which I will go ahead and create with [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 ```bash
