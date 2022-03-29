@@ -7,10 +7,9 @@ It is a solution and pattern that simplifies developer self-service and applicat
 This means that infrastructure operators such as DevOps or Platform engineers create consistent and re-usable Terraform modules whilst application developers consume those Terraform modules with minimal user input and minimal cloud expertise.
 
 ## Documentation
-- [What is the pattern?](docs/what-is-the-pattern.md)
 - [Getting started guide](docs/getting-started.md)
 - [Contributing guidelines](docs/contributing-guidelines.md)
-- [Creating your own Helm packages](docs/creating-your-own-helm-packages.md)
+- [Creating your own packages](docs/creating-your-own-packages.md)
 - [FAQs](docs/faqs.md)
 
 ## Community
