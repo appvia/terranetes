@@ -21,3 +21,6 @@ Terranetes is a community-driven project and therefore we welcome your contribut
 - Join our regular community events at the [London Public Cloud Kubernetes Meetup](https://www.meetup.com/public-cloud-kubernetes-london/)
 
 You can find similar open source tools on [appvia.io/community-tools](https://www.appvia.io/community-tools).
+
+## Demo
+Watch [our demo](https://youtu.be/JE3CgDcH1xo) of using Helm to create cloud resources.
