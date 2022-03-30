@@ -6,6 +6,8 @@ It is a solution and pattern that simplifies developer self-service and applicat
 
 This means that infrastructure operators such as DevOps or Platform engineers create consistent and re-usable Terraform modules whilst application developers consume those Terraform modules with minimal user input and minimal cloud expertise.
 
+![Terranetes Ways of Working](images/terranetes.png)
+
 ## Documentation
 - [Getting started guide](docs/getting-started.md)
 - [Contributing guidelines](docs/contributing-guidelines.md)
