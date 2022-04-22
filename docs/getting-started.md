@@ -1,6 +1,6 @@
 # Getting Started
 
-This guide will walk you through what you need to do as an infrastructure operator and an application developer to start using Terranetes.
+This guide will walk you through what you need to do as an infrastructure operator and an application developer to adopt the Terranetes way of working.
 
 ## Prerequisites
 - A Kubernetes cluster `>= v1.19` is available

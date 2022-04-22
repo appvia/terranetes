@@ -1,10 +1,12 @@
 # Terranetes
 
-Terranetes enables application developers to self-serve cloud resources with minimal user input using Helm packages. You can either choose from our list of packages available on [artifacthub.io](https://artifacthub.io/packages/search?ts_query_web=appvia) or adopt our pattern to build out your own packages.
+Terranetes enables application developers to self-serve cloud resources with minimal user input using Helm packages. You can either choose from our list of packages available on [artifacthub.io](https://artifacthub.io/packages/search?ts_query_web=appvia) or adopt our pattern to [create your own packages](docs/creating-your-own-packages.md).
 
-It is a solution and pattern that simplifies developer self-service and application development in the cloud. It combines reputable and widely-adopted technologies such as [HashiCorp Terraform](https://www.terraform.io/), [Terraform Operator](https://github.com/isaaguilar/terraform-operator) and [Helm](https://helm.sh/) to provide consumable packages i.e. Helm charts to application developers.
+It is a solution, pattern and way of working that simplifies developer self-service and application development in the cloud. It combines reputable and widely-adopted technologies such as [HashiCorp Terraform](https://www.terraform.io/), [Terraform Operator](https://github.com/isaaguilar/terraform-operator) and [Helm](https://helm.sh/) to provide consumable packages i.e. Helm charts to application developers. Terraform and Helm are core components of this pattern but the Terraform Operator component can replaced with alternative solutions such as the [Open Application Model Terraform Controller](https://github.com/oam-dev/terraform-controller).
 
-This means that infrastructure operators such as DevOps or Platform engineers create consistent and re-usable Terraform modules whilst application developers consume those Terraform modules with minimal user input and minimal cloud expertise.
+It empowers infrastructure operators such as DevOps or Platform engineers to create consistent and re-usable Terraform modules that application developers can consume with minimal user input and minimal cloud expertise.
+
+Download the [tf2helm](https://github.com/appvia/tf2helm) tool to automate the conversion of your Terraform modules.
 
 ![Terranetes Ways of Working](images/terranetes.png)
 
