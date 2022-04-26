@@ -1,6 +1,8 @@
 # Getting Started
 
-This guide will walk you through what you need to do as an infrastructure operator and an application developer to adopt the Terranetes way of working.
+This guide will walk you through what you need to do as an infrastructure operator and an application developer to adopt the Terranetes way of working and get started with [Isaaguilar's Terraform Operator](https://github.com/isaaguilar/terraform-operator).
+
+Alternatively you can use [Appvia's Terraform Controller](https://github.com/appvia/terraform-controller#getting-started) to plan and apply your Terraform modules.
 
 ## Prerequisites
 - A Kubernetes cluster `>= v1.19` is available

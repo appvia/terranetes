@@ -25,7 +25,6 @@ The tool currently only supports the [suggested Terraform Operator](https://gith
 
 ```
 tf2helm --tf_module_path="/Users/mohammudyassinejaffoo/Workspace/appvia/appvia-tf-efs" --tf_version=1.1.7 --name=acp-tf-efs --version=0.1.0 --app_version=0.1.0 --output_dir=charts
-✔ Download Terraform module
 ✔ Translate Terraform module
 ✔ Create Helm Chart
 ✔ Update Helm Chart with Terraform Custom Resource
