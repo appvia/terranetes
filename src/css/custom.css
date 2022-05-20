@@ -96,7 +96,6 @@ dl.crd-meta {
 }
 
 .crd-meta a.version {
-  font-family: Inconsolata;
   margin-right: 10px;
 }
 
@@ -108,8 +107,7 @@ dl.crd-meta {
 }
 
 .property-header h3 {
-  font-family: Inconsolata;
-  font-size: 22px;
+  font-size: 18px;
   margin: 0;
   margin-left: -0.1em;
   background-color: #e6ecf2;
@@ -130,6 +128,7 @@ dl.crd-meta {
   line-height: 22px;
   padding: 3px 6px;
   text-transform: uppercase;
+  border-radius: 3px;
 }
 
 .property-required {
