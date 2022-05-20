@@ -7,7 +7,7 @@ sidebar_class_name: green
 The costs integration allows developers to see their associated costs before applying the terraform. This controller currently uses [infracost](https://infracost.io) to extract the predicted costs of a configuration, exposing the cost on the kubernetes status. It is viewable via `$ kubectl get configuration`.
 
 :::tip
-The costs here are the predicted costs not the actual cost / usage. While many costs can be calculated based on the resources alone many other are based on usage. A simple example would be a S3 bucket which is free (predicted cost), but store 10TB inside it and it's no definitely not free any more.
+The costs here are the predicted costs, not the actual costs/usage. While many costs can be calculated based on the resources alone, many other costs are based on usage. A simple example would be an S3 bucket that is free (predicted cost), but if you store 10TB inside it it's definitely not free any more.
 :::
 
 To configure the integration:
