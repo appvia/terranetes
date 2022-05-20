@@ -30,6 +30,12 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           //editUrl: 'https://github.com/appvia/terraform-controller-docs',
         },
+        googleAnalytics: {
+          trackingID: 'UA-120919526-1',
+        },
+        gtag: {
+          trackingID: 'UA-120919526-1',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
