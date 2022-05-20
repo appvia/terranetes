@@ -13,12 +13,12 @@ To configure the integration:
     `$ kubectl -n terraform-system create secret generic infracost --from-literal=INFRACOST_API_KEY=$INFRACOST_API_KEY`
 
 2. Configure the controller to enable infracost by updating the controller flag.
-  ```YAML
-  controller:
-    costs:
-      # is the name of the secret you created in the controller namespace above
-      name: infracost
-  ```
+      ```YAML
+      controller:
+        costs:
+          # is the name of the secret you created in the controller namespace above
+          name: infracost
+      ```
 
 3. Update the helm chart.
 
