@@ -8,17 +8,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Terraform Controller',
   tagline: 'Allowing teams to self-serve cloud and application dependencies',
-  url: 'https://appvia.github.com/terraform-controller',
-  baseUrl: '/',
+  url: 'https://terraform-controller.appvia.github.com/',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'appvia', // Usually your GitHub org/user name.
   projectName: 'terraform-controller', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -30,14 +26,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -54,11 +44,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Features',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
+        title: 'Overview',
         items: [
           {
             type: 'doc',
@@ -89,12 +75,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Slack',
+                href: 'https://appvia-community.slack.com',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/appvia',
+                href: 'https://twitter.com/appvia_io',
               },
             ],
           },
@@ -112,7 +98,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Terraform Controller, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Terraform Controller, Appvia Ltd`,
       },
       prism: {
         theme: lightCodeTheme,

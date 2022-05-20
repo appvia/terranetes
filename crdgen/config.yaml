@@ -1,0 +1,27 @@
+template_path: templates/crd.template
+
+source_repositories:
+  - url: https://github.com/appvia/terraform-controller
+    organization: appvia
+    short_name: terraform-controller
+    commit_reference: v0.1.1
+    crd_paths:
+      - charts/crds
+    cr_paths:
+      - docs/crds
+    metadata:
+      configurations.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
+      policies.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
+      providers.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform

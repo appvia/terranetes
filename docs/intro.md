@@ -1,18 +1,81 @@
 ---
+
 sidebar_position: 1
 ---
+import Features from '@site/src/components/Features';
+
 # Terraform Controller
 
-Kubernetes has been brilliant at delivering an ecosystem for developers, improving the velocity of shipping, bringing components under a common framework and DSL, coupled with the flexibility to expand and extend the offering. And so it beggars belief that speaking to customers, application dependencies and consumption is still a major bottleneck to progress, with teams blocked waiting on that database, queue, object store and so forth.
+Terraform controller manages the life-cycle of terraform resources defined and built inside Kubernetes. Allowing teams running workloads inside the cluster to self-service application dependencies and reuse the wealth of terraform modules already written.
 
-## Thing is ...
+The controller also comes bundles with a number of technical controls to enable platform teams to push the feature without compromising the standards / best practices required in the organizations.
 
-- Most applications don't even make it to production - a large chunk of the software delivery cycle is prototyping and experimentation. It's being driven to show value quickly: try it, show it and see if it fails.
-- That statement often comes into conflict with platform engineering, and naturally so. Their goals of productized setup, ownership of reliability, cost and security is a very different world view.
-- And while Kubernetes has been very successful in bridging the barrier of application delivery, enabling development teams and DevOps to experience platform as a service, application dependencies in a large chunk of organizations remain a ticketed system; click, open support ticket, wait for response, and so on.
-While the terraform-controller isn’t trying to solve all those issues, it's a step in the right direction.
+<Features/>
 
-Reuse the terraform modules and code you already have; no pivots or tech choices.
-Allow teams to consume it while maintaining control over the assets (terraform modules) and the security profile (checkov).
-Let teams be aware of their own costs, allowing them to improve them.
+## Additional Features
 
+* **Module Security:** enables platform teams the means to control which terraform modules are permitted. Enabling the organization to lockdown to a approved collection of modules.
+* **Targetted Configuration:** provides platform teams the ability to inject environment specific variables into the terraform modules consumed downstream. For example you could inject cost centers or project ids, environment specific configuration like cloud tags and so forth.
+
+## Quick start guide
+
+Before we begin, you'll need the following tools.
+
+* Helm CLI (https://helm.sh/docs/intro/install/)
+* Kind (https://kind.sigs.k8s.io/)
+
+The quickest way to get up the running is via the Helm chart.
+
+```bash
+$ git clone git@github.com:appvia/terraform-controller.git
+$ cd terraform-controller
+# kind create cluster
+$ helm install -n terraform-system terraform-controller charts/ --create-namespace
+$ kubectl -n terraform-system get po
+```
+
+### Configure credentials
+
+Next we configure some cloud credentials to run the terraform under.
+
+```bash
+# The following assumes you can using static credentials, for managed pod identity see docs
+
+$ kubectl -n terraform-system create secret generic aws \
+  --from-literal=AWS_ACCESS_KEY_ID=<ID> \
+  --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
+  --from-literal=AWS_REGION=<REGION>
+$ kubectl -n terraform-system apply -f examples/provider.yaml
+$ kubectl -n terraform-system get provider -o yaml
+```
+
+See [Configure Credentials](docs/admin/providers.md) for more details.
+
+### Create you first configuration
+
+```bash
+$ cat examples/configuration.yaml # demos a s3 bucket
+$ kubectl create namespace apps
+
+# NOTE: Make sure to change the bucket name in examples/configuration.yaml
+# spec.variables.bucket
+$ vim examples/configuration.yaml
+$ kubectl -n apps apply -f examples/configuration.yaml
+$ kubectl -n apps get po
+
+# Straight away a job is created to 'watch' the terraform workflow
+$ kubectl -n apps logs -f <POD_ID>
+
+# Check the module output
+$ kubectl -n apps get secret test -o yaml
+```
+
+### Approve the plan
+
+By default unless the `spec.enableAutoApproval` is true, all changes must be approved before acting on. An annotation is used to approve the previous plan.
+
+```bash
+$ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true --overwrite
+```
+
+For a complete summary of [Configurations](docs/reference/configurations.terraform.appvia.io.md) view [here](docs/developer/configuration.md).

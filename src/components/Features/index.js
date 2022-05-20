@@ -8,9 +8,8 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Allows developers and teams to get and self-serve their application
-        dependencies independently. While being assured they are inline of
-        company policy.
+        Allows developers and teams to self-serve their application dependencies
+        independently. While being assured they are inline of company policy.
       </>
     ),
   },
@@ -19,8 +18,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Platform teams can enforce technical controls to verify requests meets
-        the security guidelines of the your team.
+        Platform teams may enforce technical controls to verify resources meet
+        their security guidelines. These controls also applied to all
+        sub-modules to ensure nothing gets missed.
       </>
     ),
   },
@@ -50,7 +50,7 @@ function Feature({Svg, title, description}) {
   );
 }
 
-export default function HomepageFeatures() {
+export default function Features() {
   return (
     <section className={styles.features}>
       <div className="container">

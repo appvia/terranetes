@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Using Terraform
 
-Consumption side the only resource required if the [Configuration](docs/reference/configuration.md) CRD. Below is an example
+Consumption side the only resource required is the [Configuration](docs/reference/configurations.terraform.appvia.io.md) CRD. Below is an example
 
 ```YAML
 apiVersion: terraform.appvia.io/v1alpha1
@@ -96,21 +96,22 @@ The connection secret `spec.writeConnectionSecretToRef` defines the name of a se
 
 The name of the secret *(inside the Configuration namespace)* where any module outputs from the terraform module are written as environment variables.
 
+### Viewing the Changes
 
-**Private Repositories**
----
+As a Configuration transitions through it's plan apply and destroy phases a job is created in the namespace used to feedback the execution of the change. The jobs follow the name format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pods logs (`kubectl logs [POD]`).
 
-If the repository is private, you can add SSH credentials via a secret and update the spec to reference the secret `spec.auth.name: ssh`.
+### Approving a Plan
 
+By default unless the `spec.enableAutoApproval` is set to true, all Configuration require a manual approval. This performed by toggling a annotation on the Configuration itself.
+
+To approve the Configuration `bucket`
+
+```shell
+$ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true
 ```
-$ kubectl -n apps create secret generic ssh --from-file=SSH_KEY_AUTH=id.rsa
-```
+### Deleting the resource
 
-You can also pass `GIT_USERNAME` and `GIT_PASSWORD` as an alternative to SSH.
+You can delete the resource like any other Kubernetes resource `kubectl delete configuration [NAME]`. On extra feature is the ability to orphan the resources i.e delete the Kubernetes reprensentation but DO NOT delete the cloud resource themselves; for instance you may need to migrate the configuration to another cluster.
 
-**Annotations**
-
-The following annotations exists
-
-* `terraform.appvia.io/apply` is applied by the controller after a successful plan on a configuration with `spec.enableAutoApproval: false`
-* `terraform.appvia.io/orphan` can added by users to the Configuration CRD and on deletion the destroy job is skipped.
+1. Simply annotate the Configuration with `kubectl annotate configuration [NAME] "terraform.appvia.io/orphan"=true`
+2. Delete the Configuration as per normal. The resource will disappear but the cloud resources will remain.
