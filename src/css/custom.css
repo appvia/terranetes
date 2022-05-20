@@ -69,6 +69,10 @@ ul.crd-index {
   color: #fff;
 }
 
+.crd-meta {
+  margin-bottom: 50px;
+}
+
 dl.crd-meta {
   display: flex;
   flex-flow: row wrap;
@@ -97,7 +101,6 @@ dl.crd-meta {
 }
 
 .crd-schema-version {
-  border-top: 1px solid #ccc;
 }
 
 .property {

@@ -4,7 +4,7 @@ sidebar_class_name: green
 ---
 # Configure Credentials
 
-Credentials to access the cloud are represented by the [Providers](docs/reference/provider.md) in the terraform-controller. A namespaced resource which usually live in the same location as the controller, when defining a terraform module developers reference the provider using the `spec.providerRef`, tieing the requirements and credentials together.
+Credentials to access the cloud are represented by the [Providers](docs/reference/providers.terraform.appvia.io.md) in the terraform-controller. A namespaced resource which usually live in the same location as the controller, when defining a terraform module developers reference the provider using the `spec.providerRef`, tieing the requirements and credentials together.
 
 :::tip
 Credentials never leave the terraform-controller namespace to remove the risk of exposure.
