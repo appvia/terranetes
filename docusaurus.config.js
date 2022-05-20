@@ -9,7 +9,7 @@ const config = {
   title: 'Terraform Controller',
   tagline: 'Allowing teams to self-serve cloud and application dependencies',
   url: 'https://terraform-controller.appvia.io',
-  baseUrl: '/docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
