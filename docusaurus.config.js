@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'appvia', // Usually your GitHub org/user name.
-  projectName: 'terraform-controller', // Usually your repo name.
+  organizationName: 'appvia',
+  projectName: 'terraform-controller-docs',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -28,10 +28,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl: 'https://github.com/appvia/terraform-controller-docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -67,7 +64,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs',
+                to: '/',
               },
             ],
           },

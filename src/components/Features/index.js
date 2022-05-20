@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Self Service Cloud Resources',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/self-serve.svg').default,
     description: (
       <>
         Allows developers and teams to self-serve their application dependencies
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: 'Enforce Security Policy Checks',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/security.svg').default,
     description: (
       <>
         Platform teams may enforce technical controls to verify resources meet
@@ -26,7 +26,7 @@ const FeatureList = [
   },
   {
     title: 'Predicted Cost Management',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/costs.svg').default,
     description: (
       <>
         Integrates with cost management tools allowing developers to view and
