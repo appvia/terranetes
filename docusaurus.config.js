@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/appvia-logo.svg',
   organizationName: 'appvia',
   projectName: 'terraform-controller-docs',
   i18n: {
@@ -28,7 +28,6 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          //editUrl: 'https://github.com/appvia/terraform-controller-docs',
         },
         googleAnalytics: {
           trackingID: 'UA-120919526-1',
