@@ -82,7 +82,7 @@ const config = {
             items: [
               {
                 label: 'Slack',
-                href: 'https://appvia-community.slack.com',
+                href: 'https://join.slack.com/t/appvia-community/shared_invite/zt-19ek5zinn-06E8fmpatKQlyHdQQDkzeQ',
               },
               {
                 label: 'Twitter',
