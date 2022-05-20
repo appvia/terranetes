@@ -94,7 +94,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/appvia',
+                href: 'https://twitter.com/appvia_io',
               },
             ],
           },
