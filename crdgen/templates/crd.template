@@ -3,9 +3,7 @@ title: {{ .NamePlural }}.{{ .Group }}
 linkTitle: {{ .Title }}
 sidebar_position: 1
 ---
-
 # {{ .Title }}
-
 {{- with .Metadata.Deprecation }}
 <p class="well disclaimer">
 <i class="fa fa-warning"></i> <b>Deprecation:</b>

@@ -11,11 +11,11 @@ The controller comes with a number of controls and safeguards that the platform 
 * Enforce the source of the terraform modules, locking down the company repositories for examples.
 * Automatically inject environment-specific variables into the Configuration CRD, such as costs, project IDs, environment-specific labels or tags. This removes the for need teams consuming modules to know these details and keeps the deployments environment agnostic.
 
-You can control the source of the terraform modules permitted to run by creating a [Policy](charts/crds/terraform.appvia.io_policies.yaml). The following policy enforces that only modules sourced from the Appvia Github can be used.
+You can control the source of the terraform modules permitted to run by creating a [Policy](docs/reference/policies.terraform.appvia.io.md). The following policy enforces that only modules sourced from the Appvia Github can be used.
 
 ## Policy Resource
 
-Not wishing to create a plethora of resource types to define all mechanics of policy, all the policies handled by the controller are defined via the [Policy](docs/reference/policy.md) CRD. Note, you can define this multiple times—the definitions are aggregated and pulled together.
+Not wishing to create a plethora of resource types to define all mechanics of policy, all the policies handled by the controller are defined via the [Policy](docs/reference/policies.terraform.appvia.io.md) CRD. Note, you can define this multiple times—the definitions are aggregated and pulled together.
 
 ## Module Security
 
@@ -54,7 +54,7 @@ Once security plan is performed the report is processed and, assuming no failed 
 
 ### How to define a security policy
 
-Again we are using the [Policy](docs/reference/policy.md) here to define the rule.
+Again we are using the [Policy](docs/reference/policies.terraform.appvia.io.md) here to define the rule.
 
 ```YAML
 apiVersion: terraform.appvia.io/v1alpha1
