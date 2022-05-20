@@ -68,8 +68,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/',
+                label: 'Installation',
+                to: '/#quick-start-guide',
+              },
+              {
+                label: 'Usage',
+                to: '/developer/configuration',
               },
             ],
           },
@@ -89,6 +93,10 @@ const config = {
           {
             title: 'More',
             items: [
+              {
+                label: 'Appvia Wayfinder',
+                href: 'https://docs.appvia.io',
+              },
               {
                 label: 'Blog',
                 href: 'https://appvia.io/blog',
