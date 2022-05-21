@@ -110,7 +110,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>SCMAuth provides the ability to add authentication for private repositories</p>
+<p>SCMAuth is used to configure any options required when the source of the terraform module is private or requires credentials to retrieve. This could be SSH keys or git user/pass or AWS credentials for an s3 bucket.</p>
 
 </div>
 
@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is unique within a namespace to reference a secret resource.</p>
+<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
 
 </div>
 
@@ -164,7 +164,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>EnableAutoApproval indicates the apply it automatically approved</p>
+<p>EnableAutoApproval when enabled indicates the configuration does not need to be manually approved. On a change to the configuration, the controller will automatically approve the configuration. Note it still needs to adhere to any checks or policies.</p>
 
 </div>
 
@@ -182,7 +182,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Module is the location of the module to use for the configuration</p>
+<p>Module is the URL to the source of the terraform module. The format of the URL is a direct implementation of terraform&rsquo;s module reference. Please see the following repository for more details <a href="https://github.com/hashicorp/go-getter">https://github.com/hashicorp/go-getter</a></p>
 
 </div>
 
@@ -200,7 +200,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ProviderRef is the reference to the provider</p>
+<p>ProviderRef is the reference to the provider which should be used to execute this configuration.</p>
 
 </div>
 
@@ -218,7 +218,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is the name of the provider</p>
+<p>Name is the name of the provider which contains the credentials to use for this configuration.</p>
 
 </div>
 
@@ -236,7 +236,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Namespace is the namespace of the provider</p>
+<p>Namespace is the namespace of the provider itself.</p>
 
 </div>
 
@@ -254,7 +254,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>TerraformVersion provides the ability to override the default terraform version</p>
+<p>TerraformVersion provides the ability to override the default terraform version. Before changing this field its best to consult with platform administrator. As the value of this field is used to change the tag of the terraform container image.</p>
 
 </div>
 
@@ -272,7 +272,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Variables are the variables that are used to configure the terraform</p>
+<p>Variables provides the inputs for the terraform module itself. These are passed to the terraform executor and used to execute the plan, apply and destroy phases.</p>
 
 </div>
 
@@ -290,7 +290,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>WriteConnectionSecretToRef is the name of the secret where the terraform configuration is stored</p>
+<p>WriteConnectionSecretToRef is the name for a secret. On execution of the terraform module any module outputs are written to this secret. The outputs are automatically uppercased and ready to be consumed as environment variables.</p>
 
 </div>
 
@@ -308,7 +308,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is unique within a namespace to reference a secret resource.</p>
+<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
 
 </div>
 
@@ -542,7 +542,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Costs is the cost status of the configuration is enabled via the controller</p>
+<p>Costs is the predicted costs of this configuration. Note this field is only populated when the integration has been configured by the administrator.</p>
 
 </div>
 
@@ -560,7 +560,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Enabled indicates if the cost is enabled</p>
+<p>Enabled indicates if the cost integration was enabled when this configuration was last executed.</p>
 
 </div>
 
@@ -722,7 +722,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Resources is the number of managed resources created by this configuration</p>
+<p>Resources is the number of managed cloud resources which are currently under management. This field is taken from the terraform state itself.</p>
 
 </div>
 
