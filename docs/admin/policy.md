@@ -45,7 +45,7 @@ The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang 
 
 Security policy allows platform teams to be assured what they are allowing to be self-serviced follows what they and the organization deem to be best practice. All terraform configurations are funnelled through a security check as part of the plan stage.
 
-:::note
+:::tip
 The security checks are performed on the terraform plan, not the static module, so you have the added benefit that anything they import is scanned and any varaibles or dynamic variation is included in the scan.
 :::
 

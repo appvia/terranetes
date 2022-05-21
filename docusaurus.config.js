@@ -46,13 +46,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Overview',
+        title: 'Appvia',
+        logo: {
+          alt: 'Appvia Logo',
+          src: '/img/appvia-logo.svg',
+          href: 'https://appvia.io',
+        },
         items: [
           {
             type: 'doc',
             docId: 'index',
             position: 'left',
-            label: 'Docs',
+            label: 'Overview',
           },
           {
             href: 'https://github.com/appvia/terraform-controller',
@@ -62,7 +67,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Docs',
@@ -108,7 +113,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Terraform Controller, Appvia Ltd`,
+        copyright: `Copyright © ${new Date().getFullYear()} Appvia Ltd. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
