@@ -110,7 +110,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Constraints defines the constraints which can be applied to the terraform configurations</p>
+<p>Constraints provides a series or constraints that must be enforced on the selectored terraform configurations.</p>
 
 </div>
 
@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Checkov provides a definition to enforce checkov policies on the terraform configurations</p>
+<p>Checkov provides the ability to enforce a set of security standards on all configurations. These can be configured to target specific resources based on namespace and resource labels</p>
 
 </div>
 
@@ -146,7 +146,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Checks is a list of checks which should be applied against the configuration Please see <a href="https://www.checkov.io/5.Policy%20Index/terraform.html">https://www.checkov.io/5.Policy%20Index/terraform.html</a></p>
+<p>Checks is a list of checks which should be applied against the configuration. Note, an empty list here implies checkov should run ALL checks. Please see <a href="https://www.checkov.io/5.Policy%20Index/terraform.html">https://www.checkov.io/5.Policy%20Index/terraform.html</a></p>
 
 </div>
 
@@ -177,7 +177,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Selector is the selector on the namespace or labels on the configuration. Note, defining no selector dictates the policy should apply to all</p>
+<p>Selector is the selector on the namespace or labels on the configuration. By leaving this fields empty you can implicitedly selecting all configurations.</p>
 
 </div>
 
@@ -195,7 +195,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Namespace provides the ability to filter on the namespace</p>
+<p>Namespace is used to filter a configuration based on the namespace labels of where it exists</p>
 
 </div>
 
@@ -334,7 +334,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Resource provides the ability to filter on the resource labels</p>
+<p>Resource provides the ability to filter a configuration based on it&rsquo;s labels</p>
 
 </div>
 
@@ -473,7 +473,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>SkipChecks is a collection of checks which need to be skipped</p>
+<p>SkipChecks is a collection of checkov checks which you can defined as skipped. The security scan will ignore any failures on these checks.</p>
 
 </div>
 
@@ -504,7 +504,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Modules is a list of regexes which are permitted as module sources</p>
+<p>Modules provides the ability to control the source for all terraform modules. Allowing platform teams to control where the modules can be downloaded from.</p>
 
 </div>
 
@@ -522,7 +522,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Allowed is a list of regexes which are permitted as module sources</p>
+<p>Allowed is a collection of regexes which are applied to the source of the terraform configuration. The configuration MUST match one or more of the regexes in order to be allowed to run.</p>
 
 </div>
 
@@ -553,7 +553,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Defaults provides the default variables to inject into the configurations</p>
+<p>Defaults provides the ability to target specific terraform module based on namespace or resource labels and automatically inject variables into the configurations.</p>
 
 </div>
 
@@ -795,7 +795,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Summary provides a short description of the policy</p>
+<p>Summary is an optional field which can be used to define a summary of what the policy is configured to enforce.</p>
 
 </div>
 

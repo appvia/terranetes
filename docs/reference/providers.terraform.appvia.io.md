@@ -110,7 +110,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ProviderType is the type of provider</p>
+<p>ProviderType defines the cloud provider which is being used, currently supported providers are aws, google or azurerm.</p>
 
 </div>
 
@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>SecretRef is the reference to the secret containing the credentials</p>
+<p>SecretRef is a reference to a kubernetes secret. This is required only when using the source: secret. The secret should include the environment variables required to by the terraform provider.</p>
 
 </div>
 
@@ -146,7 +146,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is unique within a namespace to reference a secret resource.</p>
+<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
 
 </div>
 
@@ -182,7 +182,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ServiceAccount is the service account to use when using pod identity</p>
+<p>ServiceAccount is the name of a service account to use when the provider source is &lsquo;injected&rsquo;. The service account should exist in the terraform controller namespace and be configure per cloud vendor requirements for pod identity.</p>
 
 </div>
 
@@ -200,7 +200,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Source is the source of the credentials</p>
+<p>Source defines the type of credentials the provider is wrapper, this could be wrapping a static secret or using a managed identity. The currently supported values are secret and injected.</p>
 
 </div>
 
