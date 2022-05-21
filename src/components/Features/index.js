@@ -9,7 +9,7 @@ const FeatureList = [
     description: (
       <>
         Allows developers and teams to self-serve their application dependencies
-        independently. While being assured they are inline of company policy.
+        independently, while being assured they are inline of company policy.
       </>
     ),
   },
@@ -19,8 +19,8 @@ const FeatureList = [
     description: (
       <>
         Platform teams may enforce technical controls to verify resources meet
-        their security guidelines. These controls also applied to all
-        sub-modules to ensure nothing gets missed.
+        their security guidelines. These controls are also applied to all
+        terraform sub-modules, to ensure nothing gets missed.
       </>
     ),
   },
@@ -29,8 +29,8 @@ const FeatureList = [
     Svg: require('@site/static/img/costs.svg').default,
     description: (
       <>
-        Integrates with cost management tools allowing developers to view and
-        adapt the costs.
+        Integrates with cost management tools, allowing developers to view and
+        manage spend more efficiently.
       </>
     ),
   },

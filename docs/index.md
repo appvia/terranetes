@@ -13,33 +13,35 @@ The controller also comes bundled with a number of technical controls to enable 
 
 ## Additional Features
 
-* **Module Security:** gives platform teams the means to control which terraform modules are permitted. This enables the organization to lockdown to an approved collection of modules.
-* **Targetted Configuration:** gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
+* **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lockdown to an approved collection of modules.
+* **Targetted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
 
 ## Quick start guide
 
 Before we begin, you'll need the following tools:
 
-* Helm CLI (https://helm.sh/docs/intro/install/)
-* Kind (https://kind.sigs.k8s.io/)
+* **[Helm CLI](https://helm.sh/docs/intro/install/)**
+* **[Kind](https://kind.sigs.k8s.io/)**
 
-The quickest way to get up the running is via the Helm chart:
+The quickest way to get up and running is via the Helm chart:
 
 ```bash
 $ git clone git@github.com:appvia/terraform-controller.git
 $ cd terraform-controller
-# kind create cluster
+# $ Run `kind create cluster` or set your kubernetes cluster context
 $ helm install -n terraform-system terraform-controller charts/ --create-namespace
-$ kubectl -n terraform-system get po
+$ kubectl -n terraform-system get pods
 ```
 
 ### Configure credentials
 
-Next we configure some cloud credentials to run the terraform under:
+Next, we configure some cloud credentials to run terraform with:
+
+:::info
+The following assumes you are using static cloud credentials. See the docs for [**managed pod identity**](admin/providers#configuring-injected-identity).
+:::
 
 ```bash
-# The following assumes you can using static credentials, for managed pod identity—see docs
-
 $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_ACCESS_KEY_ID=<ID> \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
@@ -50,15 +52,17 @@ $ kubectl -n terraform-system get provider -o yaml
 
 See [Configure Credentials](docs/admin/providers.md) for more details.
 
-### Create your first configuration
+### Create your first terraform resource
 
 ```bash
-$ cat examples/configuration.yaml # demos an s3 bucket
+$ wget https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/configuration.yaml
+$ cat examples/configuration.yaml # demo for provisioning an s3 bucket
+
 $ kubectl create namespace apps
 
 # NOTE: Make sure to change the bucket name in examples/configuration.yaml
-# spec.variables.bucket
-$ vim examples/configuration.yaml
+$ vim examples/configuration.yaml # Modify spec.variables.bucket
+
 $ kubectl -n apps apply -f examples/configuration.yaml
 $ kubectl -n apps get po
 
