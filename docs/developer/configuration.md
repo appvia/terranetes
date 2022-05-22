@@ -95,6 +95,17 @@ The connection secret `spec.writeConnectionSecretToRef` defines the name of a se
 
 The name of the secret *(inside the Configuration namespace)* where any module outputs from the terraform module are written as environment variables.
 
+By default when a secret is defined all the outputs produced are written in environment variable form. If you want to filter this and only select specific keys from the terraform output you can include the `spec.writeConnectionSecretToRef.keys` field as below.
+
+```yaml
+spec:
+  writeConnectionSecretToRef:
+    name: [NAME]
+    keys:
+      - name_of_key
+      - name_of_key
+```
+
 ### Viewing the Changes
 
 As a Configuration transitions through it's plan, apply and destroy phases a job is created in the namespace, used to feedback the execution of the change. The jobs follow the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
