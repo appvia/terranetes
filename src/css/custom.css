@@ -17,6 +17,9 @@
   --ifm-footer-color: #fdbe9f;
   --ifm-footer-link-color: #fdbe9f;
   --ifm-footer-title-color: #fdbe9f;
+  --ifm-property-header-background-color: #e6ecf2;
+  --ifm-property-required-background-color: #f5bfbf;
+  --ifm-property-type-background-color: lightgray;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -33,6 +36,9 @@
 
 html[data-theme='dark'] {
   --ifm-color-primary: #fdbe9f;
+  --ifm-property-header-background-color: #f09235;
+  --ifm-property-required-background-color: red;
+  --ifm-property-type-background-color: green;
 }
 
 .docusaurus-highlight-code-line {
@@ -129,7 +135,7 @@ dl.crd-meta {
   font-size: 18px;
   margin: 0;
   margin-left: -0.1em;
-  background-color: #e6ecf2;
+  background-color: var(--ifm-property-header-background-color);
   border-radius: 5px;
   padding: 3px;
   padding-left: 10px;
@@ -141,8 +147,7 @@ dl.crd-meta {
 }
 
 .property-type {
-  background-color: lightgray;
-  font-family: Inconsolata;
+  background-color: var(--ifm-property-type-background-color);
   font-size: 14px;
   line-height: 22px;
   padding: 3px 6px;
@@ -151,7 +156,7 @@ dl.crd-meta {
 }
 
 .property-required {
-  background-color: #f5bfbf;
+  background-color: var(--ifm-property-required-background-color);
   font-size: 14px;
   line-height: 22px;
   padding: 3px 6px;
