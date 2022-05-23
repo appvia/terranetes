@@ -58,7 +58,7 @@ spec:
 
 The configuration resource is comprised of the following sections.
 
-### Module Reference
+### Module reference
 
 The module reference defines the source of the terraform module to run.
 
@@ -67,20 +67,20 @@ The source reference uses the exact same format as terraform itself (the same li
 :::
 
 For quick reference:
-* Using SSH the format would look like `git::ssh://git@example.com/foo/bar`
-* Using HTTPS the format would be `https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0`
+* Using SSH the format would look like this: `git::ssh://git@example.com/foo/bar`
+* Using HTTPS the format would be: `https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0`
 
-You can also extract specific folders or files from the downloaded module by using the double slash `[URL]//dir/file`.
+You can also extract specific folders or files from the downloaded module by using the double slash: `[URL]//dir/file`.
 
-### Provider Reference
+### Provider reference
 
-The provider reference is what links a configuration to the credentials used to speak to the cloud. Depending on the Kubernetes RBAC you currently posses you can retrieve a list of the current providers via `kubectl`
+The provider reference is what links a configuration to the credentials used to speak to the cloud. Depending on the Kubernetes RBAC you currently posses you can retrieve a list of the current providers via `kubectl`:
 
 ```shell
 $ kubectl get providers -n [NAMESPACE]
 ```
 
-Once you have the provider `namespace` and `name` you use the reference in the configuration.
+Once you have the provider `namespace` and `name` you use the reference in the configuration:
 
 ```yaml
 spec:
@@ -89,17 +89,15 @@ spec:
     name: <NAME>
 ```
 
-### Terraform Variables
+### Terraform variables
 
 The variables section `spec.variables` is a freeform map used to define all the variables the module can consume. These are converted to HCL and provided into the workflow via `-var-file` on the `plan` and `apply` stages.
 
-### Connection Secret Reference
+### Connection secret reference
 
-The connection secret `spec.writeConnectionSecretToRef` defines the name of a secret within your namespace where you want any outputs from the module to be written.
+The connection secret `spec.writeConnectionSecretToRef` is the name of a secret within the namespace where you want any Terraform outputs to be written. These outputs are converted to environment variable format, i.e., upper-cased and ready to be consumed by workloads using [env and envFrom](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables).
 
-The name of the secret *(inside the Configuration namespace)* where any module outputs from the terraform module are written as environment variables.
-
-By default when a secret is defined all the outputs produced are written in environment variable form. If you want to filter this and only select specific keys from the terraform output you can include the `spec.writeConnectionSecretToRef.keys` field as below.
+By default when a secret is defined all the outputs produced are written in environment variable form. If you want to filter this and only select specific keys from the terraform output you can include the `spec.writeConnectionSecretToRef.keys` field as shown below.
 
 ```yaml
 spec:
@@ -110,13 +108,13 @@ spec:
       - name_of_key
 ```
 
-## Viewing the Changes
+## Viewing the changes
 
-As a Configuration transitions through it's plan, apply and destroy phases a job is created in the namespace, used to feedback the execution of the change. The jobs follow the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
+As a Configuration transitions through its plan, apply and destroy phases, a job is created in the namespace, and used to feedback the execution of the change. The jobs follows the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
 
-## Approving a Plan
+## Approving a plan
 
-By default, unless the `spec.enableAutoApproval` is set to true, all Configurations require a manual approval. This performed by toggling an annotation on the Configuration itself.
+By default, unless the `spec.enableAutoApproval` is set to true, all Configurations require a manual approval. You can do this by toggling an annotation on the Configuration itself.
 
 To approve the Configuration `bucket`:
 
@@ -126,7 +124,9 @@ $ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=tru
 
 ## Deleting the resource
 
-You can delete the resource like any other Kubernetes resource (`kubectl delete configuration [NAME]`). One extra feature is the ability to orphan the cloud resources (i.e delete the Kubernetes representation but DO NOT delete the cloud resource themselves). For instance you may need to migrate the configuration to another cluster.
+You can delete the resource like any other Kubernetes resource (`kubectl delete configuration [NAME]`). One extra feature is the ability to orphan the cloud resources (i.e., delete the Kubernetes representation but DO NOT delete the cloud resources themselves).
 
-1. Simply annotate the Configuration with `kubectl annotate configuration [NAME] "terraform.appvia.io/orphan"=true`
+For instance, you may need to migrate the configuration to another cluster. In that case:
+
+1. Annotate the Configuration with `kubectl annotate configuration [NAME] "terraform.appvia.io/orphan"=true`
 2. Delete the Configuration resource as per normal. The resource will disappear but the cloud resources will remain.
