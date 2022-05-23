@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-import Features from '@site/src/components/Features';
+import Features from '@site/src/components/ControllerFeatures';
 
 # Terraform Controller
 
