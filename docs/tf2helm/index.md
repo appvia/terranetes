@@ -14,7 +14,7 @@ title: Overview
 
 This gives infrastructure operators e.g. DevOps or Platform engineers the flexibility to set sensible default parameters for cloud resources and make them visible and configurable to application developers who may or may not override them afterwards.
 
-![Terranetes Diagram](/img/terranetes.png)
+![Terranetes Diagram](/img/terranetes.jpg)
 
 ## Installation
 
