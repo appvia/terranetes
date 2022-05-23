@@ -4,7 +4,7 @@ sidebar_class_name: green
 ---
 # Configure Credentials
 
-Credentials to access the cloud are represented by the [Providers](docs/reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource which usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, tieing the resource and credentials together.
+Credentials to access the cloud are represented by the [Providers](/reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource which usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, tieing the resource and credentials together.
 
 :::tip
 Credentials never leave the terraform-controller namespace to remove the risk of exposure.
@@ -26,6 +26,39 @@ spec:
 At present we support:
 * `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
 * `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
+
+## Configure RBAC for Providers
+
+Providers support the ability to filter who can use them; when a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider any configuration referencing it must pass the filter else it will fail.
+
+:::important
+By default an empty `spec.selector` dictates everyone [Configurations](/reference/configurations.terraform.appvia.io.md) in the cluster can use them. This is useful to provide a limited scope credentials to all users.
+:::
+
+However by using the `spec.selector` field you can scope the credentials to one or more teams based on namespace and resource labels. For example you can could add a [Provider](/reference/providers.terraform.appvia.io.md) for system namespaces only.
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Provider
+metadata:
+  name: admin
+spec:
+  selector:
+    namespace:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values: [kube-system]
+  source: secret
+  provider: aws
+  secretRef:
+    namespace: terraform-system
+    name: admin
+```
+
+At the same time you cloud provide a limit scoped set of permissions to all cluster users by removing the selector.
+
+* This feature could also be used to map to different pod identity roles in the cloud vendor, or different service account mapped to [Vault](https://www.vaultproject.io/)
 
 ## Configuring by Secret
 

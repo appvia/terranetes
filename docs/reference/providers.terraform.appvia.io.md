@@ -146,7 +146,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
+<p>Name is unique within a namespace to reference a secret resource.</p>
 
 </div>
 
@@ -165,6 +165,302 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>Namespace defines the space within which the secret name must be unique.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector">.spec.selector</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Selector provider the ability to filter who can use this provider. If empty, all users in the cluster is permitted to use the provider. Otherrise you can specify a selector which can use namespace and resource labels</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace">.spec.selector.namespace</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Namespace is used to filter a configuration based on the namespace labels of where it exists</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions">.spec.selector.namespace.matchExpressions</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>matchExpressions is a list of label selector requirements. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions[*]">.spec.selector.namespace.matchExpressions[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions[*].key">.spec.selector.namespace.matchExpressions[*].key</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>key is the label key that the selector applies to.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions[*].operator">.spec.selector.namespace.matchExpressions[*].operator</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>operator represents a key&rsquo;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions[*].values">.spec.selector.namespace.matchExpressions[*].values</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchExpressions[*].values[*]">.spec.selector.namespace.matchExpressions[*].values[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.namespace.matchLabels">.spec.selector.namespace.matchLabels</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>matchLabels is a map of &#123;key,value&#125; pairs. A single &#123;key,value&#125; in the matchLabels map is equivalent to an element of matchExpressions, whose key field is &ldquo;key&rdquo;, the operator is &ldquo;In&rdquo;, and the values array contains only &ldquo;value&rdquo;. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource">.spec.selector.resource</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Resource provides the ability to filter a configuration based on it&rsquo;s labels</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions">.spec.selector.resource.matchExpressions</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>matchExpressions is a list of label selector requirements. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions[*]">.spec.selector.resource.matchExpressions[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions[*].key">.spec.selector.resource.matchExpressions[*].key</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>key is the label key that the selector applies to.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions[*].operator">.spec.selector.resource.matchExpressions[*].operator</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>operator represents a key&rsquo;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions[*].values">.spec.selector.resource.matchExpressions[*].values</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchExpressions[*].values[*]">.spec.selector.resource.matchExpressions[*].values[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.selector.resource.matchLabels">.spec.selector.resource.matchLabels</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>matchLabels is a map of &#123;key,value&#125; pairs. A single &#123;key,value&#125; in the matchLabels map is equivalent to an element of matchExpressions, whose key field is &ldquo;key&rdquo;, the operator is &ldquo;In&rdquo;, and the values array contains only &ldquo;value&rdquo;. The requirements are ANDed.</p>
 
 </div>
 
@@ -520,4 +816,4 @@ sidebar_position: 1
 </div>
 
 
-&lt;
+

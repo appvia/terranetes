@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
+<p>Name is unique within a namespace to reference a secret resource.</p>
 
 </div>
 
@@ -290,7 +290,38 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>WriteConnectionSecretToRef is the name for a secret. On execution of the terraform module any module outputs are written to this secret. The outputs are automatically uppercased and ready to be consumed as environment variables.</p>
+<p>WriteConnectionSecretToRef is the name for a secret. On execution of the terraform module any module outputs are written to this secret. The outputs are automatically uppercased and ready to be consumed as environment variables. WriteConnectionSecretRef is the secret where the terraform outputs will be written.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.writeConnectionSecretToRef.keys">.spec.writeConnectionSecretToRef.keys</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>Keys is a collection of name used to filter the terraform output. By default all keys from the output of the terraform state are written to the connection secret. Here we can define exactly which keys we want from that output.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.writeConnectionSecretToRef.keys[*]">.spec.writeConnectionSecretToRef.keys[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
 
 </div>
 
@@ -304,29 +335,11 @@ sidebar_position: 1
 <div class="property-body">
 <div class="property-meta">
 <span class="property-type">string</span>
-
+<span class="property-required">Required</span>
 </div>
 
 <div class="property-description">
-<p>Name is name of a secret which contains the credentials to retrieve the terraform module code.</p>
-
-</div>
-
-</div>
-</div>
-
-<div class="property depth-2">
-<div class="property-header">
-<h3 class="property-path" id="v1alpha1-.spec.writeConnectionSecretToRef.namespace">.spec.writeConnectionSecretToRef.namespace</h3>
-</div>
-<div class="property-body">
-<div class="property-meta">
-<span class="property-type">string</span>
-
-</div>
-
-<div class="property-description">
-<p>Namespace defines the space within which the secret name must be unique.</p>
+<p>Name is the of the secret where you want to the terraform output to be written. The terraform outputs will be written to the secret as a key value pair. All are uppercased can read to be consumed by the workload.</p>
 
 </div>
 
@@ -736,4 +749,4 @@ sidebar_position: 1
 </div>
 
 
-&lt;
+

@@ -107,4 +107,4 @@ This CRD is being replaced by <a href="../{{ .FullName }}/">{{ .ShortName }}</a>
 <p>We currently cannot show any schema information on this <abbr title="custom resource definition">CRD</abbr>. Sorry for the inconvenience!</p>
 <p>Please refer to the <a href="https://pkg.go.dev/github.com/giantswarm/apiextensions/pkg/apis/">Godoc</a> or <a href="https://github.com/giantswarm/apiextensions/tree/master/pkg/apis">source</a> for details.</p>
 </div>
-{{ end }}<
+{{ end }}
