@@ -2,19 +2,23 @@
 sidebar_position: 1
 sidebar_class_name: green
 ---
-# Configure Credentials
+# Configure Credentials for a Terraform Module
 
-Credentials to access the cloud are represented by the [Providers](/reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource which usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, tieing the resource and credentials together.
+Credentials to access the cloud are represented by the [Providers](/reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource that usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, tying the resource and credentials together.
 
 :::tip
 Credentials never leave the terraform-controller namespace to remove the risk of exposure.
 :::
 
-## Using a provider
+## Use a provider
 
-Take the following terraform configuration:
+To reference an existing provider apply the following terraform configuration:
 
 ```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Configuration
+metadata:
+  name: bucket
 spec:
   providerRef:
     name: default
@@ -23,13 +27,9 @@ spec:
   variables: {}
 ```
 
-At present we support:
-* `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
-* `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
-
 ## Configure RBAC for Providers
 
-Providers support the ability to filter who can use them; when a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider any configuration referencing it must pass the filter else it will fail.
+Providers support the ability to filter who can use them; when a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider any configuration referencing it must pass the filter, otherwise it will fail.
 
 :::important
 By default an empty `spec.selector` dictates all [Configurations](/reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide a limited scope credentials to all teams.
@@ -41,6 +41,7 @@ Using the `spec.selector` field you can scope the credentials based on namespace
 apiVersion: terraform.appvia.io/v1alpha1
 kind: Provider
 metadata:
+  # This name should match the `providerRef` in the `Configuration` (see above example)
   name: admin
 spec:
   selector:
@@ -60,7 +61,15 @@ At the same time you could provide another limited set of permissions to all clu
 
 * This feature could also be used to map to different pod identity roles in the cloud vendor, or different service account mapped to [Vault](https://www.vaultproject.io/)
 
-## Configuring by Secret
+## Configuring credentials
+
+At present we support:
+* `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
+* `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
+
+These are described below.
+
+### Configure by Secret
 
 :::tip
 Static credentials are the easiest to get going, but moving forward we would highly recommend using pod identity and offloading credentials management to the cloud provider.
@@ -88,6 +97,7 @@ Once the secret is provisioned you can create a Provider for it, e.g.:
 apiVersion: terraform.appvia.io/v1alpha1
 kind: Provider
 metadata:
+  # This name should match the `providerRef` in the `Configuration`.
   name: default
 spec:
   source: secret
@@ -97,7 +107,7 @@ spec:
     name: aws
 ```
 
-## Configuring Injected Identity
+### Configure Injected Identity
 
 Injected identities are known by a few names depending on the cloud provider you are using. On AWS it's [IRSA](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html), Google has [workload identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) and Azure calls it [pod identity](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity).
 
