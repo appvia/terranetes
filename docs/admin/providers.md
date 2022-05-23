@@ -32,10 +32,10 @@ At present we support:
 Providers support the ability to filter who can use them; when a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider any configuration referencing it must pass the filter else it will fail.
 
 :::important
-By default an empty `spec.selector` dictates everyone [Configurations](/reference/configurations.terraform.appvia.io.md) in the cluster can use them. This is useful to provide a limited scope credentials to all users.
+By default an empty `spec.selector` dictates all [Configurations](/reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide a limited scope credentials to all teams.
 :::
 
-However by using the `spec.selector` field you can scope the credentials to one or more teams based on namespace and resource labels. For example you can could add a [Provider](/reference/providers.terraform.appvia.io.md) for system namespaces only.
+Using the `spec.selector` field you can scope the credentials based on namespace and resource labels. For example you can could add a [Provider](/reference/providers.terraform.appvia.io.md) for system namespaces only.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -56,7 +56,7 @@ spec:
     name: admin
 ```
 
-At the same time you cloud provide a limit scoped set of permissions to all cluster users by removing the selector.
+At the same time you could provide another limited set of permissions to all cluster users by removing the selector.
 
 * This feature could also be used to map to different pod identity roles in the cloud vendor, or different service account mapped to [Vault](https://www.vaultproject.io/)
 
