@@ -4,7 +4,7 @@ sidebar_class_name: green
 ---
 # Configure Credentials for a Terraform Module
 
-Credentials to access the cloud are represented by the [Providers](/reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource that usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, and then tie the resource and credentials together.
+Credentials to access the cloud are represented by the [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource that usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, and then tie the resource and credentials together.
 
 :::tip
 Credentials never leave the terraform-controller namespace to remove the risk of exposure.
@@ -128,7 +128,7 @@ When the pod is created:
 
 ## Configure RBAC for providers
 
-Providers support the ability to filter who can use them. When a [`spec.selector`](../reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
+Providers support the ability to filter who can use them. When a [`spec.selector`](../reference/providers.terraform.appvia.io.md#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
 
 :::important
 By default an empty `spec.selector` dictates all [Configurations](../reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide limited scope credentials to all teams.
