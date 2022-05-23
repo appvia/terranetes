@@ -95,9 +95,9 @@ Configuring injected identities is cloud dependent and the complete details are 
 
 1. Before using IRSA in EKS, you must configure an OIDC connector. For details, see [Technical overview](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-technical-overview.html).
 
-  :::tip
-  If you can build your clusters via Terraform, take a look at https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-role-for-service-accounts-eks
-  :::
+    :::tip
+    If you can build your clusters via Terraform, take a look at https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-role-for-service-accounts-eks
+    :::
 
 2. Update your helm values in a similar way to the example below. The important values here are the annotations for the service account used by the executor; this must contain the ARN for the role to be used.
 
