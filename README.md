@@ -1,47 +1,11 @@
-# Website
+# Terranetes
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+**Access the docs at https://terranetes.appvia.io**
 
-### Installation
+Terranetes enables application developers to self-serve cloud resources with minimal user input using Helm packages.
 
-```
-$ yarn
-```
+It is a solution and pattern that simplifies developer self-service and application development in the cloud. It combines reputable and widely-adopted technologies such as HashiCorp Terraform, the Appvia Terraform Controller and Helm to provide consumable packages (i.e. Helm charts) to application developers. Terraform and Helm are the core components of this pattern, but the Terraform Controller component can replaced with alternative solutions such as the Open Application Model Terraform Controller.
 
-### Local Development
+It is a way of working that empowers infrastructure operators such as DevOps or Platform engineers to create consistent and re-usable Terraform modules that application developers can consume with minimal user input and minimal cloud expertise, whilst being assured they are inline of company policies and budgets.
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-#### Generating the Docs
-
-```shell
-$ make docs
-```
+![Terranetes Diagram](static/img/terranetes.jpg)
