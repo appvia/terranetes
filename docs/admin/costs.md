@@ -30,3 +30,27 @@ To configure the integration:
     ```bash
     $ helm upgrade terraform-controller charts/
     ```
+
+## View the predicted costs
+
+The predicted cost of a [Configuration](docs/reference/configurations.terraform.appvia.io.md) is available on the CRD status and resource description.
+
+```shell
+$ kubectl -n apps get configurations
+NAME        MODULE                                                                    SECRET   RESOURCES   ESTIMATED   AGE
+instance0   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $140.96     61s
+instance1   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $1124.18    61s
+instance2   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $136.288    61s
+instance3   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $660.72     61s
+```
+
+You may retrieve the further detail from the status fields as below.
+
+```shell
+$ k -n apps get configurations.terraform.appvia.io  instance0 -o json | jq -r .status.costs
+{
+  "enabled": true,
+  "hourly": "$0.1930958904109589",
+  "monthly": "$140.96"
+}
+```
