@@ -27,7 +27,7 @@ spec:
   variables: {}
 ```
 
-## Configuring credentials
+## Configure credentials
 
 In [Providers](/reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials: 
 
@@ -36,7 +36,7 @@ In [Providers](/reference/providers.terraform.appvia.io.md) we currently support
 
 These are described below.
 
-### Configure by Secret
+### Configure by secret
 
 :::tip
 Static credentials are the easiest to get going, but moving forward we highly recommend using pod identity and offloading credentials management to the cloud provider.
@@ -74,7 +74,7 @@ spec:
     name: aws
 ```
 
-### Configure Injected Identity
+### Configure injected identity
 
 Injected identities are known by a few names depending on the cloud provider you are using. On 
 
@@ -91,7 +91,7 @@ Under this scenario all credentials management is offloaded to the cloud vendor 
 
 Configuring injected identities is cloud dependent and the complete details are beyond the scope of this document.
 
-### Configuring IRSA for Amazon Web Services
+### Configure IRSA for Amazon Web Services
 
 1. Before using IRSA in EKS, you must configure an OIDC connector. For details, see [Technical overview](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-technical-overview.html).
 
@@ -126,7 +126,7 @@ When the pod is created:
 2. It checks for a binding between the service account and the defined IAM role.
 3. If such a binding exists, it generates credentials and injects them via a secret as environment variables into the pod.
 
-## Configure RBAC for Providers
+## Configure RBAC for providers
 
 Providers support the ability to filter who can use them. When a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
 
