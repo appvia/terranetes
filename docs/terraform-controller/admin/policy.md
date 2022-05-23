@@ -13,7 +13,7 @@ The controller comes with a number of controls and safeguards that the platform 
 
 ## Policy Resource
 
-Not wishing to create a plethora of resource types to define all mechanics of policy, all the policies handled by the controller are defined via the [Policy](docs/reference/policies.terraform.appvia.io.md) CRD.
+Not wishing to create a plethora of resource types to define all mechanics of policy, all the policies handled by the controller are defined via the [Policy](../reference/policies.terraform.appvia.io.md) CRD.
 
 :::tip
 You can define Policy resources multiple times, as the definitions are pulled together and aggregated.
@@ -21,7 +21,7 @@ You can define Policy resources multiple times, as the definitions are pulled to
 
 ## Module Security
 
-You can control the source of the terraform modules permitted to run through the [Policy](docs/reference/policies.terraform.appvia.io.md) resource. The following policy enforces that only modules sourced from the Appvia Github Organization can be used.
+You can control the source of the terraform modules permitted to run through the [Policy](../reference/policies.terraform.appvia.io.md) resource. The following policy enforces that only modules sourced from the Appvia Github Organization can be used.
 
 :::note
 This control is applied to the primary module (i.e. `spec.module`) inside the Configuration CRD. Modules that incorporate other modules are not enforced.
@@ -53,7 +53,7 @@ Once the security plan is performed the report is processed and, assuming no fai
 
 ### How to define a Checkov security policy
 
-Again we are using the [Policy](docs/reference/policies.terraform.appvia.io.md) here to define the rule:
+Again we are using the [Policy](../reference/policies.terraform.appvia.io.md) here to define the rule:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1

@@ -29,7 +29,7 @@ spec:
 
 ## Configure credentials
 
-In [Providers](/reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials: 
+In [Providers](../reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials: 
 
 * `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
 * `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
@@ -128,13 +128,13 @@ When the pod is created:
 
 ## Configure RBAC for providers
 
-Providers support the ability to filter who can use them. When a [`spec.selector`](/reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
+Providers support the ability to filter who can use them. When a [`spec.selector`](../reference/providers.terraform.appvia.io#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
 
 :::important
-By default an empty `spec.selector` dictates all [Configurations](/reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide limited scope credentials to all teams.
+By default an empty `spec.selector` dictates all [Configurations](../reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide limited scope credentials to all teams.
 :::
 
-Using the `spec.selector` field you can scope the credentials based on namespace and resource labels. For example you could add a [Provider](/reference/providers.terraform.appvia.io.md) for system namespaces only:
+Using the `spec.selector` field you can scope the credentials based on namespace and resource labels. For example you could add a [Provider](../reference/providers.terraform.appvia.io.md) for system namespaces only:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
