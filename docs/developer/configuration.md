@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # Provisioning a Terraform Module
 
-Consumption side the only resource required is the [Configuration](docs/reference/configurations.terraform.appvia.io.md) CRD. Below is an example:
+## Example configuration resource
+
+On the consumption side the only resource required is the [Configuration](docs/reference/configurations.terraform.appvia.io.md) CRD. Below is an example:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -51,6 +53,8 @@ spec:
           sse_algorithm: "aws:kms"
         bucket_key_enabled: true
 ```
+
+## Sections of the configuration resource
 
 The configuration resource is comprised of the following sections.
 
@@ -106,11 +110,11 @@ spec:
       - name_of_key
 ```
 
-### Viewing the Changes
+## Viewing the Changes
 
 As a Configuration transitions through it's plan, apply and destroy phases a job is created in the namespace, used to feedback the execution of the change. The jobs follow the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
 
-### Approving a Plan
+## Approving a Plan
 
 By default, unless the `spec.enableAutoApproval` is set to true, all Configurations require a manual approval. This performed by toggling an annotation on the Configuration itself.
 
@@ -120,7 +124,7 @@ To approve the Configuration `bucket`:
 $ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true
 ```
 
-### Deleting the resource
+## Deleting the resource
 
 You can delete the resource like any other Kubernetes resource (`kubectl delete configuration [NAME]`). One extra feature is the ability to orphan the cloud resources (i.e delete the Kubernetes representation but DO NOT delete the cloud resource themselves). For instance you may need to migrate the configuration to another cluster.
 
