@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Terraform Controller',
-  tagline: 'Allowing teams to self-serve cloud and application dependencies',
+  title: 'Appvia Terranetes',
+  tagline: 'Enable teams to self-serve cloud and application dependencies easily and securely',
   url: 'https://terraform-controller.appvia.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -26,8 +26,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          path: 'docs/terraform-controller',
+          routeBasePath: 'terraform-controller',
+          sidebarPath: require.resolve('./sidebars-terraform-controller.js'),
         },
         googleAnalytics: {
           trackingID: 'UA-120919526-1',
@@ -39,6 +40,17 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tf2helm',
+        path: 'docs/tf2helm',
+        routeBasePath: 'tf2helm',
+        sidebarPath: require.resolve('./sidebars-tf2helm.js'),
+      },
     ],
   ],
 
@@ -54,13 +66,17 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'index',
+            to: '/terraform-controller',
             position: 'left',
-            label: 'Overview',
+            label: 'Terraform Controller',
           },
           {
-            href: 'https://github.com/appvia/terraform-controller',
+            to: '/tf2helm',
+            position: 'left',
+            label: 'tf2helm',
+          },
+          {
+            href: 'https://github.com/appvia',
             label: 'GitHub',
             position: 'right',
           },
@@ -70,15 +86,15 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: 'Products',
             items: [
               {
-                label: 'Installation',
-                to: '/#quick-start-guide',
+                label: 'Terraform Controller',
+                to: '/terraform-controller',
               },
               {
-                label: 'Usage',
-                to: '/developer/configuration',
+                label: 'tf2helm',
+                to: '/tf2helm',
               },
             ],
           },
@@ -99,12 +115,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Appvia Wayfinder',
+                label: 'Wayfinder',
                 href: 'https://docs.appvia.io',
               },
               {
-                label: 'Blog',
-                href: 'https://appvia.io/blog',
+                label: 'Krane',
+                href: 'https://github.com/appvia/krane',
               },
               {
                 label: 'GitHub',

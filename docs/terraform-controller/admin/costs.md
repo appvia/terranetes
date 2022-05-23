@@ -33,7 +33,7 @@ To configure the integration:
 
 ## View the predicted costs
 
-The predicted cost of a [Configuration](docs/reference/configurations.terraform.appvia.io.md) is available on the CRD status and resource description.
+The predicted cost of a [Configuration](../reference/configurations.terraform.appvia.io.md) is available on the CRD status and resource description.
 
 ```shell
 $ kubectl -n apps get configurations

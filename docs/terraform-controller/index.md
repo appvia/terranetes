@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-import Features from '@site/src/components/Features';
+import Features from '@site/src/components/ControllerFeatures';
 
 # Terraform Controller
 
@@ -50,7 +50,7 @@ $ kubectl -n terraform-system apply -f examples/provider.yaml
 $ kubectl -n terraform-system get provider -o yaml
 ```
 
-See [Configure Credentials](docs/admin/providers.md) for more details.
+See [Configure Credentials](admin/providers.md) for more details.
 
 ### Create your first terraform resource
 
@@ -81,4 +81,4 @@ By default, unless the `spec.enableAutoApproval` is true, all changes must be ap
 $ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true --overwrite
 ```
 
-For a complete summary of [Configurations](docs/reference/configurations.terraform.appvia.io.md) click [here](docs/developer/configuration.md).
+For a complete summary of [Configurations](reference/configurations.terraform.appvia.io.md) click [here](developer/configuration.md).

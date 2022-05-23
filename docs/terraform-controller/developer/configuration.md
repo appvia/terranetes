@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Example configuration resource
 
-On the consumption side the only resource required is the [Configuration](docs/reference/configurations.terraform.appvia.io.md) CRD. Below is an example:
+On the consumption side the only resource required is the [Configuration](../reference/configurations.terraform.appvia.io.md) CRD. Below is an example:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1

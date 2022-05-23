@@ -21,3 +21,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.container.hero__title {
+  color: #294541 !important;
+}
