@@ -4,6 +4,19 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.1.3
+
+### Bug Fixes
+* Fixed a issue with the API type for Provider. A enum was stopping an Azure provider from being added as it had `azure` not `azurerm` defined. https://github.com/appvia/terraform-controller/pull/51
+
+### What's Changed
+* [CI] - Reuse E2E Workflow by @gambol99 in https://github.com/appvia/terraform-controller/pull/46
+* Update README.md by @gambol99 in https://github.com/appvia/terraform-controller/pull/48
+* [DOCS] - Fixing the README links by @gambol99 in https://github.com/appvia/terraform-controller/pull/49
+* [BUGFIX] - Provider Enum on API Types by @gambol99 in https://github.com/appvia/terraform-controller/pull/51
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.1.2...v0.1.3
+
 ## Release v0.1.2
 
 ### New Features
