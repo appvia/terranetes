@@ -6,32 +6,32 @@ sidebar_position: 1
 
 If the repository containing the terraform module is private and requires credentials to retrieve, you can add the authentication details to a secret held within the namespace.
 
-Lets assume we have terraform module hosted in a private Github repository:
+Let's assume we have a terraform module hosted in a private Github repository. Here's how to add authentication details:
 
-1. We create a SSH deployment key for the repository with the ability to clone
-2. We create a Kubernetes secret in the namespace containing the SSH private key
+1. Create an SSH deployment key for the repository with the ability to clone.
+2. Create a Kubernetes secret in the namespace containing the SSH private key.
 
-```shell
-$ kubectl -n apps create secret generic ssh --from-file=SSH_KEY_AUTH=id.rsa
-```
+    ```shell
+    $ kubectl -n apps create secret generic ssh --from-file=SSH_KEY_AUTH=id.rsa
+    ```
 
-3. We update the configuration, setting the `spec.auth.name: [NAME]` to the name of the secret:
+3. Update the Terraform module configuration resource, setting the `spec.auth.name: [NAME]` to the name of the secret:
 
-```yaml
-spec:
-  auth:
-    name: ssh
-```
+    ```yaml
+    spec:
+      auth:
+        name: ssh
+    ```
 
 The same process can be followed for GIT over HTTP; simply add `GIT_USERNAME` and `GIT_PASSWORD` to the secret.
 
 ## What sources are supported?
 
-Under the hood we use the same library as terraform, called [go-getter](https://github.com/hashicorp/go-getter), which supports:
+We use the same library as Terraform. This us called [go-getter](https://github.com/hashicorp/go-getter), and it supports:
 * Git
 * Mercurial
 * HTTP
 * Amazon S3
 * Google GCP
 
-Please consult https://github.com/hashicorp/go-getter for full details.
+For full details, see https://github.com/hashicorp/go-getter.
