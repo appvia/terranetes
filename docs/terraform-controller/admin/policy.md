@@ -34,19 +34,67 @@ metadata:
   name: permitted-modules
 spec:
   constraints:
+    selector:
+      namespace:
+        matchLabels: {}
+        matchExpressions: []
+      resource:
+        matchLabels: {}
+        matchExpressions: []
     modules:
       allowed:
         - "https://github.com/appvia/.*"
 ```
 
-The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang regexes.
+The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang regexes which a [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) must match at least one.
+
+The policy may also include an optional selector (`spec.constraints.modules.selector`) that can be used to match against namespace and resource labels of the [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md). As with all selectors in the controller, leaving this field empty implies you want to match against all. You can take advantage of the selectors by providing overrides.
+
+Lets use the following requirements.
+
+* All teams may use terraform from the companies Github repositories at https://github.com/appvia
+* The teams using namespace `infra` and `ci` can use additional modules from https://github.com/elsewhere
+
+1. Create the default policy (i.e no selector)
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Policy
+metadata:
+  name: default
+spec:
+  constraints:
+    modules:
+      allowed:
+        - "https://github.com/appvia/.*"
+```
+
+2. Create the additional policy for namespace `infra` and `ci`.
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Policy
+metadata:
+  name: default
+spec:
+  constraints:
+    selector:
+      namespace:
+        matchExpressions:
+          - key: kubernetes.io/metadata.name
+            operator: In
+            values: [infra, ci]
+    modules:
+      allowed:
+        - "https://github.com/elsewhere/.*"
+```
 
 ## Checkov Security Policy
 
 Security policy allows platform teams to be assured what they are allowing to be self-serviced follows what they and the organization deem to be best practice. All terraform configurations are funnelled through a security check as part of the plan stage.
 
 :::tip
-The security checks are performed on the terraform plan, not the static module, so you have the added benefit that anything they import is scanned and any varaibles or dynamic variation is included in the scan.
+The security checks are performed on the terraform plan, not the static module, so you have the added benefit that anything they import is scanned and any variables or dynamic variation is included in the scan.
 :::
 
 Once the security plan is performed the report is processed and, assuming no failed checks, is allowed to continue on to be applied (either automatically or via the annotation).
