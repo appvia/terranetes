@@ -4,7 +4,7 @@ source_repositories:
   - url: https://github.com/appvia/terraform-controller
     organization: appvia
     short_name: terraform-controller
-    commit_reference: master
+    commit_reference: v0.1.3
     crd_paths:
       - charts/crds
     cr_paths:
