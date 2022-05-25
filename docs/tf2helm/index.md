@@ -31,6 +31,7 @@ $ tf2helm --help
 
 Usage: tf2helm [OPTIONS]
 
+
   tf2helm converts a Terraform module to a Helm Chart
 
 Options:
@@ -42,12 +43,11 @@ Options:
   --git_auth TEXT        Git access token or SSH private key to use with a
                          private repository.
   --template TEXT        Template to generate the custom resource definition.
-                         (terraform-controller, isaaguilar, oam-terraform-
+                         (isaaguilar, terraform-controller, oam-terraform-
                          controller)
   --name TEXT            Helm chart name.
-  --version TEXT         Helm chart version.
   --app_version TEXT     Helm chart application version.
   --output_dir TEXT      Path to the Helm chart output directory.
+  --version              Show the version and exit.
   --help                 Show this message and exit.
 ```
-
