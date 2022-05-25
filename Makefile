@@ -6,7 +6,7 @@ default: docs
 
 docs:
 	@echo "--> Generating the CRD Reference"
-	@mkdir -p docs/reference
+	@mkdir -p docs/terraform-controller/reference
 	@docker run \
 		-v ${PWD}/docs/terraform-controller/reference:/opt/crd-docs-generator/output \
 		-v ${PWD}/crdgen:/opt/crd-docs-generator/config \
