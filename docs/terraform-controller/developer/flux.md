@@ -62,7 +62,7 @@ status:
 
 4. Note the URL will change depending on which namespace the source controller was installed and any branch references.
 
-5. Update you [Configuration](docs/reference/configurations.terraform.appvia.io.md) resource to use the above URL. Note we have to force the protocol type by prefixing it with `http::`
+5. Update you [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) resource to use the above URL. Note we have to force the protocol type by prefixing it with `http::`
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1m .
