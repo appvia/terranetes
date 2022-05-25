@@ -3,7 +3,7 @@ sidebar_position: 2
 sidebar_class_name: green
 ---
 
-# Define Policy
+# Define Guardrails
 
 The controller comes with a number of controls and safeguards that the platform team can utilize to:
 
@@ -23,7 +23,7 @@ You can define Policy resources multiple times, as the definitions are pulled to
 
 You can control the source of the terraform modules permitted to run through the [Policy](../reference/policies.terraform.appvia.io.md) resource. The following policy enforces that only modules sourced from the Appvia Github Organization can be used.
 
-:::note
+:::important
 This control is applied to the primary module (i.e. `spec.module`) inside the Configuration CRD. Modules that incorporate other modules are not enforced.
 :::
 
@@ -99,7 +99,7 @@ The security checks are performed on the terraform plan, not the static module, 
 
 Once the security plan is performed the report is processed and, assuming no failed checks, is allowed to continue on to be applied (either automatically or via the annotation).
 
-### How to define a Checkov security policy
+### Defining checkov policies
 
 Again we are using the [Policy](../reference/policies.terraform.appvia.io.md) here to define the rule:
 
@@ -134,6 +134,29 @@ spec:
 * If `checkov.skipChecks` are defined, those will be ignored during evaluation.
 :::
 
+### Using external checks
+
+The controller also has the ability to source multiple [custom policies](https://www.checkov.io/3.Custom%20Policies/Custom%20Policies%20Overview.html).
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Policy
+metadata:
+  name: checkov
+spec:
+  constraints:
+    checkov:
+      external:
+        - name: custom
+          url: https://[LOCATION]
+          secretRef:
+            name: [SECRET]
+```
+
+1. The URL uses the same format at the [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md] CRD.
+2. The secretRef is optional and used to store any credentials used to retrieves the assets. Like [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) we support object stores, git repositories and so forth. A full list can be found [here](docs/terraform-controller/developer/private/#what-sources-are-supported)
+3. All assets found in the source are retrieved and used an [external-checks-dir](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html) option to the scan.
+
 ### Rules for selecting the security policy
 
 You can define multiple checkov policies using selectors to target specific workloads, however, you can only have one match. The selection process for this is as follows:
@@ -146,7 +169,7 @@ You can define multiple checkov policies using selectors to target specific work
 
 At the end we have selected the checkov policy which is most specific to our Configuration.
 
-#### Why not merge multiple policies?
+**Why not merge multiple policies?**
 
 We had the same idea, whereby we'd simply merge multiple policies together. The reasoning here is that adding an additional policy is needed to allow for an exception to the rule. For example, if we define that all RDS databases must use encryption, but project 'A' can't do that, we need an exception. But policies are enforced because they strengthen security, so adding exceptions should be difficult/annoying in order to push for the better solution: fixing project A's lack of compliance.
 
