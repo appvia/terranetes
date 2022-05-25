@@ -168,6 +168,132 @@ sidebar_position: 1
 
 <div class="property depth-3">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external">.spec.constraints.checkov.external</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>External is a collection of external checks which should be included in the scan. Each of the external sources and retrieved and sourced into /run/policy/<NAME> where they can be included as part of the scan</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*]">.spec.constraints.checkov.external[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>ExternalCheck defines the definition for an external check - this comprises of the source and any optional secret</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*].name">.spec.constraints.checkov.external[*].name</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Name provides a arbitrary name to the checks - note, this name is used as the directory name when we source the code</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*].secretRef">.spec.constraints.checkov.external[*].secretRef</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>SecretRef is reference to secret which contains environment variables used by the source command to retrieve the code. This could be cloud credentials, ssh keys, git username and password etc</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*].secretRef.name">.spec.constraints.checkov.external[*].secretRef.name</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Name is unique within a namespace to reference a secret resource.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*].secretRef.namespace">.spec.constraints.checkov.external[*].secretRef.namespace</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Namespace defines the space within which the secret name must be unique.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.external[*].url">.spec.constraints.checkov.external[*].url</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>URL is the source external checks - this is usually a git repository. The notation for this is <a href="https://github.com/hashicorp/go-getter">https://github.com/hashicorp/go-getter</a></p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.selector">.spec.constraints.checkov.selector</h3>
 </div>
 <div class="property-body">
@@ -177,7 +303,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Selector is the selector on the namespace or labels on the configuration. By leaving this fields empty you can implicitedly selecting all configurations.</p>
+<p>Selector is the selector on the namespace or labels on the configuration. By leaving this fields empty you can implicitly selecting all configurations.</p>
 
 </div>
 
@@ -536,6 +662,302 @@ sidebar_position: 1
 <div class="property-body">
 <div class="property-meta">
 <span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector">.spec.constraints.modules.selector</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Selector is the selector on the namespace or labels on the configuration. By leaving this field empty you are implicitly selecting all configurations.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace">.spec.constraints.modules.selector.namespace</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Namespace is used to filter a configuration based on the namespace labels of where it exists</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions">.spec.constraints.modules.selector.namespace.matchExpressions</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>matchExpressions is a list of label selector requirements. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions[*]">.spec.constraints.modules.selector.namespace.matchExpressions[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions[*].key">.spec.constraints.modules.selector.namespace.matchExpressions[*].key</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>key is the label key that the selector applies to.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions[*].operator">.spec.constraints.modules.selector.namespace.matchExpressions[*].operator</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>operator represents a key&rsquo;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions[*].values">.spec.constraints.modules.selector.namespace.matchExpressions[*].values</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-8">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchExpressions[*].values[*]">.spec.constraints.modules.selector.namespace.matchExpressions[*].values[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.namespace.matchLabels">.spec.constraints.modules.selector.namespace.matchLabels</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>matchLabels is a map of &#123;key,value&#125; pairs. A single &#123;key,value&#125; in the matchLabels map is equivalent to an element of matchExpressions, whose key field is &ldquo;key&rdquo;, the operator is &ldquo;In&rdquo;, and the values array contains only &ldquo;value&rdquo;. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource">.spec.constraints.modules.selector.resource</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Resource provides the ability to filter a configuration based on it&rsquo;s labels</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions">.spec.constraints.modules.selector.resource.matchExpressions</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>matchExpressions is a list of label selector requirements. The requirements are ANDed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-6">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions[*]">.spec.constraints.modules.selector.resource.matchExpressions[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions[*].key">.spec.constraints.modules.selector.resource.matchExpressions[*].key</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>key is the label key that the selector applies to.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions[*].operator">.spec.constraints.modules.selector.resource.matchExpressions[*].operator</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>operator represents a key&rsquo;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-7">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions[*].values">.spec.constraints.modules.selector.resource.matchExpressions[*].values</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-8">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchExpressions[*].values[*]">.spec.constraints.modules.selector.resource.matchExpressions[*].values[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.modules.selector.resource.matchLabels">.spec.constraints.modules.selector.resource.matchLabels</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>matchLabels is a map of &#123;key,value&#125; pairs. A single &#123;key,value&#125; in the matchLabels map is equivalent to an element of matchExpressions, whose key field is &ldquo;key&rdquo;, the operator is &ldquo;In&rdquo;, and the values array contains only &ldquo;value&rdquo;. The requirements are ANDed.</p>
 
 </div>
 
