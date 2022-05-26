@@ -10,9 +10,9 @@ title: Overview
 2. [Isaaguilar Terraform Operator](https://github.com/isaaguilar/terraform-operator)
 3. [OAM Terraform Controller](https://github.com/oam-dev/terraform-controller)
 
-`tf2helm` reads a Terraform module from a local or remote path and converts it into a Helm chart in a specified directory. Terraform variables are read from the module source and written under `.Values.required` and `.Values.optional` keys in the Helm `values.yaml` file, depending on whether they have been assigned values or not.
+`tf2helm` reads a Terraform module from a local or remote path and converts it into a Helm Chart in a specified directory. Terraform variables are read from the module source and written under `.Values.required` and `.Values.optional` keys in the Helm `values.yaml` file, depending on whether they have been assigned values or not.
 
-This gives infrastructure operators e.g. DevOps or Platform engineers the flexibility to set sensible default parameters for cloud resources and make them visible and configurable to application developers who may or may not override them afterwards.
+This gives infrastructure operators, e.g. DevOps or Platform engineers, the flexibility to set sensible default parameters for cloud resources and make them visible and configurable to application developers who may or may not override them afterwards.
 
 ![Terranetes Diagram](/img/terranetes.jpg)
 
