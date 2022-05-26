@@ -5,7 +5,7 @@ title: Creating Helm Packages
 
 # Creating Your Own Helm Packages
 
-If you wish to adopt the Terranetes pattern, then you need to convert your Terraform module into a Helm package before storing it in a [Helm repository](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories), which can then be integrated with and accessed from [artifacthub.io](https://artifacthub.io/).
+If you wish to adopt the Terranetes pattern, then you need to convert your Terraform module into a Helm package before storing it in a [Helm repository](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories), which can then be integrated with, and accessed from, [artifacthub.io](https://artifacthub.io/).
 
 Each Helm package or chart must include the following files:
 
@@ -20,11 +20,11 @@ Each Helm package or chart must include the following files:
 
 The `CHART_NAME.yaml` file contains a [Kubernetes Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) understood and managed by the [Appvia Terraform Controller](/terraform-controller) component.
 
-## Automate Terraform to Helm Conversion
+## Automate Terraform to Helm conversion
 
 You can use the [tf2helm](https://github.com/appvia/tf2helm) tool to automate the conversion of your Terraform module to a Helm package.
 
-### Convert a Local Terraform Module
+### Convert a local Terraform module
 
 ```
 tf2helm --tf_module_path="path/to/local/terraform/module/appvia-tf-efs" --tf_version=1.1.7 --name=acp-tf-efs --version=0.1.0 --app_version=0.1.0 --output_dir=charts
@@ -34,7 +34,7 @@ tf2helm --tf_module_path="path/to/local/terraform/module/appvia-tf-efs" --tf_ver
 🚀 Helm Chart is available at charts/appvia-tf-efs
 ```
 
-### Convert a Remote Terraform Module
+### Convert a remote Terraform module
 
 ```
 tf2helm --tf_module_url="https://github.com/terraform-aws-modules/terraform-aws-s3-bucket?ref=v3.1.0" --tf_version=1.1.7 --name=aws-s3-bucket --version=0.1.0 --app_version=0.1.0 --output_dir=charts
