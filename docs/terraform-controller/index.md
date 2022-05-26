@@ -5,16 +5,16 @@ import Features from '@site/src/components/ControllerFeatures';
 
 # Terraform Controller
 
-Terraform controller manages the life-cycle of terraform resources defined and built inside Kubernetes. This allows teams running workloads inside the cluster to self-service application dependencies and reuse the wealth of terraform modules already written.
+Terraform controller manages the life-cycle of terraform resources defined and built inside Kubernetes. This allows teams running workloads inside the cluster to self-serve application dependencies and reuse the wealth of terraform modules already written.
 
-The controller also comes bundled with a number of technical controls to enable platform teams to push the feature without compromising the standards and best practices required in the organizations.
+The controller also comes bundled with a number of technical controls to enable platform teams to push the feature without compromising the standards and best practices required in the organization.
 
 <Features/>
 
-## Additional Features
+## Additional features
 
-* **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lockdown to an approved collection of modules.
-* **Targetted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
+* **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lock down to an approved collection of modules.
+* **Targeted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example, you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
 
 ## Quick start guide
 
