@@ -26,10 +26,10 @@ Before we begin, you'll need the following tools:
 The quickest way to get up and running is via the Helm chart:
 
 ```bash
-$ git clone git@github.com:appvia/terraform-controller.git
-$ cd terraform-controller
+$ helm repo add appvia https://terraform-controller.appvia.io
+$ helm repo update
 # $ Run `kind create cluster` or set your kubernetes cluster context
-$ helm install -n terraform-system terraform-controller charts/ --create-namespace
+$ helm install -n terraform-system terraform-controller appvia/terraform-controller --create-namespace
 $ kubectl -n terraform-system get pods
 ```
 
