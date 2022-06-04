@@ -27,7 +27,7 @@ The same process can be followed for GIT over HTTP; simply add `GIT_USERNAME` an
 
 ## What sources are supported?
 
-We use the same library as Terraform. This us called [go-getter](https://github.com/hashicorp/go-getter), and it supports:
+We use the same library as Terraform, [go-getter](https://github.com/hashicorp/go-getter) that supports:
 * Git
 * Mercurial
 * HTTP
