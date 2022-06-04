@@ -4,21 +4,32 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.1.5
+
+### Build
+* Fixed up the chart directory structure in order to properly support the helm tools and deployment [#67](https://github.com/appvia/terraform-controller/pull/67)
+
+### What's Changed
+* [HELM] - Directory Structure by @gambol99 in https://github.com/appvia/terraform-controller/pull/67
+* [HELM] - Bumping Helm Releaser Version by @gambol99 in https://github.com/appvia/terraform-controller/pull/68
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.1.4...v0.1.5
+
 ## Release v0.1.4
 
 ### New Features
-* Disable Terraform Version Override (#50)  Currently all configurations have the ability to override the terraform version on their spec (this effectively overrides the terraform image tag). There might be times where you want this disabled though. This PR adds the ability to the platform teams to switch off the feature (which is enabled by default).
+* Disable Terraform Version Override [#50](https://github.com/appvia/terraform-controller/pull/50) Currently all configurations have the ability to override the terraform version on their spec (this effectively overrides the terraform image tag). There might be times where you want this disabled though. This PR adds the ability to the platform teams to switch off the feature (which is enabled by default).
 * Module Selector (#58): The current module constraint is global, adding a selector here you can target specific resources or namespaces and provides a means for additional permissions. Note as with all selectors here, a empty selector indicates it applies to all.
-* External Checks for Checkov (#64): Adding the ability to source in external checks to be included in the scan.
+* External Checks for Checkov [#64](https://github.com/appvia/terraform-controller/pull/64): Adding the ability to source in external checks to be included in the scan.
 
 ### Build
-* Workflow Speed (#61): sped up the execution time of the images by breaking them up
-* Deduplicating the E2E (#63): Much of the E2E is the we can dedup the workflow and reuse across all the providers
-* Constraint Checks (#65): adding Constraint Checks
+* Workflow Speed [#61](https://github.com/appvia/terraform-controller/pull/61): sped up the execution time of the images by breaking them up
+* Deduplicating the E2E [#63](https://github.com/appvia/terraform-controller/pull/63): Much of the E2E is the we can dedup the workflow and reuse across all the providers
+* Constraint Checks [#65](https://github.com/appvia/terraform-controller/pull/65): adding Constraint Checks
 * Added E2E for Azure
-* Adding E2E for Google https://github.com/appvia/terraform-controller/issues/42
+* Adding E2E for Google [#42](https://github.com/appvia/terraform-controller/issues/42)
 
-## What's Changed
+### What's Changed
 * [E2E] - Adding Azure E2E by @gambol99 in https://github.com/appvia/terraform-controller/pull/54
 * [FEATURE] - Resource Lock by @gambol99 in https://github.com/appvia/terraform-controller/pull/57
 * [RELEASE] v0.1.4 by @gambol99 in https://github.com/appvia/terraform-controller/pull/59
