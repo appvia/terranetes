@@ -177,7 +177,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>External is a collection of external checks which should be included in the scan. Each of the external sources and retrieved and sourced into /run/policy/<NAME> where they can be included as part of the scan</p>
+<p>External is a collection of external checks which should be included in the scan. Each of the external sources and retrieved and sourced into /run/policy/NAME where they can be included as part of the scan</p>
 
 </div>
 
