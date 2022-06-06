@@ -4,6 +4,43 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.1.6
+
+### New Features
+* [FEATURE] - Record Configuration Cost Metrics - adds the predicted costs of the configuration as exposed prometheus metrics. By @gambol99 in https://github.com/appvia/terraform-controller/pull/96
+* [FEATURE] - Adding the UID Labels - adding the UIDs on the labels for resources to make pinpointing the source configuration easier. By @gambol99 in https://github.com/appvia/terraform-controller/pull/100
+* [FEATURE] - Adding Value From fields - The current implementation only allows for variables to come from the spec. In most cases this is fine, but if we take a database password supplied to an RDS module, it's not. These should be kept kubernetes secrets and sources into the terraform module. By @gambol99 in https://github.com/appvia/terraform-controller/pull/103
+
+### Bug Fixes
+* [BUGFIX] - Terraform State Decoding by @gambol99 in https://github.com/appvia/terraform-controller/pull/104
+* [HELM] - Exposing the Metrics by @gambol99 in https://github.com/appvia/terraform-controller/pull/95
+
+### What's Changed
+* [BUILD] - Adding Dependabot Config by @gambol99 in https://github.com/appvia/terraform-controller/pull/70
+* Bump github.com/onsi/gomega from 1.18.1 to 1.19.0 by @dependabot in https://github.com/appvia/terraform-controller/pull/71
+* [BUILD] - Changing Workflow by @gambol99 in https://github.com/appvia/terraform-controller/pull/83
+* [HELM] - Minior Changes by @gambol99 in https://github.com/appvia/terraform-controller/pull/84
+* [BUILD] - Ginkgo Update by @gambol99 in https://github.com/appvia/terraform-controller/pull/80
+* Update features in README linking to docs by @KashifSaadat in https://github.com/appvia/terraform-controller/pull/81
+* [DOCS] - Adding Architecture Image by @gambol99 in https://github.com/appvia/terraform-controller/pull/85
+* Update README.md by @gambol99 in https://github.com/appvia/terraform-controller/pull/87
+* [HELM] - Ignore Existing Releases by @gambol99 in https://github.com/appvia/terraform-controller/pull/88
+* Update README.md by @gambol99 in https://github.com/appvia/terraform-controller/pull/89
+* lookup bash executable instead by @myjaffoo in https://github.com/appvia/terraform-controller/pull/90
+* Bump sigs.k8s.io/controller-tools from 0.8.0 to 0.9.0 by @dependabot in https://github.com/appvia/terraform-controller/pull/92
+* Bump gotest.tools/gotestsum from 1.8.0 to 1.8.1 by @dependabot in https://github.com/appvia/terraform-controller/pull/91
+* Bump k8s.io/client-go from 0.23.5 to 0.24.1 by @dependabot in https://github.com/appvia/terraform-controller/pull/78
+* [DEPS] - Updating the Dependencies by @gambol99 in https://github.com/appvia/terraform-controller/pull/94
+* [BUGFIX] - Terraform State Decoding by @gambol99 in https://github.com/appvia/terraform-controller/pull/104
+* [HELM] - Bumping Application Version by @gambol99 in https://github.com/appvia/terraform-controller/pull/106
+* [RELEASE] - Release v0.1.6 by @gambol99 in https://github.com/appvia/terraform-controller/pull/86
+
+### New Contributors
+* @KashifSaadat made their first contribution in https://github.com/appvia/terraform-controller/pull/81
+* @myjaffoo made their first contribution in https://github.com/appvia/terraform-controller/pull/90
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.1.5...v0.1.6
+
 ## Release v0.1.5
 
 ### Build

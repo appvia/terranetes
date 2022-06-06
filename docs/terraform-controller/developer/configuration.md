@@ -93,6 +93,22 @@ spec:
 
 The variables section `spec.variables` is a freeform map used to define all the variables the module can consume. These are converted to HCL and provided into the workflow via `-var-file` on the `plan` and `apply` stages.
 
+For variables that are sensitive such as passwords it would be better to use the `spec.valueFrom` field. This is a collection of references to kubernetes secrets that hold the values.
+
+:::important
+The key used in the kubernetes secret maps to the variable name for the terraform.
+::::
+
+An example for an RDS module can be
+
+```
+spec:
+  valueFrom:
+    - secret: db_password
+      key: database_password
+      optional: false
+```
+
 ### Connection secret reference
 
 The connection secret `spec.writeConnectionSecretToRef` is the name of a secret within the namespace where you want any Terraform outputs to be written. These outputs are converted to environment variable format, i.e., upper-cased and ready to be consumed by workloads using [env and envFrom](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-environment-variables).
