@@ -1,5 +1,10 @@
 # Terranetes
 
+## Components 
+
+* Terraform Controller https://github.com/appvia/terraform-controller
+* tf2helm https://github.com/appvia/tf2helm
+
 **Access the docs at https://terranetes.appvia.io**
 
 Terranetes uses Helm packages to enable application developers to self-serve cloud resources with minimal user input.
