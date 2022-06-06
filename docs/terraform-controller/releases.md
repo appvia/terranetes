@@ -7,13 +7,13 @@ sidebar_position: 2
 ## Release v0.1.6
 
 ### New Features
-* [FEATURE] - Record Configuration Cost Metrics - adds the predicted costs of the configuration as exposed prometheus metrics. By @gambol99 in https://github.com/appvia/terraform-controller/pull/96
-* [FEATURE] - Adding the UID Labels - adding the UIDs on the labels for resources to make pinpointing the source configuration easier. By @gambol99 in https://github.com/appvia/terraform-controller/pull/100
-* [FEATURE] - Adding Value From fields - The current implementation only allows for variables to come from the spec. In most cases this is fine, but if we take a database password supplied to an RDS module, it's not. These should be kept kubernetes secrets and sources into the terraform module. By @gambol99 in https://github.com/appvia/terraform-controller/pull/103
+* **Configuration Cost Metrics** adds the predicted costs of the configuration as exposed prometheus metrics; by @gambol99 in https://github.com/appvia/terraform-controller/pull/96
+* **ValueFrom fields** allows to source sensitive variables from kubernetes secrets rather exposing on the spec; by @gambol99 in https://github.com/appvia/terraform-controller/pull/103
 
 ### Bug Fixes
-* [BUGFIX] - Terraform State Decoding by @gambol99 in https://github.com/appvia/terraform-controller/pull/104
-* [HELM] - Exposing the Metrics by @gambol99 in https://github.com/appvia/terraform-controller/pull/95
+* Terraform State Decoding by @gambol99 in https://github.com/appvia/terraform-controller/pull/104
+* Exposing the Metrics by @gambol99 in https://github.com/appvia/terraform-controller/pull/95
+* Adding the UID Labels - adding the UIDs on the labels for resources to make pinpointing the source configuration easier. By @gambol99 in https://github.com/appvia/terraform-controller/pull/100
 
 ### What's Changed
 * [BUILD] - Adding Dependabot Config by @gambol99 in https://github.com/appvia/terraform-controller/pull/70

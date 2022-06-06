@@ -96,7 +96,7 @@ The variables section `spec.variables` is a freeform map used to define all the 
 For variables that are sensitive such as passwords it would be better to use the `spec.valueFrom` field. This is a collection of references to kubernetes secrets that hold the values.
 
 :::important
-The key used in the kubernetes secret maps to the variable name for the terraform.
+ValueFrom fields is available from version >= v0.1.6
 ::::
 
 An example for an RDS module can be
