@@ -38,7 +38,7 @@ configuration_monthly_cost_total{namespace="NAMESPACE", name="NAME"} = <COST>
 
 The [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime) exposes a number of metrics by default, covering success, requeue and error counters, to duration of reconciliation's and more.
 
-Perhaps most useful from a alerting perspective are the error counters; an example for which is given below
+Perhaps most useful from an alerting perspective are the error counters; an example for which is given below
 
 ```shell
 controller_runtime_reconcile_total{controller="configuration.terraform.appvia.io",result="error"} 0
@@ -55,7 +55,7 @@ That can be used to notify the platform team if the controller is experiencing i
 
 ### Webhook Metrics
 
-The terraform controller uses a number [validating and mutating webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) used to ensure the integrity of the resources.
+The terraform controller uses a number of [validating and mutating webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) to ensure the integrity of the resources.
 
 Similar to controller metrics these are exposed out of the box via the [controller runtime](https://github.com/kubernetes-sigs/controller-runtime)
 
