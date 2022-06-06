@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is unique within a namespace to reference a secret resource.</p>
+<p>name is unique within a namespace to reference a secret resource.</p>
 
 </div>
 
@@ -146,7 +146,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Namespace defines the space within which the secret name must be unique.</p>
+<p>namespace defines the space within which the secret name must be unique.</p>
 
 </div>
 
@@ -255,6 +255,96 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>TerraformVersion provides the ability to override the default terraform version. Before changing this field its best to consult with platform administrator. As the value of this field is used to change the tag of the terraform container image.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom">.spec.valueFrom</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>ValueFromSource is a collection of value from sources, where the source of the value is is taken from a secret</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*]">.spec.valueFrom[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>ValueFromSource defines a value which is taken from a secret</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].key">.spec.valueFrom[*].key</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Key is the key in the secret which we should used for the value</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].optional">.spec.valueFrom[*].optional</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">boolean</span>
+
+</div>
+
+<div class="property-description">
+<p>Optional indicates the secret can be optional, i.e if the secret does not exist, or the key is not contained in the secret, we ignore the error</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].secret">.spec.valueFrom[*].secret</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Secret is the name of the secret in the configuration namespace</p>
 
 </div>
 

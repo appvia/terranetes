@@ -146,7 +146,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Name is unique within a namespace to reference a secret resource.</p>
+<p>name is unique within a namespace to reference a secret resource.</p>
 
 </div>
 
@@ -164,7 +164,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Namespace defines the space within which the secret name must be unique.</p>
+<p>namespace defines the space within which the secret name must be unique.</p>
 
 </div>
 
