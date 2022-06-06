@@ -46,7 +46,7 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_ACCESS_KEY_ID=<ID> \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
   --from-literal=AWS_REGION=<REGION>
-$ kubectl -n terraform-system apply -f examples/provider.yaml
+$ kubectl -n terraform-system apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
 $ kubectl -n terraform-system get provider -o yaml
 ```
 
@@ -54,16 +54,20 @@ See [Configure Credentials](admin/providers.md) for more details.
 
 ### Create your first terraform resource
 
-```bash
-$ wget https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/configuration.yaml
-$ cat examples/configuration.yaml # demo for provisioning an s3 bucket
+Retrieve a demo configuration that creates an S3 bucket.
 
+```bash
+wget https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/configuration.yaml
+```
+
+```bash
 $ kubectl create namespace apps
 
+$ cat configuration.yaml # demo for provisioning an s3 bucket
 # NOTE: Make sure to change the bucket name in examples/configuration.yaml
-$ vim examples/configuration.yaml # Modify spec.variables.bucket
+$ vim configuration.yaml # Modify spec.variables.bucket
 
-$ kubectl -n apps apply -f examples/configuration.yaml
+$ kubectl -n apps apply -f configuration.yaml
 $ kubectl -n apps get po
 
 # Straight away a job is created to 'watch' the terraform workflow
