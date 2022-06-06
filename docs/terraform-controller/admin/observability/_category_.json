@@ -1,0 +1,8 @@
+{
+  "label": "Observability",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "How to monitor and observe the conditions of the controller"
+  }
+}
