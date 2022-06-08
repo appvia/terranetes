@@ -29,7 +29,7 @@ spec:
 
 ## Configure credentials
 
-In [Providers](../reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials: 
+In [Providers](../reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials:
 
 * `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
 * `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
@@ -50,6 +50,10 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
   --from-literal=AWS_REGION=<REGION>
 ```
+
+:::important
+Currently the controller is limited to where the static credentials can be located. At present the secret must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
+:::
 
 The process is the same for all the providers:
 * [Amazon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
@@ -76,10 +80,10 @@ spec:
 
 ### Configure injected identity
 
-Injected identities are known by a few names depending on the cloud provider you are using. On 
+Injected identities are known by a few names depending on the cloud provider you are using. On
 
-* AWS - [IRSA](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html) 
-* Google - [workload identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) 
+* AWS - [IRSA](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html)
+* Google - [workload identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity)
 * Azure - [pod identity](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
 
 In all cases these perform the same task:
