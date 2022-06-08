@@ -13,6 +13,7 @@ The controller also comes bundled with a number of technical controls to enable 
 
 ## Additional features
 
+* **Drift Detection:** automatically nothing has changed upstream in the cloud provider and the terraform state is inline with the resources it manages.
 * **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lock down to an approved collection of modules.
 * **Targeted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example, you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
 
