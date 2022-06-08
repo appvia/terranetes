@@ -110,7 +110,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>SCMAuth is used to configure any options required when the source of the terraform module is private or requires credentials to retrieve. This could be SSH keys or git user/pass or AWS credentials for an s3 bucket.</p>
+<p>Auth is used to configure any options required when the source of the terraform module is private or requires credentials to retrieve. This could be SSH keys or git user/pass or AWS credentials for an s3 bucket.</p>
 
 </div>
 
@@ -165,6 +165,24 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>EnableAutoApproval when enabled indicates the configuration does not need to be manually approved. On a change to the configuration, the controller will automatically approve the configuration. Note it still needs to adhere to any checks or policies.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.enableDriftDetection">.spec.enableDriftDetection</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">boolean</span>
+
+</div>
+
+<div class="property-description">
+<p>EnableDriftDetection when enabled run periodic reconciliation configurations looking for any drift between the expected and current state. If any drift is detected the status is changed and a kubernetes event raised.</p>
 
 </div>
 
@@ -708,6 +726,24 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.driftTimestamp">.status.driftTimestamp</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>DriftTimestamp is the timestamp of the last drift detection</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.status.lastReconcile">.status.lastReconcile</h3>
 </div>
 <div class="property-body">
@@ -816,6 +852,24 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.resourceStatus">.status.resourceStatus</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>ResourceStatus indicates the status of the resources and if the resources are insync with the configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.status.resources">.status.resources</h3>
 </div>
 <div class="property-body">
@@ -826,6 +880,24 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>Resources is the number of managed cloud resources which are currently under management. This field is taken from the terraform state itself.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.terraformVersion">.status.terraformVersion</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>TerraformVersion is the version of terraform which was last used to run this configuration</p>
 
 </div>
 
