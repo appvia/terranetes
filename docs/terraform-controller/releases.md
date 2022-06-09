@@ -16,6 +16,24 @@ sidebar_position: 2
 * [BUGFIX] - Approval Annotation by @gambol99 https://github.com/appvia/terraform-controller/pull/133
 * [BUGFIX] - Fixing Method Name Typo by @gambol99 https://github.com/appvia/terraform-controller/pull/121
 
+### Migration Required
+
+Would involve deleting all the current providers, their CRD and them applying them again without the namespace.
+
+```shell
+# scope the deployment down
+$ kubectl -n terraform-system scale deployment terraform-controller --replicas=0
+# delete the old provider
+$ kubectl -n terraform-system get provider <NAME> -o yaml > saved.1
+# Deploy the v0.1.7 version, just change the replicas to 0
+$ vim <VALUE_FILE> # change the top replicaCount -> replicaCount: 0
+# Perform the upgrade - no changes to the configurations are required. The namespace field in the spec.providerRef is simply ignored.
+$ helm upgrade -n terraform-system terraform-controller appvia/terraform-controller --values <VALUE_FILE>
+# Apply the providers again
+$ kubectl apply -f saved.1
+# Change the replicaCount back to 1 and rerun the helm upgrade
+```
+
 ### What's Changed
 * [FEATURE] - Provider Scope moved to Cluster by @gambol99 https://github.com/appvia/terraform-controller/pull/116
 * [BUILD] - CI Workflow by @gambol99 https://github.com/appvia/terraform-controller/pull/135
