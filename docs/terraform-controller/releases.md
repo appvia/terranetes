@@ -4,6 +4,50 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.0
+
+### New Features
+* **Provider Scope moved to Cluster** has been moved to teh cluster scope and away from a namespace resource. [#116](https://github.com/appvia/terraform-controller/pull/116)
+* **Drift Detection** provides the ability to automatically detect configurations which have drifted from the expected state [#131](https://github.com/appvia/terraform-controller/pull/131)
+* **Adding Terraform Version to Status** is not exporsed on the terraform state [#131](https://github.com/appvia/terraform-controller/pull/131)
+* **Overall Configuration State** now provides a synchronization overview of the configuration.
+
+### Bug Fixes
+* [BUGFIX] - Approval Annotation by @gambol99 https://github.com/appvia/terraform-controller/pull/133
+* [BUGFIX] - Fixing Method Name Typo by @gambol99 https://github.com/appvia/terraform-controller/pull/121
+
+### What's Changed
+* [FEATURE] - Provider Scope moved to Cluster by @gambol99 https://github.com/appvia/terraform-controller/pull/116
+* [BUILD] - CI Workflow by @gambol99 https://github.com/appvia/terraform-controller/pull/135
+* [E2E] - Drift Detection E2E by @gambol99 https://github.com/appvia/terraform-controller/pull/134
+* [BUGFIX] - Approval Annotation by @gambol99 https://github.com/appvia/terraform-controller/pull/133
+* [FEATURE] - Drift Detection by @gambol99 https://github.com/appvia/terraform-controller/pull/131
+* [GENERAL] - Moving Utility Method into common by @gambol99 https://github.com/appvia/terraform-controller/pull/130
+* [CLEAN] - Template Unit Tests by @gambol99 https://github.com/appvia/terraform-controller/pull/129
+* [LOGGING] - Condition Logging by @gambol99 https://github.com/appvia/terraform-controller/pull/128
+* [DEPENDABOT] - Bump gotest.tools/gotestsum from 1.8.0 to 1.8.1 by @gambol99 https://github.com/appvia/terraform-controller/pull/126
+* [FEATURE] - Adding Terraform Version to Status by @gambol99 https://github.com/appvia/terraform-controller/pull/124
+* [CI] - Linting Timeout
+* [BUILD] - Clean Status by @gambol99 https://github.com/appvia/terraform-controller/pull/122
+* [BUGFIX] - Fixing Method Name Typo by @gambol99 https://github.com/appvia/terraform-controller/pull/121
+* [FEATURE] - Adding Labels to Executors
+* [FEATURE] - Adding Pod Labels by @gambol99 https://github.com/appvia/terraform-controller/pull/119
+* [DEPENDABOT] - Bump github.com/stretchr/testify from 1.7.1 to 1.7.2 by @gambol99 https://github.com/appvia/terraform-controller/pull/117
+* [DEPENDABOT] - Bump mvdan.cc/sh/v3 from 3.4.3 to 3.5.1 by @gambol99 https://github.com/appvia/terraform-controller/pull/108
+* [DEPENDABOT] - Bump k8s.io/code-generator from 0.24.0 to 0.24.1 by @gambol99 https://github.com/appvia/terraform-controller/pull/107
+* [DEPENDABOT] - Bump github.com/golangci/golangci-lint from 1.45.2 to 1.46.2 [#97]https://github.com/appvia/terraform-controller/pull/97
+* [DEPENDABOT] - Bump github.com/evanphx/json-patch from 4.12.0+incompatible to 5.6.0+incompatible by @gambol99 https://github.com/appvia/terraform-controller/pull/109
+* [DEPENDABOT] - Bump github.com/felixge/httpsnoop from 1.0.2 to 1.0.3 by @gambol99 https://github.com/appvia/terraform-controller/pull/110
+* [DOCS] - Development Docs by @gambol99 https://github.com/appvia/terraform-controller/pull/136
+* [DOCS] - Readme Change by @gambol99 https://github.com/appvia/terraform-controller/pull/118
+* [API] - Description on API Types by @gambol99 https://github.com/appvia/terraform-controller/pull/114
+* [BUILD] - Dependabot Target Branch by @gambol99 https://github.com/appvia/terraform-controller/pull/113
+* [DOCS] - Updating Architecture Image by @gambol99 https://github.com/appvia/terraform-controller/pull/115
+* [BUILD] - Latest Workflow Change by @gambol99 https://github.com/appvia/terraform-controller/pull/112
+* [HELM] - [DEPENDABOT] - Bumping Version of Chart by @gambol99 https://github.com/appvia/terraform-controller/pull/111
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.1.6...v0.2.0
+
 ## Release v0.1.6
 
 ### New Features
