@@ -4,7 +4,7 @@ sidebar_class_name: green
 ---
 # Configure Credentials for a Terraform Module
 
-Credentials to access the cloud are represented by the [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
+Credentials to access the cloud are represented by [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
 
 :::important
 Note, credentials never leave the terraform-controller namespace, removing the risk of exposure.
@@ -12,7 +12,7 @@ Note, credentials never leave the terraform-controller namespace, removing the r
 
 ## Use a provider
 
-To reference an a Provider apply the following Terraform configuration:
+To reference a Provider apply the following Terraform configuration:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -51,7 +51,7 @@ $ kubectl -n terraform-system create secret generic aws \
 ```
 
 :::important
-The controller is limited as to where the static credentials can be located. At present the secret must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
+Static credentials secrets must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
 :::
 
 The process is the same for all the providers:
