@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Drift Detection
 
-Drift detection periodically runs a terraform plan on [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) and checks for any drift between the expected state _(terraform state)_ and the actual cloud resources. [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) must opt in for drift detection via their spec;
+Drift detection periodically runs a terraform plan on a [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md), ensuring the expected state _(terraform state)_ and the actual cloud resources are in sync. Currently [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) must opt in for drift detection via their spec;
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -22,7 +22,7 @@ spec:
 
 ## Tuning Drift Detection
 
-From an administrative perspective the controller expose to main options
+From an administrative perspective the controller expose two options
 
 ### Drift Intervals
 
@@ -36,7 +36,7 @@ You can configure the drift interval via the helm value `controller.driftInterna
 
 ### Drift Threshold
 
-Is configurable threshold added to ensure we do not overwhelm the cloud provider with drift checks. These checks are performing a `terraform plan` to determine drift i.e. API calls out to the cloud provider. So a large collection of [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) all confirming at the same time could cause API timeouts and retries due to rate limiting.
+Is a configurable threshold used to ensure we dont overwhelm the cloud provider with drift checks. These checks are performing a `terraform plan` afterall and thus API requests out to the cloud provider. So a large collection of [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) all confirming at the same time could cause API timeouts and retries due to rate limiting.
 
 The threshold is a percentage, expressed as a float between 0 and 1. This sets the maximum number of [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) that can run a drift check at anyone time.
 
