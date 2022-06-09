@@ -47,8 +47,8 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_ACCESS_KEY_ID=<ID> \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
   --from-literal=AWS_REGION=<REGION>
-$ kubectl -n terraform-system apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
-$ kubectl -n terraform-system get provider -o yaml
+$ kubectl apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
+$ kubectl get provider -o yaml
 ```
 
 See [Configure Credentials](admin/providers.md) for more details.
@@ -64,7 +64,7 @@ wget https://raw.githubusercontent.com/appvia/terraform-controller/master/exampl
 Next, lets create a namespace and provision the cloud resources.
 
 ```bash
-# Create the namesapce
+# Create the namespace
 $ kubectl create namespace apps
 # View the contains of the configuration
 $ cat configuration.yaml # demo for provisioning an s3 bucket
