@@ -4,15 +4,15 @@ sidebar_class_name: green
 ---
 # Configure Credentials for a Terraform Module
 
-Credentials to access the cloud are represented by the [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a namespaced resource that usually lives in the same location as the controller. When defining a terraform module, developers reference an existing provider using `spec.providerRef`, and then tie the resource and credentials together.
+Credentials to access the cloud are represented by the [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
 
-:::tip
-Credentials never leave the terraform-controller namespace to remove the risk of exposure.
+:::important
+Note, credentials never leave the terraform-controller namespace, removing the risk of exposure.
 :::
 
 ## Use a provider
 
-To reference an existing provider apply the following Terraform configuration:
+To reference an a Provider apply the following Terraform configuration:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -21,8 +21,7 @@ metadata:
   name: bucket
 spec:
   providerRef:
-    name: default
-    namespace: terraform-system
+    name: aws
   module: <url>
   variables: {}
 ```
@@ -52,7 +51,7 @@ $ kubectl -n terraform-system create secret generic aws \
 ```
 
 :::important
-Currently the controller is limited to where the static credentials can be located. At present the secret must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
+The controller is limited as to where the static credentials can be located. At present the secret must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
 :::
 
 The process is the same for all the providers:
