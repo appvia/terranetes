@@ -17,7 +17,7 @@ sidebar_position: 1
 <dt class="pluralname">Plural name:</dt>
 <dd class="pluralname">providers</dd>
 <dt class="scope">Scope:</dt>
-<dd class="scope">Namespaced</dd>
+<dd class="scope">Cluster</dd>
 <dt class="versions">Versions:</dt>
 <dd class="versions"><a class="version" href="#v1alpha1" title="Show schema for version v1alpha1">v1alpha1</a></dd>
 </dl>

@@ -13,6 +13,7 @@ The controller also comes bundled with a number of technical controls to enable 
 
 ## Additional features
 
+* **Drift Detection:** automatically nothing has changed upstream in the cloud provider and the terraform state is inline with the resources it manages.
 * **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lock down to an approved collection of modules.
 * **Targeted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example, you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
 
@@ -46,8 +47,8 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_ACCESS_KEY_ID=<ID> \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
   --from-literal=AWS_REGION=<REGION>
-$ kubectl -n terraform-system apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
-$ kubectl -n terraform-system get provider -o yaml
+$ kubectl apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
+$ kubectl get provider -o yaml
 ```
 
 See [Configure Credentials](admin/providers.md) for more details.
@@ -63,7 +64,7 @@ wget https://raw.githubusercontent.com/appvia/terraform-controller/master/exampl
 Next, lets create a namespace and provision the cloud resources.
 
 ```bash
-# Create the namesapce
+# Create the namespace
 $ kubectl create namespace apps
 # View the contains of the configuration
 $ cat configuration.yaml # demo for provisioning an s3 bucket

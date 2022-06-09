@@ -18,7 +18,6 @@ spec:
   module: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0
 
   providerRef:
-    namespace: terraform-system
     name: default
 
   writeConnectionSecretToRef:
@@ -80,12 +79,11 @@ The provider reference is what links a configuration to the credentials used to 
 $ kubectl get providers -n [NAMESPACE]
 ```
 
-Once you have the provider `namespace` and `name` you use the reference in the configuration:
+Once you have the provider `name` you use the reference in the configuration:
 
 ```yaml
 spec:
   providerRef:
-    namespace: <NAMESPACE>
     name: <NAME>
 ```
 
