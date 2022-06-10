@@ -4,6 +4,17 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.1
+
+## Bug Fixes
+
+* Fixing a bug in the parsing of the infracost report which was introduced in v0.1.6 release by https://github.com/appvia/terraform-controller/pull/96. We were expecting a float64 when actually it's a string
+
+## What's Changed
+* [HELM] - Helm Release for v0.2.0 by @gambol99 in https://github.com/appvia/terraform-controller/pull/137
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.0...v0.2.1
+
 ## Release v0.2.0
 
 ### New Features
