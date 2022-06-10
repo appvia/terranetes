@@ -2,7 +2,7 @@
 sidebar_position: 1
 sidebar_class_name: green
 ---
-# Configure Credentials for a Terraform Module
+# Configure Providers
 
 Credentials to access the cloud are represented by [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
 
