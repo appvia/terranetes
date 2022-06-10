@@ -4,6 +4,20 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.2
+
+### Bug Fixes
+* [BUGFIX] - Checkov Results by @gambol99 in https://github.com/appvia/terraform-controller/pull/146
+
+### What's Changed
+* [TESTS] - Configuration Controller Unit Tests by @gambol99 in https://github.com/appvia/terraform-controller/pull/143
+* Use GHCR by @KashifSaadat in https://github.com/appvia/terraform-controller/pull/127
+* [LOGGING] - Display the version by @gambol99 in https://github.com/appvia/terraform-controller/pull/144
+* [BUGFIX] - Checkov Results by @gambol99 in https://github.com/appvia/terraform-controller/pull/146
+* [DOCS] - Update README.md by @gambol99 in https://github.com/appvia/terraform-controller/pull/147
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.1...v0.2.2
+
 ## Release v0.2.1
 
 ## Bug Fixes
