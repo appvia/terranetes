@@ -4,6 +4,17 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.3
+
+### New Features
+* Expanded the provider list to include the official providers, by @gambol99 in https://github.com/appvia/terraform-controller/pull/149
+
+### What's Changed
+* [HELM] - Release Helm Chart v0.2.2 by @gambol99 in https://github.com/appvia/terraform-controller/pull/148
+* [FEATURE] - Provider List by @gambol99 in https://github.com/appvia/terraform-controller/pull/149
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.2...v0.2.3
+
 ## Release v0.2.2
 
 ### Bug Fixes
