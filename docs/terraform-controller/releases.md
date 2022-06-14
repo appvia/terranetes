@@ -14,7 +14,7 @@ sidebar_position: 2
 * **SSH Key**: fixed a bug in the source command that was incorrectly processing the ref options by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
 
 ### What's Changed
-* [HELM] - Chart Version v0.2.3 by @gambol99 in https://github.com/appvia/terraform-controller/pull/153
+* [HELM] - Chart Version v0.2.4 by @gambol99 in https://github.com/appvia/terraform-controller/pull/162
 * [BUGFIX] - Private Repositories & SSH Key by @gambol99 in https://github.com/appvia/terraform-controller/pull/156
 * [FEATURE] - Provider Configuration  by @gambol99 in https://github.com/appvia/terraform-controller/pull/154
 * [BUGFIX] - Configuration Authentication by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
