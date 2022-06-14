@@ -4,6 +4,21 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.5
+
+### Bug Fixes
+* **Configuration Secrets Removal**: the configuration secret in the controller namespace were not being deleted on deletion of the Configuration, fixed by @gambol99 in https://github.com/appvia/terraform-controller/pull/165
+
+### What's Changed
+* [E2E] Infracost E2E by @gambol99 in https://github.com/appvia/terraform-controller/pull/161
+* [HELM] - Release v0.2.4 by @gambol99 in https://github.com/appvia/terraform-controller/pull/162
+* [E2E] - Deployment Key Secret by @gambol99 in https://github.com/appvia/terraform-controller/pull/163
+* [BUILD] - Bumping the Infracost Version to v0.10.3 by @gambol99 in https://github.com/appvia/terraform-controller/pull/164
+* [BUGFIX] - Ensuring Removal of Configuration Secrets by @gambol99 in https://github.com/appvia/terraform-controller/pull/165
+* [HELM] - Release for v0.2.5 by @gambol99 in https://github.com/appvia/terraform-controller/pull/167
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.4...v0.2.5
+
 ## Release v0.2.4
 
 ### New Features
@@ -12,6 +27,7 @@ sidebar_position: 2
 ### Bug Fixes
 * **Configuration Authentication**: fixed a bug when using a source that required authentication by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
 * **SSH Key**: fixed a bug in the source command that was incorrectly processing the ref options by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
+* **Prometheus Metrics**: the helm chart was accidently adding prometheus metrics twice, helm ignored this but flux through issues, fix by @gambol99 in https://github.com/appvia/terraform-controller/pull/162
 
 ### What's Changed
 * [HELM] - Chart Version v0.2.4 by @gambol99 in https://github.com/appvia/terraform-controller/pull/162
@@ -48,11 +64,11 @@ sidebar_position: 2
 
 ## Release v0.2.1
 
-## Bug Fixes
+### Bug Fixes
 
 * Fixing a bug in the parsing of the infracost report which was introduced in v0.1.6 release by https://github.com/appvia/terraform-controller/pull/96. We were expecting a float64 when actually it's a string
 
-## What's Changed
+### What's Changed
 * [HELM] - Helm Release for v0.2.0 by @gambol99 in https://github.com/appvia/terraform-controller/pull/137
 
 **Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.0...v0.2.1
