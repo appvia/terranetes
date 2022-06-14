@@ -4,6 +4,23 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.4
+
+### New Features
+* **Provider Configuration**: you can now specify additional configuration to the terraform providers via spec.configuration by @gambol99 in https://github.com/appvia/terraform-controller/pull/154
+
+### Bug Fixes
+* **Configuration Authentication**: fixed a bug when using a source that required authentication by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
+* **SSH Key**: fixed a bug in the source command that was incorrectly processing the ref options by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
+
+### What's Changed
+* [HELM] - Chart Version v0.2.3 by @gambol99 in https://github.com/appvia/terraform-controller/pull/153
+* [BUGFIX] - Private Repositories & SSH Key by @gambol99 in https://github.com/appvia/terraform-controller/pull/156
+* [FEATURE] - Provider Configuration  by @gambol99 in https://github.com/appvia/terraform-controller/pull/154
+* [BUGFIX] - Configuration Authentication by @gambol99 in https://github.com/appvia/terraform-controller/pull/159
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.3...v0.2.4
+
 ## Release v0.2.3
 
 ### New Features

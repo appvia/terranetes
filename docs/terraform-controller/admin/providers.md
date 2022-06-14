@@ -162,3 +162,28 @@ spec:
 At the same time you could provide another limited set of permissions to all cluster users by removing the selector.
 
 This feature could also be used to map to different pod identity roles in the cloud vendor, or different service account mapped to [Vault](https://www.vaultproject.io/).
+
+## Provider Configuration
+
+You can incorporate additional configuration into the [Provider](docs/terraform-controller/reference/providers.terraform.appvia.io.md) via the `spec.configuration`. For instance the Azure provider comes with a [features](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) which can be configured in the provider as such
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Provider
+metadata:
+  name: azure
+spec:
+  # Anything in configuration section is converting to HCL and configured the provider
+  configuration:
+    features:
+      api_management:
+        purge_soft_delete_on_destroy: true
+        recover_soft_deleted_api_managements: true
+      virtual_machine:
+        graceful_shutdown: true
+  source: secret
+  provider: azurerm
+  secretRef:
+    namespace: terraform-system
+    name: admin
+```
