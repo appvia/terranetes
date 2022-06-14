@@ -101,6 +101,24 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.configuration">.spec.configuration</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Configuration is optional configuration to the provider. This is terraform provider specific.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.provider">.spec.provider</h3>
 </div>
 <div class="property-body">
