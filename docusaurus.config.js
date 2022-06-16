@@ -7,7 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Appvia Terranetes',
-  tagline: 'Enable teams to self-serve cloud and application dependencies easily and securely',
+  tagline:
+    'Enable teams to self-serve cloud and application dependencies easily and securely',
   url: 'https://terranetes.appvia.io',
   baseUrl: '/',
   trailingSlash: true,
@@ -85,7 +86,7 @@ const config = {
             label: 'tf2helm',
           },
           {
-            href: 'https://github.com/appvia',
+            href: 'https://github.com/appvia/terraform-controller',
             label: 'GitHub',
             position: 'right',
           },
