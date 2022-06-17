@@ -26,7 +26,7 @@ spec:
   writeConnectionSecretToRef:
     name: test
 
-  variables: {}
+  variables:
     bucket: [BUCKET_NAME]
 ```
 
