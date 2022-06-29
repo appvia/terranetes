@@ -129,6 +129,75 @@ When the pod is created:
 2. It checks for a binding between the service account and the defined IAM role.
 3. If such a binding exists, it generates credentials and injects them via a secret as environment variables into the pod.
 
+
+#### Service Account Permissions
+
+:::important
+The following is important when using or creating additional service accounts for a Provider. For example lets assume you create another service account 'admin' in the terraform-system namespace and reference that service account in a Provider which uses that account for IRSA.
+:::
+
+By default the service account the terraform controller uses to execute jobs is `terraform-executor`. If you require additional service accounts for Providers i.e for use with `spec.source: injected` or simply needing to use another service account; you need to ensure the correct RBAC permissions. The terraform job is using kubernetes secrets to store the terraform state and leases for locking. So the following needs to be in place.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: NAME_OF_ROLE
+  namespace: terraform-system
+rules:
+  - apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - update
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+```
+
+And a binding to the service account.
+
+```yaml
+  ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: terraform-executor
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+    name: NAME_OF_ROLE
+subjects:
+  - kind: ServiceAccount
+    name: terraform-executor
+    namespace: terraform-system
+```
+
+Without this the terraform execution will simply fail on access denied on secrets and or leases.
+
 ## Configure RBAC for providers
 
 Providers support the ability to filter who can use them. When a [`spec.selector`](../reference/providers.terraform.appvia.io.md#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
