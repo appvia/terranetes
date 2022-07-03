@@ -189,11 +189,17 @@ metadata:
   name: environment-defaults
 spec:
   defaults:
-    - selector:
-        namespace:
-          matchExpressions:
-            - key: kubernetes.io/metadata.name
-              operator: Exists
-      variables:
-        environment: dev
+    # Can be used to filter on configuration module sources
+    modules:
+      - <REGEX>
+    namespace:
+      # Match on namespace labels
+      matchLabels:
+        kubernetes.io/metadata.name: hello
+      # Use expressions to match on namespace labels
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: Exists
+    variables:
+      environment: dev
 ```
