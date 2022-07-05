@@ -53,6 +53,12 @@ spec:
         bucket_key_enabled: true
 ```
 
+:::important
+The source syntax _(spec.module)_ on releases `<= v0.2.5` does not fully support suggested [Github format](https://www.terraform.io/language/modules/sources#github). References to Github must use the `https://github.com/appvia/terraform-aws-rds?ref=TAG` or `git::ssh://git@github.com/appvia/terraform-aws-rds.git`.
+
+Following the syntax of [Generic Git Repository](https://www.terraform.io/language/modules/sources#generic-git-repository).
+:::
+
 ## Sections of the configuration resource
 
 The configuration resource is comprised of the following sections.

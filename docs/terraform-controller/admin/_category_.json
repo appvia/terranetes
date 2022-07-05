@@ -1,6 +1,6 @@
 {
   "label": "Administration",
-  "position": 4,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "Configuration available to the Cluster Operators."
