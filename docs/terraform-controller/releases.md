@@ -17,7 +17,8 @@ Terranetes CLI (tnctl)
 ### New Features
 
 * Added a terranetes CLI (tnctl) by @gambol99 in http://github.com/appvia/terraform-controller/pull/187
-* Exposed the Costs and Policy evaluations to user by @gambol99 in http://github.com/appvia/terraform-controller/pull/180* Added additional Executor Secrets by @gambol99 in http://github.com/appvia/terraform-controller/pull/204
+* Exposed the Costs and Policy evaluations to user by @gambol99 in http://github.com/appvia/terraform-controller/pull/180
+* Added additional Executor Secrets by @gambol99 in http://github.com/appvia/terraform-controller/pull/204
 
 ### Bug Fixes
 * Changed the default port for the webhooks to 10250 which by default is available for callback on most cloud vendored kubernetes by @gambol99 in by @gambol99 in http://github.com/appvia/terraform-controller/pull/206
