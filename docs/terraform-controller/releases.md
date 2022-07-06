@@ -4,6 +4,68 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.6
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.6/tnctl-darwin-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.6/tnctl-darwin-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.6/tnctl-linux-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.6/tnctl-linux-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.6/tnctl-windows-amd64.exe
+
+### New Features
+
+* Added a terranetes CLI (tnctl) by @gambol99 in http://github.com/appvia/terraform-controller/pull/187
+* Exposed the Costs and Policy evaluations to user by @gambol99 in http://github.com/appvia/terraform-controller/pull/180* Added additional Executor Secrets by @gambol99 in http://github.com/appvia/terraform-controller/pull/204
+
+### Bug Fixes
+* Changed the default port for the webhooks to 10250 which by default is available for callback on most cloud vendored kubernetes by @gambol99 in by @gambol99 in http://github.com/appvia/terraform-controller/pull/206
+
+### What's Changed
+
+* [BUILD] - Fixing LFAGS (#212) by @gambol99 in http://github.com/appvia/terraform-controller/pull/212
+* [BUGFIX] - CLI Docs Generation (#210) by @gambol99 in http://github.com/appvia/terraform-controller/pull/210
+* [FEATURE] - Generate CLI Docs (#208) by @gambol99 in http://github.com/appvia/terraform-controller/pull/208
+* [FEATURE] - Workflow Creation (#207) by @gambol99 in http://github.com/appvia/terraform-controller/pull/207
+* [FEATURE] - Additional Controller Secrets (#204) by @gambol99 in http://github.com/appvia/terraform-controller/pull/204
+* [FEATURE] - CLI Configuration Override (#203) by @gambol99 in http://github.com/appvia/terraform-controller/pull/203
+* [FEATURE] - Terraform Registry Namespace (#202) by @gambol99 in http://github.com/appvia/terraform-controller/pull/202
+* [FEATURE] - Sensitive Inputs (#201) by @gambol99 in http://github.com/appvia/terraform-controller/pull/201
+* [FEATURE] - Terranetes Search CLI by @gambol99 in http://github.com/appvia/terraform-controller/pull/187
+* [CLI] - Github Repository Listing by @gambol99 in http://github.com/appvia/terraform-controller/pull/198
+* [CLI] - Infracost Workflow by @gambol99 in http://github.com/appvia/terraform-controller/pull/199
+* [BUGFIX] - Costs on Pull Requests by @gambol99 in http://github.com/appvia/terraform-controller/pull/197
+* [BUGFIX] - Fixing Workflow by @gambol99 in http://github.com/appvia/terraform-controller/pull/195
+* [BUGFIX] - Adding the Workflow ID by @gambol99 in http://github.com/appvia/terraform-controller/pull/196
+* [CLI] - Run on Merge by @gambol99 in http://github.com/appvia/terraform-controller/pull/194
+* [BUGFIX] - Dropping the Readme Check by @gambol99 in http://github.com/appvia/terraform-controller/pull/193
+* [CLI] - Removing Questions by @gambol99 in http://github.com/appvia/terraform-controller/pull/192
+* [DOCS] - Adding Checkov Example by @gambol99 in http://github.com/appvia/terraform-controller/pull/191
+* [BUGFIX] - Fixing Handler Lookup (#190) by @gambol99 in http://github.com/appvia/terraform-controller/pull/190
+* [FEATURE] - Terranetes CLI (#187) by @gambol99 in http://github.com/appvia/terraform-controller/pull/187
+* [DEPENDABOT] Bump sigs.k8s.io/controller-tools from 0.9.1 to 0.9.2 (#189) by @gambol99 in http://github.com/appvia/terraform-controller/pull/189
+* [DEPENDABOT] Bump github.com/stretchr/testify from 1.7.5 to 1.8.0 (#188) by @gambol99 in http://github.com/appvia/terraform-controller/pull/188
+* [DEPENDABOT] Bump sigs.k8s.io/controller-tools from 0.9.0 to 0.9.1 (#186) by @gambol99 in http://github.com/appvia/terraform-controller/pull/186
+* [DEPENDABOT] Bump sigs.k8s.io/controller-runtime from 0.12.1 to 0.12.2 (#185) by @gambol99 in http://github.com/appvia/terraform-controller/pull/185
+* [DEPENDABOT] Bump github.com/stretchr/testify from 1.7.4 to 1.7.5 (#184) by @gambol99 in http://github.com/appvia/terraform-controller/pull/184
+* [DEPENDABOT] Bump github.com/stretchr/testify from 1.7.2 to 1.7.4 (#181) by @gambol99 in http://github.com/appvia/terraform-controller/pull/181
+* [CI] - Helm Chart Linting (#183) by @gambol99 in http://github.com/appvia/terraform-controller/pull/183
+* [DEPENDABOT] Bump github.com/spf13/cobra from 1.4.0 to 1.5.0 (#182) by @gambol99 in http://github.com/appvia/terraform-controller/pull/182
+* [FEATURE] - Exposing Integrations (#180) by @gambol99 in http://github.com/appvia/terraform-controller/pull/180
+* [DEPENDABOT] Bump k8s.io/apiextensions-apiserver from 0.24.1 to 0.24.2 (#176) by @gambol99 in http://github.com/appvia/terraform-controller/pull/176
+* [DEPENDABOT] Bump k8s.io/code-generator from 0.24.1 to 0.24.2 (#177) by @gambol99 in http://github.com/appvia/terraform-controller/pull/177
+* [DEPENDABOT] Bump k8s.io/client-go from 0.24.1 to 0.24.2 (#175) by @gambol99 in http://github.com/appvia/terraform-controller/pull/175
+* [IMAGES] - Image Versions (#174) by @gambol99 in http://github.com/appvia/terraform-controller/pull/174
+* [E2E] - Improvements to E2E (#173) by @gambol99 in http://github.com/appvia/terraform-controller/pull/173
+* [DEPENDABOT] Bump k8s.io/apiextensions-apiserver from 0.24.0 to 0.24.1 (#169) by @gambol99 in http://github.com/appvia/terraform-controller/pull/169
+* [DOCS] - Update README.md (#209) by @gambol99 in http://github.com/appvia/terraform-controller/pull/209
+* [HELM] - Webhooks Port (#206) by @gambol99 in http://github.com/appvia/terraform-controller/pull/206
+* [E2E] - Controller Version (#170) by @gambol99 in http://github.com/appvia/terraform-controller/pull/170
+* [HELM] - CHart Version v0.2.12 (#168) by @gambol99 in http://github.com/appvia/terraform-controller/pull/168
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.5...v0.2.6
+
 ## Release v0.2.5
 
 ### Bug Fixes

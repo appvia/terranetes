@@ -3,9 +3,9 @@ sidebar_position: 1
 ---
 import Features from '@site/src/components/ControllerFeatures';
 
-# Terraform Controller
+# What is Terranetes?
 
-Terraform controller manages the life-cycle of terraform resources defined and built inside Kubernetes. This allows teams running workloads inside the cluster to self-serve application dependencies and reuse the wealth of terraform modules already written.
+The terranetes controller manages the life-cycle of terraform resources defined and built inside Kubernetes. This allows teams running workloads inside the cluster to self-serve application dependencies and reuse the wealth of terraform modules already written.
 
 The controller also comes bundled with a number of technical controls to enable platform teams to push the feature without compromising the standards and best practices required in the organization.
 
