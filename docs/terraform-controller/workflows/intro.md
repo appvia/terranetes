@@ -6,7 +6,7 @@ sidebar_position: 1
 
 💬 _"In essence an opinion on a piece of paper"_
 
-Providing functionality and features isn't complicated; open source overflows with solutions to things. But providing a **way of working** is more useful. Workflows is a stamp of opinion of how devops can iterate, review and publish modules and developers can find, search and consume cloud resources. The workflow isn't revolutionary, it's deliberately simple. If you already have a good process already, feel free to ignore. Use it as a template, that's fine too, or even better yet, raise a pull request and improve it.
+Providing functionality and features isn't complicated; open source overflows with solutions to things. But providing a **way of working** is more useful. Workflows is a stamp of opinion of how devops can iterate, review and publish modules and developers can find, search and consume cloud resources. The workflow isn't revolutionary, it's deliberately simple. If you already have a good process feel free to ignore. Use it as a template, that's fine too. Or even better yet, raise a pull request and improve it.
 
 ## What were the goals?
 
