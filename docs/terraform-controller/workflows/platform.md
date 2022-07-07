@@ -28,7 +28,7 @@ Currently we only support Github actions, though the intention is to replicate t
 ### On the Roadmap
 
 - Scheduled jobs to re-evaluate the security checks.
-- Automatically ::raising pull requests when central policy is updated.
+- Automatically raising pull requests when central policy is updated.
 
 ## Authoring a module
 
