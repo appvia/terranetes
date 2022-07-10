@@ -128,6 +128,26 @@ spec:
       - name_of_key
 ```
 
+#### Secrets Remapping
+
+We use the resource outputs as the keys in the connection secret, so if a resource has a `database_endpoint` output the secret will have a key named `DATABASE_ENDPOINT`. You might want to rename one or more outputs for convenience however, for example change the `database_endpoint` to `mysql_host`. You can change the key like belore
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Configuration
+metadata:
+  name: bucket
+spec:
+  module: https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v3.1.0
+  providerRef:
+    name: aws
+  writeConnectionSecretToRef:
+    name: test
+    keys:
+      - database_endpoint:mysql_host # is renamed to MYSQL_HOST
+      - database_port                # is unchanged as DATABASE_PORT
+```
+
 ## Viewing the changes
 
 As a Configuration transitions through its plan, apply and destroy phases, a job is created in the namespace, and used to feedback the execution of the change. The jobs follows the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
