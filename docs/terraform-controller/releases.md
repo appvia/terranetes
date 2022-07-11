@@ -4,6 +4,38 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.7
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.7/tnctl-darwin-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.7/tnctl-darwin-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.7/tnctl-linux-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.7/tnctl-linux-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.7/tnctl-windows-amd64.exe
+
+### New Features
+* Provides the ability to remap connection secrets https://github.com/appvia/terraform-controller/pull/222
+
+### Bug Fixes
+* Fixes a template error in the `tnctl describe` command which was causing a error https://github.com/appvia/terraform-controller/pull/219
+* Fixes the streaming of the logs in the developer namespace we stream in real time rather than waiting for completion https://github.com/appvia/terraform-controller/pull/215
+
+### What's Changed
+
+* [HELM] - Bumping Version of Chart by @gambol99 in https://github.com/appvia/terraform-controller/pull/213
+* [BUILD] - Release Workflow by @gambol99 in https://github.com/appvia/terraform-controller/pull/214
+* [BUGFIX] - Streaming Logs by @gambol99 in https://github.com/appvia/terraform-controller/pull/215
+* [TESTING] - Adding Unit Tests for CLI by @gambol99 in https://github.com/appvia/terraform-controller/pull/216
+* Bump sigs.k8s.io/controller-runtime from 0.12.2 to 0.12.3 by @dependabot in https://github.com/appvia/terraform-controller/pull/217
+* [CLI] - Workflow Override by @gambol99 in https://github.com/appvia/terraform-controller/pull/218
+* [BUGFIX] - CLI Describe Template by @gambol99 in https://github.com/appvia/terraform-controller/pull/219
+* [CLI] - Build Command by @gambol99 in https://github.com/appvia/terraform-controller/pull/221
+* [CLI] - Describe Command by @gambol99 in https://github.com/appvia/terraform-controller/pull/220
+* [FEATURE] - Secret Renaming by @gambol99 in https://github.com/appvia/terraform-controller/pull/222
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.6...v0.2.7
+
 ## Release v0.2.6
 
 Terranetes CLI (tnctl)
