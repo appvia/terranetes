@@ -130,7 +130,7 @@ spec:
 
 #### Secrets Remapping
 
-We use the resource outputs as the keys in the connection secret, so if a resource has a `database_endpoint` output the secret will have a key named `DATABASE_ENDPOINT`. You might want to rename one or more outputs for convenience however, for example change the `database_endpoint` to `mysql_host`. You can change the key like belore
+We use the resource outputs as the keys in the connection secret, so if a resource has a `database_endpoint` output the secret will have a key named `DATABASE_ENDPOINT`. You might want to rename one or more outputs for convenience however, for example change the `database_endpoint` to `mysql_host`. You can change the key like below
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
