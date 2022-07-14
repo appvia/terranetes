@@ -4,6 +4,28 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.8
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.8/tnctl-darwin-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.8/tnctl-darwin-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.8/tnctl-linux-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.8/tnctl-linux-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.8/tnctl-windows-amd64.exe
+
+### What's Changed
+
+* [HELM] - Helm Release (v0.2.7) by @gambol99 in https://github.com/appvia/terraform-controller/pull/224
+* [CI] - Release Workflow Fix by @gambol99 in https://github.com/appvia/terraform-controller/pull/225
+* [HELM] - Fixing Application Bump by @gambol99 in https://github.com/appvia/terraform-controller/pull/226
+* [CLI] - Adding Logs Command by @gambol99 in https://github.com/appvia/terraform-controller/pull/227
+* [CLI] - Build Command by @gambol99 in https://github.com/appvia/terraform-controller/pull/230
+* [CLI] - Build Command Resource Name by @gambol99 in https://github.com/appvia/terraform-controller/pull/231
+* [BUGFIX] - Fixing Logs Command for Plans by @gambol99 in https://github.com/appvia/terraform-controller/pull/232
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.7...v0.2.8
+
 ## Release v0.2.7
 
 Terranetes CLI (tnctl)
