@@ -32,6 +32,7 @@ tnctl [flags]
 * [tnctl completion](../tnctl_completion)	 - Generate the autocompletion script for the specified shell
 * [tnctl config](../tnctl_config)	 - Used to manage the CLI configuration
 * [tnctl describe](../tnctl_describe)	 - Used to describe the current state of the configuration
+* [tnctl logs](../tnctl_logs)	 - Displays the logs from the current configuration
 * [tnctl search](../tnctl_search)	 - Searches for cloud resources to consume
 * [tnctl workflow](../tnctl_workflow)	 - Can be used to generate a skelton CI pipeline
 

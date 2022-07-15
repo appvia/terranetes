@@ -24,13 +24,16 @@ tnctl build SOURCE [OPTIONS] [flags]
 ### Options
 
 ```
-      --enable-defaults    Indicates any defaults with values from the terraform module are included (default true)
-      --enable-sensitive   Indicates any sensitive variables from the module should be placed into secrets (default true)
-  -h, --help               help for build
-      --name string        The name of the configuration resource (default "test")
-      --namespace string   The namespace for the configuration (default "default")
-      --provider string    Name of the credentials provider to use
-      --source string      The path to the terraform module (default ".")
+      --enable-auto-approval     Automatically approve the configuration
+      --enable-defaults          Indicates any defaults with values from the terraform module are included (default true)
+      --enable-drift-detection   Detect drift in the configuration (default true)
+      --enable-sensitive         Indicates any sensitive variables from the module should be placed into secrets (default true)
+  -h, --help                     help for build
+      --name string              The name of the configuration resource (default "test")
+      --namespace string         The namespace for the configuration (default "default")
+      --provider string          Name of the credentials provider to use
+      --secret string            Name of the secret any outputs from the resource are kept
+      --source string            The path to the terraform module (default ".")
 ```
 
 ### Options inherited from parent commands
