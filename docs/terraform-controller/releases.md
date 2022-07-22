@@ -4,6 +4,63 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.2.9
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.9/tnctl-darwin-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.9/tnctl-darwin-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.9/tnctl-linux-amd64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.9/tnctl-linux-arm64
+* https://github.com/appvia/terraform-controller/releases/download/v0.2.9/tnctl-windows-amd64.exe
+
+### New Features
+
+* Added code analysis by @gambol99 in https://github.com/appvia/terraform-controller/pull/205
+* Added Provider Summary Field by @gambol99 in https://github.com/appvia/terraform-controller/pull/247
+* Bumping Version Checkov 2.1.67 by @gambol99 in https://github.com/appvia/terraform-controller/pull/251
+* Bumping Infracost Version 0.10.7, 0.10.8 by @gambol99 in https://github.com/appvia/terraform-controller/pull/250
+* Terraform Version v1.2.5 by @gambol99 in https://github.com/appvia/terraform-controller/pull/252
+* Added the abiliy to apply executor permissions to namespace service account, making it quicker to rollout multiple injected provided Service by @gambol99 in https://github.com/appvia/terraform-controller/pull/260
+* Started off the basis of error detection to ease diagnosis by @gambol99 in https://github.com/appvia/terraform-controller/pull/259
+* Added the ability to deploy Providers via Helm by @gambol99 in https://github.com/appvia/terraform-controller/pull/261
+* Added the ability to deploy Policies via Helm by @gambol99 in https://github.com/appvia/terraform-controller/pull/262
+
+### Build
+* Added Code of Conduct by @gambol99 in https://github.com/appvia/terraform-controller/pull/242
+* Added Issue templates by @gambol99 in https://github.com/appvia/terraform-controller/pull/243
+
+### Bug Fixes
+* Fixed the sync status of a remove to say 'Deleting' by @gambol99 in https://github.com/appvia/terraform-controller/pull/253
+* Sanity Checking Query Parameters by @gambol99 in https://github.com/appvia/terraform-controller/pull/255
+
+### What's Changed
+* [HELM] - Chart Release v0.2.8 by @gambol99 in https://github.com/appvia/terraform-controller/pull/233
+* [FEATURE] - Adding CodeQL Workflow by @gambol99 in https://github.com/appvia/terraform-controller/pull/205
+* [DOCS] - Add Code of Conduct by @gambol99 in https://github.com/appvia/terraform-controller/pull/242
+* [GITHUB] - Add Issue templates by @gambol99 in https://github.com/appvia/terraform-controller/pull/243
+* Bump github.com/golangci/golangci-lint from 1.46.2 to 1.47.1 by @dependabot in https://github.com/appvia/terraform-controller/pull/246
+* Bump github.com/sirupsen/logrus from 1.8.1 to 1.9.0 by @dependabot in https://github.com/appvia/terraform-controller/pull/245
+* [FEATURE] - Adding Provider Summary Field by @gambol99 in https://github.com/appvia/terraform-controller/pull/247
+* Bump github.com/onsi/gomega from 1.19.0 to 1.20.0 by @dependabot in https://github.com/appvia/terraform-controller/pull/248
+* [HELM] - Bumping Version Checkov 2.1.67 by @gambol99 in https://github.com/appvia/terraform-controller/pull/251
+* [HELM] - Bumping Infracost Version 0.10.7, 0.10.8 by @gambol99 in https://github.com/appvia/terraform-controller/pull/250
+* [HELM] - Terraform Version v1.2.5 by @gambol99 in https://github.com/appvia/terraform-controller/pull/252
+* [BUGFIX] - Resource Status when deleting by @gambol99 in https://github.com/appvia/terraform-controller/pull/253
+* [BUGFIX] - Sanity Checking Query Parameters by @gambol99 in https://github.com/appvia/terraform-controller/pull/255
+* Bump github.com/golangci/golangci-lint from 1.47.1 to 1.47.2 by @dependabot in https://github.com/appvia/terraform-controller/pull/256
+* [BUGFIX] - User Inputs Parameter Checking by @gambol99 in https://github.com/appvia/terraform-controller/pull/258
+* [FEATURE] - Detection of Errors by @gambol99 in https://github.com/appvia/terraform-controller/pull/259
+* [HELM] - Service Account Permissions - Executors by @gambol99 in https://github.com/appvia/terraform-controller/pull/260
+* [HELM] - Deploy Providers via Helm by @gambol99 in https://github.com/appvia/terraform-controller/pull/261
+* [HELM] - Deploy Policies via Helm Chart by @gambol99 in https://github.com/appvia/terraform-controller/pull/262
+* [HELM] - Release v0.2.9 by @gambol99 in https://github.com/appvia/terraform-controller/pull/263
+* [CI] - Github Release Workflow by @gambol99 in https://github.com/appvia/terraform-controller/pull/264
+* [BUGFIX] - Refuse to continue by @gambol99 in https://github.com/appvia/terraform-controller/pull/265
+
+**Full Changelog**: https://github.com/appvia/terraform-controller/compare/v0.2.8...v0.2.9
+
+
 ## Release v0.2.8
 
 Terranetes CLI (tnctl)

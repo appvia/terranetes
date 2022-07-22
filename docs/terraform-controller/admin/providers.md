@@ -70,6 +70,7 @@ metadata:
   # This name should match the `providerRef` in the Configuration.
   name: default
 spec:
+  summary: Default providers for all configurations
   source: secret
   provider: aws
   secretRef:
