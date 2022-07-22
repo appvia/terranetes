@@ -521,6 +521,24 @@ sidebar_position: 1
 </div>
 </div>
 
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.summary">.spec.summary</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Summary provides a human readable description of the provider</p>
+
+</div>
+
+</div>
+</div>
+
 <div class="property depth-0">
 <div class="property-header">
 <h3 class="property-path" id="v1alpha1-.status">.status</h3>
