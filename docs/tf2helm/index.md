@@ -6,7 +6,7 @@ title: Overview
 # tf2helm
 
 `t2helm` is a simple Python utility that converts a Terraform module to a Helm Chart. The Helm Chart contains a Kubernetes Custom Resource understood and managed by one of the following Kubernetes Operators:
-1. [Appvia Terraform Controller (default)](https://github.com/appvia/terraform-controller)
+1. [Appvia Terraform Controller (default)](https://github.com/appvia/terranetes-controller)
 2. [Isaaguilar Terraform Operator](https://github.com/isaaguilar/terraform-operator)
 3. [OAM Terraform Controller](https://github.com/oam-dev/terraform-controller)
 

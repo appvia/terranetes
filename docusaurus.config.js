@@ -28,9 +28,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs/terraform-controller',
-          routeBasePath: 'terraform-controller',
-          sidebarPath: require.resolve('./sidebars-terraform-controller.js'),
+          path: 'docs/terranetes-controller',
+          routeBasePath: 'terranetes-controller',
+          sidebarPath: require.resolve('./sidebars-terranetes-controller.js'),
           editUrl: 'https://github.com/appvia/terranetes/tree/master/',
           editCurrentVersion: true,
           showLastUpdateAuthor: true,
@@ -76,7 +76,7 @@ const config = {
         },
         items: [
           {
-            to: '/terraform-controller',
+            to: '/terranetes-controller',
             position: 'left',
             label: 'Terraform Controller',
           },
@@ -86,7 +86,7 @@ const config = {
             label: 'tf2helm',
           },
           {
-            href: 'https://github.com/appvia/terraform-controller',
+            href: 'https://github.com/appvia/terranetes-controller',
             label: 'GitHub',
             position: 'right',
           },
@@ -100,7 +100,7 @@ const config = {
             items: [
               {
                 label: 'Terraform Controller',
-                to: '/terraform-controller',
+                to: '/terranetes-controller',
               },
               {
                 label: 'tf2helm',

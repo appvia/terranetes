@@ -15,7 +15,7 @@ Add a terraform registry to the source
 $ tnctl config sources add https://registry.terraform.io
 
 Add a Github organization or user to the source
-$ tnctl config sources add github.com/appvia/terraform-controller
+$ tnctl config sources add github.com/appvia/terranetes-controller
 
 Note, skipping the name github organization or user requires your GITHUB_TOKEN
 is exported as the CLI will use this to authenticate to the github and

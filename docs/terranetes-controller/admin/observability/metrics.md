@@ -27,7 +27,7 @@ This maps to the `--metrics-port PORT` command line argument if not using the ch
 
 ### Predicted Cost Metrics
 
-When the integration is enabled all [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) automatically expose their predicted monthly and hourly costs. Allowing the platform team to dashboard usage and or alerting on high figures. The metrics will take the form
+When the integration is enabled all [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) automatically expose their predicted monthly and hourly costs. Allowing the platform team to dashboard usage and or alerting on high figures. The metrics will take the form
 
 ```shell
 configuration_hourly_cost_total{namespace="NAMESPACE", name="NAME"} = <COST>
@@ -60,7 +60,7 @@ The terraform controller uses a number of [validating and mutating webhooks](htt
 Similar to controller metrics these are exposed out of the box via the [controller runtime](https://github.com/kubernetes-sigs/controller-runtime)
 
 ```shell
-[jest@starfury terraform-controller]$ curl -s http://localhost:9090/metrics | grep webhook
+[jest@starfury terranetes-controller]$ curl -s http://localhost:9090/metrics | grep webhook
 # HELP controller_runtime_webhook_latency_seconds Histogram of the latency of processing admission requests
 # TYPE controller_runtime_webhook_latency_seconds histogram
 controller_runtime_webhook_latency_seconds_bucket{webhook="/validate/terraform.appvia.io/providers",le="0.005"} 2

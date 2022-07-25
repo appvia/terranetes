@@ -3,7 +3,7 @@ sidebar_position: 90
 ---
 # Customize Job Template
 
-When a configuration is changed (i.e. for plan, apply or destroy), the controller uses a template to render the final job configuration, taking the options provided on the controller command line, custom policies and the terraform configuration itself. A batch job is created from all the options and ordered to execute the change. You can find the default template for this [here](https://github.com/appvia/terraform-controller/blob/master/pkg/assets/job.yaml.tpl).
+When a configuration is changed (i.e. for plan, apply or destroy), the controller uses a template to render the final job configuration, taking the options provided on the controller command line, custom policies and the terraform configuration itself. A batch job is created from all the options and ordered to execute the change. You can find the default template for this [here](https://github.com/appvia/terranetes-controller/blob/master/pkg/assets/job.yaml.tpl).
 
 ### Overriding the template
 

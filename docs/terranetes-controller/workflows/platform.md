@@ -46,13 +46,13 @@ Assuming you have cloned the [repository](https://github.com/appvia/terranetes-w
 gh repo create appvia/terraform-aws-rds --template appvia/terranetes-workflows
 ```
 
-Ensure you've added an appropriate description, as the [tnctl search](/terraform-controller/cli/tnctl_search) command uses the terms found here to filter on.
+Ensure you've added an appropriate description, as the [tnctl search](/terranetes-controller/cli/tnctl_search) command uses the terms found here to filter on.
 
 ```shell
 gh repo edit appvia/terraform-aws-rds --description "Terraform module used to provision a RDS database"
 ```
 
-Alternatively you can replicate via the [tnctl workflow create](/terraform-controller/cli/tnctl_workflow_create) command
+Alternatively you can replicate via the [tnctl workflow create](/terranetes-controller/cli/tnctl_workflow_create) command
 
 ```shell
 tnctl workflow create terraform-aws-rds --template URL
@@ -72,7 +72,7 @@ Github actions will assess, review and update the pull requests with appropriate
 
 ### Publish the artifact
 
-By default all tags `v[SEMVER]` automatically create a Github release and changelog. Assuming the [tnctl search](docs/terraform-controller/cli/tnctl_search.md] is using your Github organization as a source the artifact is now immediately searchable.
+By default all tags `v[SEMVER]` automatically create a Github release and changelog. Assuming the [tnctl search](docs/terranetes-controller/cli/tnctl_search.md] is using your Github organization as a source the artifact is now immediately searchable.
 
 For public repositories the Terraform registry offers a nice solution to central point to distribute, view and search for resources. At present you must perform this on a per repository basis. Go to https://registry.terraform.io/sign-in
 

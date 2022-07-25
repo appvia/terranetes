@@ -1,12 +1,12 @@
 template_path: templates/crd.template
 
 source_repositories:
-  - url: https://github.com/appvia/terraform-controller
+  - url: https://github.com/appvia/terranetes-controller
     organization: appvia
-    short_name: terraform-controller
+    short_name: terranetes-controller
     commit_reference: master
     crd_paths:
-      - charts/terraform-controller/crds
+      - charts/terranetes-controller/crds
     cr_paths:
       - docs/crds
     metadata:

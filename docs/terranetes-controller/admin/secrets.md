@@ -8,7 +8,7 @@ The controller supports the ability to inject additional secrets into the terraf
 The platform team must create the Kubernetes secrets ahead of time, which are referenced on the command line of the controller.
 
 :::warning
-These secrets are added to all jobs so be prudent when using this feature. This intention is to add the feature on to [Providers](docs/terraform-controller/reference/providers.terraform.appvia.io.md) CRD to make it fine grained.
+These secrets are added to all jobs so be prudent when using this feature. This intention is to add the feature on to [Providers](docs/terranetes-controller/reference/providers.terraform.appvia.io.md) CRD to make it fine grained.
 :::
 
 ## Adding a custom secret

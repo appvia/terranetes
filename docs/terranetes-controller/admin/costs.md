@@ -28,7 +28,7 @@ To configure the integration:
 
 3. Update the helm chart.
     ```bash
-    $ helm upgrade terraform-controller charts/
+    $ helm upgrade terranetes-controller charts/
     ```
 
 ## View the predicted costs
