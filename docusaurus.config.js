@@ -78,7 +78,7 @@ const config = {
           {
             to: '/terranetes-controller',
             position: 'left',
-            label: 'Terraform Controller',
+            label: 'Terranetes Controller',
           },
           {
             to: '/tf2helm',
