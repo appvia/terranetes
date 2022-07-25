@@ -4,6 +4,57 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.0
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-windows-amd64.exe
+*
+### Breaking Change
+
+Note the project was renamed from teraform-controller to terranetes-controller
+
+* All the CRD have stayed the same - so no need to alter any Provides, Policies or Configurations.
+* The helm chart and name of the project inside has changed though
+
+To upgrade - the easiest solution would be to delete the old helm chart and install the latest one. There are no changes from v0.2.9, all commits are related to name changes.
+
+```bash
+# We are assuming here the controller is installed via helm in 'terraform-system' namespace.
+$ helm ls -n terraform-system
+# Remove the chart
+$ helm -n terraform-system uninstall terraform-controller
+
+# Add the new Helm chart repository
+$ helm repo remove appvia
+$ helm repo add appvia https://terranetes-controller.appvia.io
+$ helm repo update
+$ helm install -n terraform-system terranetes-controller appvia/terranetes-controller --create-namespace \
+  --values YOUR_VALUES_IF_ANY
+# kubectl -n terraform-system get po
+```
+
+If you are managing the deployments outside of Helm, you simply need to use the updated images
+
+* ghcr.io/appvia/terranetes-controller:v0.3.0 (on deployment)
+* ghcr.io/appvia/terranetes-executor:v0.3.0 (on command line --executor-image)
+
+### What's Changed
+
+* [NAMING] - Renaming to Terranetes Controller by @gambol99 in https://github.com/appvia/terranetes-controller/pull/268
+* [CI] - Adding Workflow Dispatch - CodeQL by @gambol99 in https://github.com/appvia/terranetes-controller/pull/267
+* [DOCS] - CodeQL Badge by @gambol99 in https://github.com/appvia/terranetes-controller/pull/266
+* [HELM] - Bumping the Helm Chart by @gambol99 in https://github.com/appvia/terranetes-controller/pull/270
+* [CI] - Workflow Fix - Docker Images by @gambol99 in https://github.com/appvia/terranetes-controller/pull/271
+* [CI] - Fixing Naming on Docker Images by @gambol99 in https://github.com/appvia/terranetes-controller/pull/272
+* [HELM] - Release v0.3.0 Chart by @gambol99 in https://github.com/appvia/terranetes-controller/pull/273
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.2.9...v0.3.0
+
 ## Release v0.2.9
 
 Terranetes CLI (tnctl)
