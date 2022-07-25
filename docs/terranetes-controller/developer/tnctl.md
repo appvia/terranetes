@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Finding Cloud Resources
 
-Terranetes comes bundled with a [tnctl](docs/terraform-controller/cli/tnctl.md) command _(see [Releases](docs/terraform-controller/releases.md) for downloads)_ which has ability to search for cloud resources. The [search](docs/terraform-controller/cli/tnctl_search.md) subcommand supports iterating through
+Terranetes comes bundled with a [tnctl](docs/terranetes-controller/cli/tnctl.md) command _(see [Releases](docs/terranetes-controller/releases.md) for downloads)_ which has ability to search for cloud resources. The [search](docs/terranetes-controller/cli/tnctl_search.md) subcommand supports iterating through
 
 * [Terraform registry](https://registry.terraform.io).
 * [Github](https://github.com) repositories and releases of any organization and or user.
@@ -54,11 +54,11 @@ Next you will be prompted to choose the
 * Tagged version
 * Asked for any **required** inputs _(i.e. names, storages size and so forth)_
 
-The final piece will render a [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) CRD ready to be consumed in your deployment pipeline.
+The final piece will render a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) CRD ready to be consumed in your deployment pipeline.
 
 ## Adding Sources
 
-You can add a source to the [tnctl](docs/terraform-controller/cli/tnctl.md) command via [tnctl config sources](docs/terraform-controller/cli/tnctl_config_sources.md) command. For example to add
+You can add a source to the [tnctl](docs/terranetes-controller/cli/tnctl.md) command via [tnctl config sources](docs/terranetes-controller/cli/tnctl_config_sources.md) command. For example to add
 
 ### Adding your Github organization
 
@@ -85,5 +85,5 @@ tnctl config sources add https://registry.terraform.io/namespaces/terraform-aws-
 ```
 
 :::tip
-You can add as many sources are you needs. The [search](docs/terraform-controller/cli/tnctl_search.md) will aggregate the results and present it findings as one.
+You can add as many sources are you needs. The [search](docs/terranetes-controller/cli/tnctl_search.md) will aggregate the results and present it findings as one.
 :::

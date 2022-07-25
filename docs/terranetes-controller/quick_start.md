@@ -11,10 +11,10 @@ Before we begin, you'll need the following tools:
 The quickest way to get up and running is via the Helm chart:
 
 ```bash
-$ helm repo add appvia https://terraform-controller.appvia.io
+$ helm repo add appvia https://terranetes-controller.appvia.io
 $ helm repo update
 $ kind create cluster
-$ helm install -n terraform-system terraform-controller appvia/terraform-controller --create-namespace
+$ helm install -n terraform-system terranetes-controller appvia/terranetes-controller --create-namespace
 $ kubectl -n terraform-system get pods
 ```
 
@@ -23,7 +23,7 @@ $ kubectl -n terraform-system get pods
 Next, we configure some cloud credentials to run terraform with:
 
 :::info
-The following assumes you are using static cloud credentials. See the docs for [**managed pod identity**](/terraform-controller/admin/providers/#configure-injected-identity).
+The following assumes you are using static cloud credentials. See the docs for [**managed pod identity**](/terranetes-controller/admin/providers/#configure-injected-identity).
 :::
 
 ```bash
@@ -31,18 +31,18 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_ACCESS_KEY_ID=<ID> \
   --from-literal=AWS_SECRET_ACCESS_KEY=<SECRET> \
   --from-literal=AWS_REGION=<REGION>
-$ kubectl apply -f https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/provider.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/appvia/terranetes-controller/master/examples/provider.yaml
 $ kubectl get provider -o yaml
 ```
 
-See [Configure Credentials](/docs/terraform-controller/admin/providers.md) for more details.
+See [Configure Credentials](/docs/terranetes-controller/admin/providers.md) for more details.
 
 ## Create your first terraform resource
 
 Retrieve a demo configuration that creates an S3 bucket.
 
 ```bash
-wget https://raw.githubusercontent.com/appvia/terraform-controller/master/examples/configuration.yaml
+wget https://raw.githubusercontent.com/appvia/terranetes-controller/master/examples/configuration.yaml
 ```
 
 Next, lets create a namespace and provision the cloud resources.
@@ -74,7 +74,7 @@ Another kubernetes job will be created to watch the execution of the terraform a
 Note the actual terraform execution does not occur in the `apps` namespace, users simply has the ability to watch the output of the run. The job and the credentials never leave the platform teams namespace `terraform-system`
 :::
 
-View the the [Configuration](/docs/terraform-controller/reference/configurations.terraform.appvia.io.md) below.
+View the the [Configuration](/docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) below.
 
 ```bash
 $ kubectl -n apps get configurations.terraform.appvia.io

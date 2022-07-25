@@ -4,10 +4,10 @@ sidebar_class_name: green
 ---
 # Configure Providers
 
-Credentials to access the cloud are represented by [Providers](../reference/providers.terraform.appvia.io.md) in the terraform-controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
+Credentials to access the cloud are represented by [Providers](../reference/providers.terraform.appvia.io.md) in the controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
 
 :::important
-Note, credentials never leave the terraform-controller namespace, removing the risk of exposure.
+Note, credentials never leave the controller namespace, removing the risk of exposure.
 :::
 
 ## Use a provider
@@ -111,7 +111,7 @@ rbac:
   create: true
   # ServiceAccount for the controller
   controller:
-    # indicates we should create the terraform-controller service account
+    # indicates we should create the terranetes-controller service account
     create: true
     # annotations is a collection of annotations which should be added to the ServiceAccount
     annotations: {}
@@ -235,7 +235,7 @@ This feature could also be used to map to different pod identity roles in the cl
 
 ## Provider Configuration
 
-You can incorporate additional configuration into the [Provider](docs/terraform-controller/reference/providers.terraform.appvia.io.md) via the `spec.configuration`. For instance the Azure provider comes with a [features](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) which can be configured in the provider as such
+You can incorporate additional configuration into the [Provider](docs/terranetes-controller/reference/providers.terraform.appvia.io.md) via the `spec.configuration`. For instance the Azure provider comes with a [features](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) which can be configured in the provider as such
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1

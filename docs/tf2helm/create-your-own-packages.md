@@ -18,7 +18,7 @@ Each Helm package or chart must include the following files:
 └── values.yaml             # Required and optional configuration values
 ```
 
-The `CHART_NAME.yaml` file contains a [Kubernetes Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) understood and managed by the [Appvia Terraform Controller](/terraform-controller) component.
+The `CHART_NAME.yaml` file contains a [Kubernetes Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) understood and managed by the [Appvia Terraform Controller](/terranetes-controller) component.
 
 ## Automate Terraform to Helm conversion
 

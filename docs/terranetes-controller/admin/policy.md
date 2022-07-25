@@ -46,9 +46,9 @@ spec:
         - "https://github.com/appvia/.*"
 ```
 
-The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang regexes which a [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) must match at least one.
+The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang regexes which a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) must match at least one.
 
-The policy may also include an optional selector (`spec.constraints.modules.selector`) that can be used to match against namespace and resource labels of the [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md). As with all selectors in the controller, leaving this field empty implies you want to match against all. You can take advantage of the selectors by providing overrides.
+The policy may also include an optional selector (`spec.constraints.modules.selector`) that can be used to match against namespace and resource labels of the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md). As with all selectors in the controller, leaving this field empty implies you want to match against all. You can take advantage of the selectors by providing overrides.
 
 Lets use the following requirements.
 
@@ -153,8 +153,8 @@ spec:
             name: [SECRET]
 ```
 
-1. The URL uses the same format at the [Configuration](docs/terraform-controller/reference/configurations.terraform.appvia.io.md] CRD.
-2. The secretRef is optional and used to store any credentials used to retrieves the assets. Like [Configurations](docs/terraform-controller/reference/configurations.terraform.appvia.io.md) we support object stores, git repositories and so forth.
+1. The URL uses the same format at the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md] CRD.
+2. The secretRef is optional and used to store any credentials used to retrieves the assets. Like [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) we support object stores, git repositories and so forth.
 3. All assets found in the source are retrieved and used an [external-checks-dir](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html) option to the scan.
 
 ### Rules for selecting the security policy
