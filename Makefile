@@ -1,6 +1,6 @@
 AUTHOR_EMAIL=info@appvia.io
 
-.PHONY: docs
+.PHONY: docs docs-cli test run
 
 default: docs
 
@@ -18,3 +18,11 @@ docs-cli:
 	@echo "--> Generating the CLI Reference"
 	@mkdir -p docs/terranetes-controller/cli
 	@tnctl generate docs --directory docs/terranetes-controller/cli
+
+test:
+	@echo "--> Running tests"
+	@yarn build
+
+run:
+	@echo "--> Running Documentation"
+	@yarn start
