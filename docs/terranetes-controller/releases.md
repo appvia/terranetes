@@ -4,6 +4,30 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.1
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-windows-amd64.exe
+
+### New Features
+
+* Added support for custom terraform state backends by @gambol99 in https://github.com/appvia/terranetes-controller/pull/276
+* Added support to the Helm chart to specify the `spec.summary` field in Provider by @gambol99 in https://github.com/appvia/terranetes-controller/pull/275
+
+### What's Changed
+
+* [DOCS] - Architecture Images by @gambol99 in https://github.com/appvia/terranetes-controller/pull/274
+* [FEATURE] - Support Summaries on Provider Helm Chart by @gambol99 in https://github.com/appvia/terranetes-controller/pull/275
+* [FEATURE] - Custom State Backend by @gambol99 in https://github.com/appvia/terranetes-controller/pull/276
+* [HELM] - Helm Release for v0.3.1 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/277
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.0...v0.3.1
+
 ## Release v0.3.0
 
 Terranetes CLI (tnctl)
@@ -13,7 +37,7 @@ Terranetes CLI (tnctl)
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-linux-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-linux-arm64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-windows-amd64.exe
-*
+
 ### Breaking Change
 
 Note the project was renamed from teraform-controller to terranetes-controller
