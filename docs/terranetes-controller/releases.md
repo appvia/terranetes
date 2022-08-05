@@ -4,6 +4,57 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.3
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-windows-amd64.exe
+
+### What's Changed
+
+* [HELM] - Release v0.3.2 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/288
+* [HELM] - Bugfix Helm Template (Policies & Providers) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/290
+* Bump github.com/golangci/golangci-lint from 1.47.2 to 1.47.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/291
+* [FEATURE] - Adding Configuration Interface by @gambol99 in https://github.com/appvia/terranetes-controller/pull/292
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.2...v0.3.3
+
+## Release v0.3.2
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-windows-amd64.exe
+
+### New Features
+
+* The ability to generate the kubectl plugin by @gambol99 in https://github.com/appvia/terranetes-controller/pull/286
+
+### Bug Fixes
+
+* Fixed the issues where a $HOME/.tnctl/config.yaml not present would throw an error by @gambol99 in https://github.com/appvia/terranetes-controller/pull/284
+
+### What's Changed
+
+* Update README.md by @gambol99 in https://github.com/appvia/terranetes-controller/pull/278
+* [FEATURE] - Updating Controller Version String by @gambol99 in https://github.com/appvia/terranetes-controller/pull/280
+* [E2E] - Install Official Chart by @gambol99 in https://github.com/appvia/terranetes-controller/pull/279
+* [E2E] - Use Chart Option by @gambol99 in https://github.com/appvia/terranetes-controller/pull/281
+* [E2E] - Check Suite Script by @gambol99 in https://github.com/appvia/terranetes-controller/pull/282
+* [BUGFIX] - CLI Configuration by @gambol99 in https://github.com/appvia/terranetes-controller/pull/284
+* [TESTS] - Update CLI Tests for Sources Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/285
+* [CLI] - Kubectl Plugin Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/286
+* [FEATURE] - Using Repository Name in Search by @gambol99 in https://github.com/appvia/terranetes-controller/pull/287
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.1...v0.3.2
+
 ## Release v0.3.1
 
 Terranetes CLI (tnctl)
