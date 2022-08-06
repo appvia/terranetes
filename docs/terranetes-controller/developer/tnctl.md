@@ -88,7 +88,7 @@ tnctl config sources add https://registry.terraform.io/namespaces/terraform-aws-
 You can add as many sources are you needs. The [search](docs/terranetes-controller/cli/tnctl_search.md) will aggregate the results and present it findings as one.
 :::
 
-### Integrate with Kubectl
+## Integrate with Kubectl
 
 You can integrate tnctl with Kubectl i.e. `kubectl tnctl COMMAND`.
 
