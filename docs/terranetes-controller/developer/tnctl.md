@@ -87,3 +87,16 @@ tnctl config sources add https://registry.terraform.io/namespaces/terraform-aws-
 :::tip
 You can add as many sources are you needs. The [search](docs/terranetes-controller/cli/tnctl_search.md) will aggregate the results and present it findings as one.
 :::
+
+### Integrate with Kubectl
+
+You can integrate tnctl with Kubectl i.e. `kubectl tnctl COMMAND`.
+
+:::important
+Kubectl can recognize plugins based on the name. Lets assume you place an executable script in your `$PATH` named `kubectl-hello-world`. This script can be called via `$ kubectl hello world`. All the `tnctl kubectl plugin` does it create an collection of these alias scripts i.e kubectl-tnctl-describe, kubectl-tnctl-logs and so forth in the desired location.
+:::
+
+1. Run the `tnctl kubectl plugin -d DIRECTORY` command. The directory here is the location of where the alias scripts should be located.
+2. Ensure the alias scripts are included in your environment `$PATH`
+3. Ensure the `tnctl` is included in your environment `$PATH`.
+4. You can now use kubectl directory _(note tab completion is configured via kubectl, please review their docs)_.
