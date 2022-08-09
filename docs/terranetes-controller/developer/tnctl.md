@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Finding Cloud Resources
+# Terranetes CLI
 
 Terranetes comes bundled with a [tnctl](docs/terranetes-controller/cli/tnctl.md) command _(see [Releases](docs/terranetes-controller/releases.md) for downloads)_ which has ability to search for cloud resources. The [search](docs/terranetes-controller/cli/tnctl_search.md) subcommand supports iterating through
 
@@ -100,3 +100,84 @@ Kubectl can recognize plugins based on the name. Lets assume you place an execut
 2. Ensure the alias scripts are included in your environment `$PATH`
 3. Ensure the `tnctl` is included in your environment `$PATH`.
 4. You can now use kubectl directory _(note tab completion is configured via kubectl, please review their docs)_.
+
+## Watching Logs
+
+When a Configuration is run a pod is created in the namespace used to watch the logs. You can perform the
+
+1. Retrieve the pods via `kubectl get pods`
+2. Find the appropriate pod based on the Configuration name and generation.
+3. Watch the logs via `kubectl logs NAME -f`
+
+A faster alternative is to use the [logs](docs/terranetes-controller/cli/tnctl_logs.md]
+
+1. Type `tnctl logs -n NAMESPACE NAME [-f--follow]`
+2. If the kubectl plugin integration has been enabled, you can use `kubectl tnctl logs [-n NAMESPACE] NAME [-f|--follow]`
+
+```bash
+$ tnctl logs -n apps bucket -f
+[info] waiting for the job to be scheduled
+[info] watching build: bucket, generation: 1 for the job to be scheduled
+........
+=======================================================
+'SETTING UP THE ENVIRONMENT'
+=======================================================
+time="2022-08-09T09:59:37Z" level=info msg="downloading the assets" dest=/data source="https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0"
+time="2022-08-09T09:59:38Z" level=info msg="successfully downloaded the source" source="https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0"
+time="2022-08-09T09:59:38Z" level=info msg="successfully executed the step"
+
+Initializing the backend...
+
+Successfully configured the backend "kubernetes"! Terraform will automatically
+use this backend unless the backend configuration changes.
+...
+```
+## Describing Configurations
+
+You can the use
+
+1. `tnctl describe -n NAMESPACE [NAME]`
+2. `kubectl tnctl describe [-n NAMESPACE] [NAME]`
+
+to provide insight into costs and policy.
+
+```bash
+[jest@starfury terranetes-controller]$ bin/tnctl describe -n apps bucket
+Name:         bucket
+Namespace:    apps
+Created:      2022-08-09T09:59:28Z
+Status:       OutOfSync
+Annotations:
+              terraform.appvia.io/apply    false
+Labels:       None
+
+Conditions:
+==========
+Name               Reason             Message
+Provider ready     Ready              Provider ready
+Terraform Plan     Ready              Terraform plan is complete
+Security Policy    ActionRequired     Configuration has failed security policy, refusing to continue
+Terraform Apply    ActionRequired     Waiting for terraform apply annotation to be set to true
+Ready              NotDetermined
+
+Configuration:
+=============
+Authentication: None
+Module:         https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0
+Provider:       aws
+Secret:         apps/test
+
+Checkov Security Policy:
+=======================
+Status:         Configuration has passed 11 and failed on 3 checks.
+
+CKV_AWS_18     FAILED
+├─ Name:       Ensure the S3 bucket has access logging enabled
+├─ Resource:   aws_s3_bucket.this[0]
+└─ Guide:      https://docs.bridgecrew.io/docs/s3_13-enable-logging
+CKV_AWS_144    FAILED
+├─ Name:       Ensure that S3 bucket has cross-region replication enabled
+├─ Resource:   aws_s3_bucket.this[0]
+└─ Guide:      https://docs.bridgecrew.io/docs/ensure-that-s3-bucket-has-cross-region-replication-enabled
+...
+```
