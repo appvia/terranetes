@@ -46,7 +46,7 @@ If we were to set the threshold to 0.1 or 10%, the controller would enforce that
 
 ### Selection Process
 
-The controller chooses a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md] based on the following
+The controller chooses a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) based on the following
 
 * Drift detection is enabled on the spec i.e. spec.enableDriftDetection = true.
 * The configuration has already ran successfully, i.e. a plan, approve and apply.
