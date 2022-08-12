@@ -4,6 +4,27 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.4
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-windows-amd64.exe
+
+### What's Changed
+
+* [DOCS] - Updating Development Docs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/299
+* [CI] - Support Binaries & CLI by @gambol99 in https://github.com/appvia/terranetes-controller/pull/301
+* [CI] - Trigger Development E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/304
+* [DOCS] - Example Provider Secrets by @gambol99 in https://github.com/appvia/terranetes-controller/pull/307
+* [DOCS] - Updating Readme by @gambol99 in https://github.com/appvia/terranetes-controller/pull/312
+* Update README.md by @gambol99 in https://github.com/appvia/terranetes-controller/pull/313
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.3...v0.3.4
+
 ## Release v0.3.3
 
 Terranetes CLI (tnctl)

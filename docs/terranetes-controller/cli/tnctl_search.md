@@ -24,13 +24,16 @@ $ tnctl config sources add https://registry.terraform.io/namespaces/appvia
 Adding a GitHub user or organization
 $ tnctl config sources add https://github.com/appvia
 
+Write the generated output to a file
+$ tnctl search -o filename
+
 For private repositories on Github you will need to export your token
 to the environment variable GITHUB_TOKEN.
 $ export GITHUB_TOKEN=TOKEN
 
-This command assumes credentials have already been setup. For the Terraform registry,
-nothing is required, but for private repositories on Github your environment must
-already be setup to git clone the repository.
+This command assumes credentials have already been setup. For the Terraform
+registry, nothing is required, but for private repositories on Github your
+environment must already be setup to git clone the repository.
 
 
 ```
@@ -43,6 +46,7 @@ tnctl search [OPTIONS] [flags]
       --enable-defaults           Indicates any defaults with values from the terraform module are included
   -h, --help                      help for search
       --name string               Is the name of the resource to create
+  -o, --output string             Optional filename to write the generated configuration (defaults: stdout)
   -p, --provider string           Limit the search only to modules with the given provider
   -s, --source string             Limit the scope of the search to a specific source
       --source-namespace string   The namespace within the source registry to scope the search
