@@ -31,6 +31,7 @@ tnctl [flags]
 * [tnctl build](../tnctl_build)	 - Can be used to package up the terraform module for consumption
 * [tnctl completion](../tnctl_completion)	 - Generate the autocompletion script for the specified shell
 * [tnctl config](../tnctl_config)	 - Used to manage the CLI configuration
+* [tnctl convert](../tnctl_convert)	 - Used to convert between different formats
 * [tnctl describe](../tnctl_describe)	 - Used to describe the current state of the configuration
 * [tnctl kubectl](../tnctl_kubectl)	 - Kubectl plugin related commands
 * [tnctl logs](../tnctl_logs)	 - Displays the logs from the current configuration
