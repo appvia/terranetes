@@ -22,6 +22,15 @@ Let's assume we have a terraform module hosted in a private Github repository. H
       auth:
         name: ssh
     ```
+4. Reference a git repository as the module source
+    ```yaml
+    spec:
+      module: git::ssh://git@github.com/ORG/REPOSITORY?ref=<TAG|BRANCH|COMMIT>
+    ```
+
+:::tip
+If you need to extract a specific folder within the repository the syntax `git::ssh://git@github.com/ORG/REPOSITORY//PATH?ref=<TAG|BRANCH|COMMIT>`
+:::
 
 The same process can be followed for GIT over HTTP; simply add `GIT_USERNAME` and `GIT_PASSWORD` to the secret.
 
