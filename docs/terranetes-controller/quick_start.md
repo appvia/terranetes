@@ -8,7 +8,7 @@ Before we begin, you'll need the following tools:
 * **[Helm CLI](https://helm.sh/docs/intro/install/)**
 * **[Kind](https://kind.sigs.k8s.io/)**
 
-The quickest way to get up and running is via the Helm chart:
+The quickest way to get up and running is via the [Helm chart:][tn_chart]
 
 ```bash
 $ helm repo add appvia https://terranetes-controller.appvia.io
@@ -96,5 +96,6 @@ $ kubectl -n apps delete configuration bucket
 
 Tailing the logs from the watcher will allow you to view the execution.
 
+[tn_chart]: https://github.com/appvia/terranetes-controller/tree/master/charts/terranetes-controller
 [ex_provider]: https://github.com/appvia/terranetes-controller/blob/master/examples/provider.yaml
 [ex_configuration]: https://github.com/appvia/terranetes-controller/blob/master/examples/configuration.yaml
