@@ -20,7 +20,7 @@ $ kubectl -n terraform-system get pods
 
 ## Configure credentials
 
-Next, we configure some cloud credentials to run terraform with:
+Next, we configure some [cloud credentials][ex_provider] to run terraform with:
 
 :::info
 The following assumes you are using static cloud credentials. See the docs for [**managed pod identity**](/terranetes-controller/admin/providers/#configure-injected-identity).
@@ -39,7 +39,7 @@ See [Configure Credentials](/docs/terranetes-controller/admin/providers.md) for 
 
 ## Create your first terraform resource
 
-Retrieve a demo configuration that creates an S3 bucket.
+Retrieve a [demo configuration][ex_configuration] that creates an S3 bucket.
 
 ```bash
 wget https://raw.githubusercontent.com/appvia/terranetes-controller/master/examples/configuration.yaml
@@ -96,3 +96,5 @@ $ kubectl -n apps delete configuration bucket
 
 Tailing the logs from the watcher will allow you to view the execution.
 
+[ex_provider]: https://github.com/appvia/terranetes-controller/blob/master/examples/provider.yaml
+[ex_configuration]: https://github.com/appvia/terranetes-controller/blob/master/examples/configuration.yaml
