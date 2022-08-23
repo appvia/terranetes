@@ -20,7 +20,7 @@ tnctl logs NAME [OPTIONS] [flags]
   -f, --follow             follow the logs
   -h, --help               help for logs
       --name string        Is the name of the resource to create
-  -n, --namespace string   The namespace of the resource
+  -n, --namespace string   The namespace of the resource (default "default")
       --stage string       Selects the stage to show logs for, else defaults to the condition
 ```
 
