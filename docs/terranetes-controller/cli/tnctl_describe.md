@@ -27,7 +27,7 @@ tnctl describe [NAME...] [flags]
 
 ```
   -h, --help                 help for describe
-  -n, --namespace string     Namespace of the resource/s
+  -n, --namespace string     Namespace of the resource/s (default "default")
       --show-passed-checks   Indicates we should show passed checks (default true)
 ```
 

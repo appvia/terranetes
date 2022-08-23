@@ -4,6 +4,59 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.7
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-windows-amd64.exe
+
+### New Features
+* Added  the ability to source in Checkov policies from central repository by @gambol99 in https://github.com/appvia/terranetes-controller/pull/340
+* Added prometheus API metrics by @gambol99 in https://github.com/appvia/terranetes-controller/pull/332
+* Bumped the version of Infracost to v0.10.10 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/336
+* Bumped the version of Checkov to 2.1.137 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/337
+
+### What's Changed
+
+* [BUGFIX] - Terraform Variables by @gambol99 in https://github.com/appvia/terranetes-controller/pull/354
+* [IMAGES] - Terraform Image Version Downgrade (1.2.7 -> 1.2.5) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/353
+* [E2E] - Adding Diagnostics to E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/352
+* [E2E] - Bug Fixes in E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/351
+* [CI] - Image Version Automation by @gambol99 in https://github.com/appvia/terranetes-controller/pull/349
+* [CLEAN] - Dropping Checkov Variables Options by @gambol99 in https://github.com/appvia/terranetes-controller/pull/348
+* [CI] - Adding Image Scanning by @gambol99 in https://github.com/appvia/terranetes-controller/pull/334
+* [CLEAN] - Cleaning the Job Template by @gambol99 in https://github.com/appvia/terranetes-controller/pull/347
+* [FEATURE] - Watching Destroy Logs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/339
+* [BUGFIX] - Central Security Policy by @gambol99 in https://github.com/appvia/terranetes-controller/pull/346
+* [BUILD] - Publishing an Image for CLI by @gambol99 in https://github.com/appvia/terranetes-controller/pull/333
+* [BUILD] - Upgrading Base Image (Alpine 3.15 -> 3.16) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/335
+* [FEATURE] - Adding API Server Metrics by @gambol99 in https://github.com/appvia/terranetes-controller/pull/332
+* [BUILD] - Checkov Version (2.1.104 -> 2.1.137) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/337
+* [BUILD] - Terraform Version (v1.2.5 - v1.2.7) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/338
+* [CLI] - Setting a Default Namespace by @gambol99 in https://github.com/appvia/terranetes-controller/pull/343
+* [BUILD] - Infracost Version (v0.10.9 -> v0.10.10) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/336
+* [BUGFIX] - Checkov Configuraion Optional by @gambol99 in https://github.com/appvia/terranetes-controller/pull/342
+* [BUGFIX] - Changing the Policy Source Field by @gambol99 in https://github.com/appvia/terranetes-controller/pull/341
+* [FEATURE] - External Checkov Source by @gambol99 in https://github.com/appvia/terranetes-controller/pull/340
+* Bump k8s.io/apiextensions-apiserver from 0.24.3 to 0.24.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/324
+* Bump k8s.io/cli-runtime from 0.24.3 to 0.24.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/325
+* Bump k8s.io/api from 0.24.3 to 0.24.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/329
+* Bump k8s.io/client-go from 0.24.3 to 0.24.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/328
+* Bump github.com/tcnksm/ghr from 0.14.0 to 0.15.0 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/327
+* Bump github.com/tidwall/gjson from 1.14.2 to 1.14.3 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/322
+* [CLEANUP] - Dependencies by @gambol99 in https://github.com/appvia/terranetes-controller/pull/320
+* [DOCS] - Updating Configuration Example by @gambol99 in https://github.com/appvia/terranetes-controller/pull/350
+* [DOCS] - Adding Private Module Example by @gambol99 in https://github.com/appvia/terranetes-controller/pull/345
+* [DOCS] - Readme Update by @gambol99 in https://github.com/appvia/terranetes-controller/pull/323
+* [DOCS] - GHCR badge by @gambol99 in https://github.com/appvia/terranetes-controller/pull/321
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.6...v0.3.7
+
+
 ## Release v0.3.6
 
 Terranetes CLI (tnctl)

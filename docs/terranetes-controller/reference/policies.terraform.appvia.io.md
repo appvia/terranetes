@@ -619,6 +619,114 @@ sidebar_position: 1
 </div>
 </div>
 
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source">.spec.constraints.checkov.source</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Source indicates an external source for the checkov configurations</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source.configuration">.spec.constraints.checkov.source.configuration</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Configuration is the configuration to use within the source directory</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source.secretRef">.spec.constraints.checkov.source.secretRef</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>SecretRef is reference to secret which contains environment variables used by the source command to retrieve the code. This could be cloud credentials, ssh keys, git username and password etc</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source.secretRef.name">.spec.constraints.checkov.source.secretRef.name</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>name is unique within a namespace to reference a secret resource.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-5">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source.secretRef.namespace">.spec.constraints.checkov.source.secretRef.namespace</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>namespace defines the space within which the secret name must be unique.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.constraints.checkov.source.url">.spec.constraints.checkov.source.url</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>URL is the source external checks - this is usually a git repository. The notation for this is <a href="https://github.com/hashicorp/go-getter">https://github.com/hashicorp/go-getter</a></p>
+
+</div>
+
+</div>
+</div>
+
 <div class="property depth-2">
 <div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.constraints.modules">.spec.constraints.modules</h3>
