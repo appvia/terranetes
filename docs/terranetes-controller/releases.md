@@ -4,6 +4,39 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.6
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-windows-amd64.exe
+
+### What's Changed
+* [HELM] - Release v0.3.5 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/317
+* [FEATURE] - Convert Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/318
+* [BUGFIX] - Convert Configuration Source by @gambol99 in https://github.com/appvia/terranetes-controller/pull/319
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.5...v0.3.6
+
+## Release v0.3.5
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-windows-amd64.exe
+
+### What's Changed
+* [HELM] - Release v0.3.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/315
+* [FEATURE] - Redirect Search Output by @gambol99 in https://github.com/appvia/terranetes-controller/pull/316
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.4...v0.3.5
+
 ## Release v0.3.4
 
 Terranetes CLI (tnctl)
