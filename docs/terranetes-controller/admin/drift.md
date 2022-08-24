@@ -32,7 +32,7 @@ Is the amount of time which must pass from the [Configurations](docs/terranetes-
 The check is always from the last terraform plan run. So if the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) is altered within those 3 hours, the clocks restarts and will be 3 hours from then.
 :::
 
-You can configure the drift interval via the helm value `controller.driftInternal`; the format must be in minutes or hours, i.e. 10m or 10h
+You can configure the drift interval via the helm value `controller.driftInterval`; the format must be in minutes or hours, i.e. 10m or 10h
 
 ### Drift Threshold
 
