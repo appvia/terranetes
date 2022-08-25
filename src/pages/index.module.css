@@ -3,25 +3,192 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+}
+
+.h1 {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.spacer {
+  padding-top: 4rem;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 4rem 0;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 1rem 0;
   }
 }
 
-.buttons {
+.heroContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
+  max-width: min(70rem, 100%);
 }
 
-.container.hero__title {
-  color: #294541 !important;
+.heroBefore,
+.heroAfter {
+  position: relative;
+}
+
+.heroSpaceContainer {
+  height: 100%;
+  display: flex;
+}
+
+.heroSpace {
+  object-fit: cover;
+}
+
+.heroSpace img {
+  height: intrinsic;
+}
+
+.heroBefore .heroSpace {
+  object-position: right;
+}
+
+.heroAfter .heroSpace {
+  object-position: left;
+}
+
+.heroPackage {
+  height: 30%;
+}
+
+@media (max-width: 1200px) {
+  .heroPackage {
+    display: none;
+  }
+}
+
+.heroBefore .heroPackage {
+  position: absolute;
+  transform: rotate(15deg);
+  top: 40%;
+  right: 3rem;
+}
+
+.heroAfter .heroPackage {
+  position: absolute;
+  transform: rotate(-15deg);
+  top: 15%;
+  left: 3rem;
+}
+
+.heroImage {
+  max-width: 90%;
+}
+
+.heroSubtitle {
+  max-width: 100vw;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+}
+
+.commandContainer {
+  padding: 1rem;
+  width: 100%;
+  max-width: 70rem;
+}
+
+/* Cards */
+.cardContainer {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+}
+
+.card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.cardSide {
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardLeading {
+  align-items: flex-start;
+}
+
+.cardImage {
+  position: relative;
+}
+
+.cardImage img {
+  position: absolute;
+  height: 100%;
+  padding: 1rem;
+  object-fit: contain;
+}
+
+.cardSpacer {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: unset;
+  }
+
+  .card {
+    flex: 1 0 100%;
+    flex-direction: column;
+  }
+
+  .cardSide {
+    flex: 0 1 auto;
+    height: auto;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cardImage {
+    position: unset;
+    align-items: center;
+    order: -1;
+  }
+
+  .cardImage img {
+    position: unset;
+    max-height: 20vh;
+  }
 }
