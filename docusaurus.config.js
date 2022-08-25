@@ -112,8 +112,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Slack',
-                href: 'https://join.slack.com/t/appvia-community/shared_invite/zt-19ek5zinn-06E8fmpatKQlyHdQQDkzeQ',
+                label: 'Kubernetes Slack',
+                href: 'https://kubernetes.slack.com/channels/terranetes',
               },
               {
                 label: 'Twitter',
