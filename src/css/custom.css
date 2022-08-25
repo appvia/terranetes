@@ -175,7 +175,9 @@ dl.crd-meta {
   margin-left: 20px;
 }
 
-.navbar__title, .navbar__link, .navbar__items {
+.navbar__title,
+.navbar__link,
+.navbar__items {
   color: #000;
 }
 
@@ -184,6 +186,14 @@ dl.crd-meta {
   background-color: #f6f6f6;
 }
 
-.footer, .footer__title, .footer__link-item {
-  color: #000;
+.footer,
+.footer__title,
+.footer__link-item {
+  color: black;
+}
+
+.hero_src-pages-index-module {
+  padding: 0px !important;
+  padding-top: 4em !important;
+  align-items: center !important;
 }
