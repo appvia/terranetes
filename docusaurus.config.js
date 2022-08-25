@@ -81,11 +81,6 @@ const config = {
             label: 'Terranetes Controller',
           },
           {
-            to: '/tf2helm',
-            position: 'left',
-            label: 'tf2helm',
-          },
-          {
             href: 'https://github.com/appvia/terranetes-controller',
             label: 'GitHub',
             position: 'right',
