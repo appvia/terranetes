@@ -5,7 +5,7 @@
  */
 
 :root {
-  --ifm-color-primary: #87978e;
+  --ifm-color-primary: #3578e5;
   --ifm-color-primary-dark: #788a80;
   --ifm-color-primary-darker: #718278;
   --ifm-color-primary-darkest: #5d6b63;
@@ -13,7 +13,7 @@
   --ifm-color-primary-lighter: #9eaba4;
   --ifm-color-primary-lightest: #b5bfb9;
   --ifm-code-font-size: 95%;
-  --ifm-footer-background-color: #3e5b58;
+  --ifm-footer-background-color: #ffffff;
   --ifm-footer-color: #fdbe9f;
   --ifm-footer-link-color: #fdbe9f;
   --ifm-footer-title-color: #fdbe9f;
@@ -162,4 +162,28 @@ dl.crd-meta {
   padding: 3px 6px;
   text-transform: uppercase;
   margin-left: 5px;
+}
+
+.navbar {
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #ccc;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.navbar__logo {
+  margin-left: 20px;
+}
+
+.navbar__title, .navbar__link, .navbar__items {
+  color: #000;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  background-color: #f6f6f6;
+}
+
+.footer, .footer__title, .footer__link-item {
+  color: #000;
 }
