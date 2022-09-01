@@ -15,6 +15,7 @@ Terranetes CLI (tnctl)
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-windows-amd64.exe
 
 ### New Features
+
 * Added  the ability to source in Checkov policies from central repository by @gambol99 in https://github.com/appvia/terranetes-controller/pull/340
 * Added prometheus API metrics by @gambol99 in https://github.com/appvia/terranetes-controller/pull/332
 * Bumped the version of Infracost to v0.10.10 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/336
