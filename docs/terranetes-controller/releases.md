@@ -4,6 +4,28 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.8
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-windows-amd64.exe
+
+### Bug Fixes
+* Fixed an issue in the drift controller which was not correctly calculating the total running by @gambol99 in https://github.com/appvia/terranetes-controller/pull/362
+
+### What's Changed
+* [BUGFIX] - Drift Threshold by @gambol99 in https://github.com/appvia/terranetes-controller/pull/362
+* [HELM] - Release Chart for v0.3.7 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/355
+* [CI] - Versions Workflow Bugfix by @gambol99 in https://github.com/appvia/terranetes-controller/pull/356
+* [CI] - Versions Workflow by @gambol99 in https://github.com/appvia/terranetes-controller/pull/357
+* [DOCS] - Split badges in README onto new lines by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/365
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.7...v0.3.8
+
 ## Release v0.3.7
 
 Terranetes CLI (tnctl)
