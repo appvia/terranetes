@@ -11,7 +11,7 @@ Once the security plan is performed the report is processed and, assuming no fai
 ## Using External Policy Source
 
 :::tip
-This the recommended method for implementing Checkov policy as it stitches together the various elements in the chain; from authoring to consumption. As the same policies can be referenced by your CI and runtime enforcement.
+This the recommended method for implementing Checkov policy as it stitches together the various elements in the chain; from authoring to consumption. As the same policies can be referenced by your CI and runtime enforcement. **Note this option is only available from >= v0.3.7**
 :::
 
 The controller has the ability to source in an external repository used to house the Checkov policies. A common scenario would be a shared policy repository with Checkov configuration and external checks and shared between the [Workflows](/terranetes-controller/workflows/intro/) and this runtime enforcement.
