@@ -159,7 +159,7 @@ By default, unless the `spec.enableAutoApproval` is set to true, all Configurati
 To approve the Configuration `bucket`:
 
 ```shell
-$ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true
+$ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true --overwrite
 ```
 
 ## Deleting the resource
