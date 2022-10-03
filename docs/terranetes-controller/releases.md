@@ -4,6 +4,26 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.9
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-windows-amd64.exe
+
+### What's Changed
+
+* [DOCS] - Fix Badge Format by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/367
+* [HELM] - Chart Release v0.3.8 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/366
+* [CI] - Fixing Versions Workflow by @gambol99 in https://github.com/appvia/terranetes-controller/pull/369
+* [CI] - Bridgecrew Image Versions by @gambol99 in https://github.com/appvia/terranetes-controller/pull/373
+* [E2E] - Adding Google Project ID by @gambol99 in https://github.com/appvia/terranetes-controller/pull/386
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.8...v0.3.9
+
 ## Release v0.3.8
 
 Terranetes CLI (tnctl)
