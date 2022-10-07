@@ -31,7 +31,7 @@ spec:
   # Terraform variables used to populate the module
   variables:
     # -- The name of the bucket. If omitted, Terraform will assign a random, unique name
-    bucket: rohith-test-1234
+    bucket: example-test-1234
     # -- The canned ACL to apply
     acl: private
     # -- Map containing versioning configuration
@@ -95,7 +95,7 @@ spec:
 
 ### Terraform variables
 
-The variables section `spec.variables` is a freeform map used to define all the variables the module can consume. These are converted to HCL and provided into the workflow via `-var-file` on the `plan` and `apply` stages.
+The variables section `spec.variables` is a free form map used to define all the variables the module can consume. These are converted to HCL and provided into the workflow via `-var-file` on the `plan` and `apply` stages.
 
 For variables that are sensitive such as passwords it would be better to use the `spec.valueFrom` field. This is a collection of references to kubernetes secrets that hold the values.
 
@@ -152,6 +152,12 @@ spec:
 
 As a Configuration transitions through its plan, apply and destroy phases, a job is created in the namespace, and used to feedback the execution of the change. The jobs follows the naming format `[RESOURCE]-[GENERATION]-[plan|apply|destroy]`. You can easily view the execution of a change by inspecting the pod's logs (`kubectl logs [POD]`).
 
+As an alternative to using kubectl commands, you can use [tnctl](docs/terranetes-controller/developer/tnctl.md) cli
+
+```shell
+$ tnctl logs -n NAMESPACE NAME
+```
+
 ## Approving a plan
 
 By default, unless the `spec.enableAutoApproval` is set to true, all Configurations require a manual approval. You can do this by toggling an annotation on the Configuration itself.
@@ -160,6 +166,12 @@ To approve the Configuration `bucket`:
 
 ```shell
 $ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true --overwrite
+```
+
+Or if using the [tnctl](docs/terranetes-controller/developer/tnctl.md) cli, you can type
+
+```shell
+$ tnctl approve -n NAMESPACE NAME
 ```
 
 ## Deleting the resource
