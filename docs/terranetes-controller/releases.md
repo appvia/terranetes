@@ -4,6 +4,57 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.10
+
+Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-windows-amd64.exe
+
+### Bug Fixes
+* Fixed an issue where the logs where not being shown when an error was encountered in the terranetes init by @gambol99 in https://github.com/appvia/terranetes-controller/pull/396
+* Fixed an issue in tnctl which wasn't find the logs correctly in the tnctl log by @gambol99 in https://github.com/appvia/terranetes-controller/pull/401
+
+### What's Changed
+* [HELM] - Release for v0.3.9 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/390
+* [DOCS] - Updating the Readme by @gambol99 in https://github.com/appvia/terranetes-controller/pull/391
+* [E2E] - Release Dependency Workflow by @gambol99 in https://github.com/appvia/terranetes-controller/pull/392
+* [BUGFIX] - Additional Secrets by @gambol99 in https://github.com/appvia/terranetes-controller/pull/395
+* [BUILD] - Executor Service Account to terranetes-executor by @gambol99 in https://github.com/appvia/terranetes-controller/pull/394
+* [BUGFIX] - Init Errors Showing in Logs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/396
+* [BUILD] - Fixing Typo on Makefile Comment by @gambol99 in https://github.com/appvia/terranetes-controller/pull/399
+* Bump sigs.k8s.io/controller-runtime from 0.12.3 to 0.13.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/393
+* [CLI] - Logs Command Fixes by @gambol99 in https://github.com/appvia/terranetes-controller/pull/401
+* [E2E] - Fixing Namespace Creation in E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/402
+* [E2E] - Cleanup on E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/403
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/404
+* [BUILD] - Updating dependencies by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/400
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/405
+* Bump github.com/AlecAivazis/survey/v2 from 2.3.5 to 2.3.6 by @dependabot in https://github.com/appvia/terranetes-controller/pull/406
+* Bump k8s.io/apimachinery from 0.25.0 to 0.25.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/409
+* Bump k8s.io/code-generator from 0.25.0 to 0.25.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/411
+* Bump k8s.io/api from 0.25.0 to 0.25.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/410
+* Bump k8s.io/cli-runtime from 0.25.0 to 0.25.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/408
+* Bump github.com/onsi/ginkgo/v2 from 2.1.6 to 2.2.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/413
+* Bump k8s.io/apiextensions-apiserver from 0.25.0 to 0.25.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/414
+* Bump k8s.io/apimachinery from 0.25.1 to 0.25.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/416
+* Bump k8s.io/code-generator from 0.25.1 to 0.25.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/418
+* Bump k8s.io/apiextensions-apiserver from 0.25.1 to 0.25.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/415
+* Bump k8s.io/cli-runtime from 0.25.1 to 0.25.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/419
+* Bump github.com/go-swagger/go-swagger from 0.30.2 to 0.30.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/421
+* Bump sigs.k8s.io/controller-tools from 0.9.2 to 0.10.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/417
+* Bump github.com/tcnksm/ghr from 0.15.0 to 0.16.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/422
+* Bump github.com/golangci/golangci-lint from 1.49.0 to 1.50.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/424
+* [BUILD] - Docker Ignore File by @gambol99 in https://github.com/appvia/terranetes-controller/pull/423
+* [HELM] - Ensure Legacy ServiceAccount by @gambol99 in https://github.com/appvia/terranetes-controller/pull/425
+* [FEATURE] - Deletion Event by @gambol99 in https://github.com/appvia/terranetes-controller/pull/427
+* [HELM] - Release v0.3.10 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/428
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.9...v0.3.10
+
 ## Release v0.3.9
 
 Terranetes CLI (tnctl)
