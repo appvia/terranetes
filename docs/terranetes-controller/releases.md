@@ -4,9 +4,63 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.11
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.11/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.11/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.11/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.11/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.11/tnctl-windows-amd64.exe
+
+### What's Changed
+
+* [DOCS] - Removing Tag Badge by @gambol99 in https://github.com/appvia/terranetes-controller/pull/431
+* [BUILD] - Golang 1.19 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/432
+* [BUILD] - Removing Deprecated Linters by @gambol99 in https://github.com/appvia/terranetes-controller/pull/433
+* [DOCS] - Fixing CLI Reference Docs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/434
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/435
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/437
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/436
+* [BUILD] - Github Action Update (Upload Artifacts) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/438
+* [BUILD] - Github Actions Upgrade by @gambol99 in https://github.com/appvia/terranetes-controller/pull/439
+* Bump github.com/spf13/cobra from 1.5.0 to 1.6.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/440
+* Bump github.com/onsi/gomega from 1.21.1 to 1.22.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/441
+* Bump github.com/onsi/ginkgo/v2 from 2.3.0 to 2.3.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/443
+* Bump k8s.io/code-generator from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/447
+* Bump k8s.io/apimachinery from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/445
+* Bump k8s.io/client-go from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/444
+* Bump k8s.io/api from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/449
+* Bump k8s.io/apiextensions-apiserver from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/446
+* Bump k8s.io/cli-runtime from 0.25.2 to 0.25.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/448
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/450
+* Bump golang.org/x/tools from 0.1.12 to 0.2.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/451
+* Bump github.com/onsi/ginkgo/v2 from 2.3.1 to 2.4.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/453
+* Bump github.com/golangci/golangci-lint from 1.50.0 to 1.50.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/454
+* Bump github.com/stretchr/testify from 1.8.0 to 1.8.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/452
+* Bump github.com/spf13/cobra from 1.6.0 to 1.6.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/455
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/456
+* Bump github.com/onsi/gomega from 1.22.1 to 1.23.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/457
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/458
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/459
+* [TESTS] - Fixing Unit Test by @gambol99 in https://github.com/appvia/terranetes-controller/pull/460
+* [CI] - Updating Cosign Action by @gambol99 in https://github.com/appvia/terranetes-controller/pull/461
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/462
+* Bump github.com/prometheus/client_golang from 1.13.0 to 1.13.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/463
+* Bump github.com/onsi/gomega from 1.23.0 to 1.24.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/464
+* Bump github.com/onsi/ginkgo/v2 from 2.4.0 to 2.5.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/465
+* Bump sigs.k8s.io/controller-runtime from 0.13.0 to 0.13.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/466
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/468
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/467
+* Bump github.com/prometheus/client_golang from 1.13.1 to 1.14.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/469
+* [HELM] - Chart for v0.3.11 Release by @gambol99 in https://github.com/appvia/terranetes-controller/pull/470
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.10...v0.3.11
+
 ## Release v0.3.10
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.10/tnctl-darwin-arm64
@@ -57,7 +111,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.9
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.9/tnctl-darwin-arm64
@@ -77,7 +131,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.8
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.8/tnctl-darwin-arm64
@@ -99,7 +153,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.7
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.7/tnctl-darwin-arm64
@@ -153,7 +207,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.6
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.6/tnctl-darwin-arm64
@@ -170,7 +224,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.5
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.5/tnctl-darwin-arm64
@@ -186,7 +240,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.4
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.4/tnctl-darwin-arm64
@@ -207,7 +261,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.3
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.3/tnctl-darwin-arm64
@@ -226,7 +280,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.2
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.2/tnctl-darwin-arm64
@@ -258,7 +312,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.1
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.1/tnctl-darwin-arm64
@@ -282,7 +336,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.3.0
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.0/tnctl-darwin-arm64
@@ -333,7 +387,7 @@ If you are managing the deployments outside of Helm, you simply need to use the 
 
 ## Release v0.2.9
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.9/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.9/tnctl-darwin-arm64
@@ -390,7 +444,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.2.8
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.8/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.8/tnctl-darwin-arm64
@@ -412,7 +466,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.2.7
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.7/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.7/tnctl-darwin-arm64
@@ -444,7 +498,7 @@ Terranetes CLI (tnctl)
 
 ## Release v0.2.6
 
-Terranetes CLI (tnctl)
+### Terranetes CLI (tnctl)
 
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.6/tnctl-darwin-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.2.6/tnctl-darwin-arm64
