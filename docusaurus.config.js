@@ -78,7 +78,7 @@ const config = {
           {
             to: '/terranetes-controller',
             position: 'left',
-            label: 'Terranetes Controller',
+            label: 'Docs',
           },
           {
             href: 'https://github.com/appvia/terranetes-controller',
