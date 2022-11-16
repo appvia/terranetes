@@ -4,6 +4,42 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.12
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.12/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.12/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.12/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.12/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.12/tnctl-windows-amd64.exe
+
+### Bug Fixes
+
+* Fixed an issue in the CLI not showing Checkov policies when infracost disabled by @gambol99 in https://github.com/appvia/terranetes-controller/pull/488
+
+### What's Changed
+
+* [HELM] - Chart Release Fix by @gambol99 in https://github.com/appvia/terranetes-controller/pull/471
+* [DOCS] - Security Policy by @gambol99 in https://github.com/appvia/terranetes-controller/pull/473
+* Bump azure/setup-kubectl from 2.0 to 3.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/474
+* Bump docker/metadata-action from 4.0.1 to 4.1.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/476
+* Bump golang.org/x/tools from 0.2.0 to 0.3.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/480
+* Bump helm/chart-releaser-action from 1.4.0 to 1.4.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/478
+* Bump docker/build-push-action from 3.0.0 to 3.2.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/475
+* Bump helm/chart-testing-action from 2.2.1 to 2.3.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/477
+* Bump github.com/onsi/gomega from 1.24.0 to 1.24.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/479
+* Bump k8s.io/apiextensions-apiserver from 0.25.3 to 0.25.4 by @dependabot in https://github.com/appvia/terranetes-controller/pull/481
+* Bump actions/download-artifact from 2 to 3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/485
+* Bump actions/dependency-review-action from 1 to 3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/486
+* Bump k8s.io/cli-runtime from 0.25.3 to 0.25.4 by @dependabot in https://github.com/appvia/terranetes-controller/pull/487
+* [CLI] - Checkov Policies on Describe by @gambol99 in https://github.com/appvia/terranetes-controller/pull/488
+* [HELM] - Chart Updates for v0.3.12 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/489
+* [BUILD] - Pegging the Artifact Upload to @v2.2.4 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/491
+* [BUILD] - Action Throw Upload Errors by @gambol99 in https://github.com/appvia/terranetes-controller/pull/492
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.11...v0.3.12
+
 ## Release v0.3.11
 
 ### Terranetes CLI (tnctl)
