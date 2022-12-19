@@ -181,6 +181,10 @@ dl.crd-meta {
   color: #000;
 }
 
+.navbar__items--right > :last-child {
+  padding-right: 12px;
+}
+
 .footer {
   border-top: 1px solid #ccc;
   background-color: #f6f6f6;
