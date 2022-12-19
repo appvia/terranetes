@@ -140,6 +140,14 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: '8UYG6BE3N6',
+        apiKey: 'baf98aa5d3c9f31cf4b0742bcaaf93da',
+        indexName: 'terranetes',
+        contextualSearch: false,
+        searchParameters: {},
+        searchPagePath: 'search',
+      },
     }),
 };
 
