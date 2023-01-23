@@ -4,6 +4,36 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.13
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.13/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.13/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.13/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.13/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.13/tnctl-windows-amd64.exe
+
+### 🐛 Bug Fixes
+* [BUGFIX] - Checkov Policies Zero Matches by @gambol99 in https://github.com/appvia/terranetes-controller/pull/496
+* [BUGFIX] - Wrap log watcher Pod with error handling and retry logic by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/493
+
+### ❇️ Features
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/499
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/498
+
+### What's Changed
+* Bump github.com/onsi/ginkgo/v2 from 2.5.0 to 2.5.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/495
+* [BUGFIX] - Wrap log watcher Pod with error handling and retry logic by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/493
+* Bump github.com/tidwall/gjson from 1.14.3 to 1.14.4 by @dependabot in https://github.com/appvia/terranetes-controller/pull/497
+* [BUGFIX] - Checkov Policies Zero Matches by @gambol99 in https://github.com/appvia/terranetes-controller/pull/496
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/499
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/498
+* [HELM] - Chart Changes for Release v0.3.13 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/500
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.12...v0.3.13
+
+
 ## Release v0.3.12
 
 ### Terranetes CLI (tnctl)
