@@ -4,6 +4,45 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.14
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-windows-amd64.exe
+
+
+### 🐛 Bug Fixes
+* Added job-template flag by @richardbeumer in https://github.com/appvia/terranetes-controller/pull/503
+* Remove the --name flag from tnctl logs as it is a required arg by @KashifSaadat in https://github.com/appvia/terranetes-controller/pull/520
+* Fixing Ready Condition Transition by @gambol99 in https://github.com/appvia/terranetes-controller/pull/535
+* Enable Webhooks Toggle by @gambol99 in https://github.com/appvia/terranetes-controller/pull/562
+* Reconcilation Annontation Predicate moved into Ensure Func by @gambol99 in https://github.com/appvia/terranetes-controller/pull/563
+* Disable Infracosts Update Check by @gambol99 in https://github.com/appvia/terranetes-controller/pull/565
+
+### ❇️ Features
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/499
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/498
+
+* Kubernetes Backend Secret Labels by @gambol99 in https://github.com/appvia/terranetes-controller/pull/533
+* Kubernetes State Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/534
+* Retry Logic for Pod Logs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/542
+* Lookup Providers in cluster for CLI Search by @gambol99 in https://github.com/appvia/terranetes-controller/pull/560
+* Retry CLI by @gambol99 in https://github.com/appvia/terranetes-controller/pull/568
+* Provider Secret Validation by @gambol99 in https://github.com/appvia/terranetes-controller/pull/575
+* Terraform Image Update to v1.3.7 by @github-actions in https://github.com/appvia/terranetes-controller/pull/546
+* Changing to CI Infracost Image by @gambol99 in https://github.com/appvia/terranetes-controller/pull/577
+* Checkov Image Update to v2.2.299 by @github-actions in https://github.com/appvia/terranetes-controller/pull/581
+
+### What's Changed
+* Helm Release v0.3.14 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/584
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.13...v0.3.14
+
+
 ## Release v0.3.13
 
 ### Terranetes CLI (tnctl)
