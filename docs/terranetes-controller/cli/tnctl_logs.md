@@ -3,7 +3,7 @@ title: "tnctl logs"
 ---
 ## tnctl logs
 
-Displays the logs from the current configuration
+Displays the latest logs for the given Configuration name
 
 ### Synopsis
 
@@ -17,11 +17,10 @@ tnctl logs NAME [OPTIONS] [flags]
 ### Options
 
 ```
-  -f, --follow             follow the logs
+  -f, --follow             Follow the logs
   -h, --help               help for logs
-      --name string        Is the name of the resource to create
-  -n, --namespace string   The namespace of the resource (default "default")
-      --stage string       Selects the stage to show logs for, else defaults to the condition
+  -n, --namespace string   The namespace of the Configuration resource (default "default")
+      --stage string       Select the stage to show logs for, else defaults to the current Configuration state
 ```
 
 ### Options inherited from parent commands

@@ -15,6 +15,10 @@ generate the Configuration CRD required to use the module as a source.
 At present we support using the Terraform registry and GitHub user / organizations
 as a source for terraform modules.
 
+Note, you can lookup the available providers available to you by selecting the
+'check available' option. This option will use the currently configured kubeconfig
+to list providers available in that cluster.
+
 Add the terraform registry
 $ tnctl config sources add https://registry.terraform.io
 
@@ -23,6 +27,9 @@ $ tnctl config sources add https://registry.terraform.io/namespaces/appvia
 
 Adding a GitHub user or organization
 $ tnctl config sources add https://github.com/appvia
+
+# Search for all modules which have the term database using an 'aws' provider
+$ tnctl search database -p aws
 
 Write the generated output to a file
 $ tnctl search -o filename
