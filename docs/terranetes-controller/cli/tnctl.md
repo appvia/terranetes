@@ -34,7 +34,9 @@ tnctl [flags]
 * [tnctl convert](../tnctl_convert)	 - Used to convert between different formats
 * [tnctl describe](../tnctl_describe)	 - Used to describe the current state of the configuration
 * [tnctl kubectl](../tnctl_kubectl)	 - Kubectl plugin related commands
-* [tnctl logs](../tnctl_logs)	 - Displays the logs from the current configuration
+* [tnctl logs](../tnctl_logs)	 - Displays the latest logs for the given Configuration name
+* [tnctl retry](../tnctl_retry)	 - Attempts to restart a configuration
 * [tnctl search](../tnctl_search)	 - Searches for cloud resources to consume
+* [tnctl state](../tnctl_state)	 - Used to manage the Terraform Configuration state secrets
 * [tnctl workflow](../tnctl_workflow)	 - Can be used to generate a skelton CI pipeline
 
