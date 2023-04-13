@@ -1,4 +1,15 @@
-# Default Variables
+---
+sidebar_position: 3
+---
+
+# Injecting Defaults
+
+Currently via policies platform administrators have the ability to inject both variables and or secrets into developer Configurations, common use cases
+
+* Removing the administrative headache from the developers around which values to use, or enforcing specific organizational defaults on upstream modules.
+* Sharing credentials, tokens across an collection of Configurations, for example access to private repositories.
+
+## Variables
 
 Default environments provide the ability to inject environment-specific variables into a configuration based on a selector. An example might be:
 
@@ -29,7 +40,7 @@ spec:
       environment: dev
 ```
 
-# Default Secrets
+## Secrets
 
 :::tip
 This feature is only available from v0.3.15 onwards
