@@ -4,6 +4,76 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.17
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-windows-amd64.exe
+
+### What's Changed#
+* [HELM] - Release for v0.3.16 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/611
+* Bump golang.org/x/net from 0.6.0 to 0.7.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/631
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.16...v0.3.17
+
+## Release v0.3.16
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-windows-amd64.exe
+
+### ❇️ FEATURES
+* Updated the infracosts ci image to ci-0.10.17 in https://github.com/appvia/terranetes-controller/pull/607
+
+### 🐛 BUGS
+* Fixes a bug from v0.3.15 where the CRD definition was not updated in https://github.com/appvia/terranetes-controller/pull/608
+
+### What's Changed
+* [HELM] - Release v0.3.15 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/602
+* Bump golang.org/x/oauth2 from 0.4.0 to 0.5.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/603
+* Bump golang.org/x/tools from 0.5.0 to 0.6.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/604
+* Bump github.com/onsi/ginkgo/v2 from 2.8.0 to 2.8.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/606
+* Bump github.com/hashicorp/go-getter from 1.6.2 to 1.7.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/605
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/607
+* [BUILD] - Updating the Boilerplate by @gambol99 in https://github.com/appvia/terranetes-controller/pull/608
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.15...v0.3.16
+
+## Release v0.3.15
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.15/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.15/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.15/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.15/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.15/tnctl-windows-amd64.exe
+
+### ❇️ Features
+* [FEATURE] - Adding Default Secrets into Policy by @gambol99 in https://github.com/appvia/terranetes-controller/pull/600
+
+### What's Changed
+* [HELM] - Release v0.3.14 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/591
+* [BUILD] - Makefile Fix Typo by @gambol99 in https://github.com/appvia/terranetes-controller/pull/592
+* Bump github.com/golangci/golangci-lint from 1.50.1 to 1.51.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/593
+* Bump sigs.k8s.io/controller-tools from 0.11.2 to 0.11.3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/595
+* Bump github.com/golangci/golangci-lint from 1.51.0 to 1.51.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/596
+* Bump docker/build-push-action from 3.3.0 to 4.0.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/594
+* Bump sigs.k8s.io/controller-runtime from 0.14.2 to 0.14.4 by @dependabot in https://github.com/appvia/terranetes-controller/pull/597
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/599
+* [FEATURE] - Adding Default Secrets into Policy by @gambol99 in https://github.com/appvia/terranetes-controller/pull/600
+* [BUILD] - Changing to v3 Save Github Actions by @gambol99 in https://github.com/appvia/terranetes-controller/pull/601
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.14...v0.3.15
+
 ## Release v0.3.14
 
 ### Terranetes CLI (tnctl)
@@ -13,7 +83,6 @@ sidebar_position: 2
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-linux-amd64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-linux-arm64
 * https://github.com/appvia/terranetes-controller/releases/download/v0.3.14/tnctl-windows-amd64.exe
-
 
 ### 🐛 Bug Fixes
 * Added job-template flag by @richardbeumer in https://github.com/appvia/terranetes-controller/pull/503
@@ -26,7 +95,6 @@ sidebar_position: 2
 ### ❇️ Features
 * [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/499
 * [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/498
-
 * Kubernetes Backend Secret Labels by @gambol99 in https://github.com/appvia/terranetes-controller/pull/533
 * Kubernetes State Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/534
 * Retry Logic for Pod Logs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/542
