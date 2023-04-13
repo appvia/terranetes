@@ -23,5 +23,3 @@ controller:
 ```
 
 Alternatively if you are not using the Helm chart, update the deployment yaml to include the `--executor-secret` flags.
-
-
