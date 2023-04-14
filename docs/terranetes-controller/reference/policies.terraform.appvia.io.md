@@ -1110,6 +1110,37 @@ sidebar_position: 1
 
 <div class="property depth-3">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.defaults[*].secrets">.spec.defaults[*].secrets</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>Secrets is a collection of secrets which are used to inject variables into the configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.defaults[*].secrets[*]">.spec.defaults[*].secrets[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.defaults[*].selector">.spec.defaults[*].selector</h3>
 </div>
 <div class="property-body">
@@ -1303,7 +1334,7 @@ sidebar_position: 1
 <div class="property-body">
 <div class="property-meta">
 <span class="property-type">object</span>
-<span class="property-required">Required</span>
+
 </div>
 
 <div class="property-description">
