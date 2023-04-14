@@ -290,7 +290,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ValueFromSource is a collection of value from sources, where the source of the value is is taken from a secret</p>
+<p>ValueFromSource is a collection of value from sources, where the source of the value is taken from a secret</p>
 
 </div>
 
