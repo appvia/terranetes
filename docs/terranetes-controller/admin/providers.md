@@ -26,6 +26,27 @@ spec:
   variables: {}
 ```
 
+### Default Provider
+
+In order to remove the need for developers to discover Providers, platform administrators can set a [Provider](../reference/providers.terraform.appvia.io.md) to be default. Under these condition any [Configuration](../reference/configurations.terraform.appvia.io.md) which has not defined the `spec.providerRef.name` will have the default Provider automatically injected for them.
+
+:::important
+Note, this feature is only available from >= v0.3.19 release
+:::
+
+In order to configure an [Provider](../reference/providers.terraform.appvia.io.md) as default, add the annotation `terranetes.appvia.io/default-provider: "true"` as before. Note, only one [Provider](../reference/providers.terraform.appvia.io.md) can be configured as 'default' at a time.
+
+```yaml
+---
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Provider
+metadata:
+  name: aws
+  annotations:
+    terranetes.appvia.io/default-provider: "true"
+spec:
+```
+
 ## Configure credentials
 
 In [Providers](../reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials:
