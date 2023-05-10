@@ -50,7 +50,7 @@ cat <<EOF > backend.tf
 terraform {
   backend "s3" {
     bucket     = "terranetes-controller-state"
-    key        = "cluster_one/{{ .namespace }}/{{ .name }}
+    key        = "cluster_one/{{ .namespace }}/{{ .name }}"
     region     = "eu-west-2"
     access_key = "AWS_ACCESS_KEY_ID"
     secret_key = "AWS_SECRET_ACCESS_KEY"
