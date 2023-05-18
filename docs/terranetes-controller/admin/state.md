@@ -58,6 +58,14 @@ terraform {
 }
 EOF
 ```
+Note the template can reference a number variables
+
+* `controller.namespace` is the namespace where the terranetes-controller is running.
+* `controller.labels` is a map of all the labels from the terranetes controller.
+* `controller.suffix` is a controller default used for secrets (default: tfstate).
+* `configuration` is the entire Configuration object this you can reference `configuration.Metadata.Namespace` for instance.
+* `name` is the Configuration name being executed on
+* `namespace` is the Configuration namespace and can be used to as a s3 key per namespace for example
 
 :::tip
 We inject the entire [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resource into the context on the template, so you can reference anything side via `configuration.PATH`
