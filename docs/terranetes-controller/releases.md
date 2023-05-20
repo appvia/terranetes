@@ -4,15 +4,153 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.3.22
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.23/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.23/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.23/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.23/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.23/tnctl-windows-amd64.exe
+
+### ❇️ FEATURES
+* [FEATURE] - Remove Provider Constraint by @gambol99 in https://github.com/appvia/terranetes-controller/pull/722
+* [FEATURE] - Allowing for Remapping of ValueFrom Inputs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/723
+* [FEATURE] - Renaming ValueFrom Secret Name by @gambol99 in https://github.com/appvia/terranetes-controller/pull/724
+
+### What's Changed
+* [E2E] - Dummy Terraform Module by @gambol99 in https://github.com/appvia/terranetes-controller/pull/704
+* [E2E] - Dummy Terraform Module by @gambol99 in https://github.com/appvia/terranetes-controller/pull/717
+* [E2E] - Switching Dummy Module Requirements by @gambol99 in https://github.com/appvia/terranetes-controller/pull/719
+* [E2E] - Custom Backend Testing by @gambol99 in https://github.com/appvia/terranetes-controller/pull/720
+* Bump golang.org/x/oauth2 from 0.7.0 to 0.8.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/721
+* [FEATURE] - Remove Provider Constraint by @gambol99 in https://github.com/appvia/terranetes-controller/pull/722
+* [FEATURE] - Allowing for Remapping of ValueFrom Inputs by @gambol99 in https://github.com/appvia/terranetes-controller/pull/723
+* [FEATURE] - Renaming ValueFrom Secret Name by @gambol99 in https://github.com/appvia/terranetes-controller/pull/724
+* [HELM] - Release for v0.3.23 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/725
+* [BUILD] - Fixing Image Building in E2E by @gambol99 in https://github.com/appvia/terranetes-controller/pull/726
+* [E2E] - Bumping Terraform Module Version (Disabled ACLs) by @gambol99 in https://github.com/appvia/terranetes-controller/pull/727
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.22...v0.3.23
+
+## Release v0.3.22
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.22/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.22/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.22/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.22/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.22/tnctl-windows-amd64.exe
+
+### What's Changed
+* [HELM] - Release v0.3.22 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/700
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.21...v0.3.22
+
+## Release v0.3.21
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.21/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.21/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.21/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.21/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.21/tnctl-windows-amd64.exe
+
+### ❇️ FEATURES
+* [FEATURE] - Deletion of Namespace Protection Webhook by @gambol99 in https://github.com/appvia/terranetes-controller/pull/697
+
+### 🐛 BUGS
+* [BUGFIX] - Azure Identity Binding by @gambol99 in https://github.com/appvia/terranetes-controller/pull/696
+
+### What's Changed
+
+* [BUGFIX] - Azure Identity Binding by @gambol99 in https://github.com/appvia/terranetes-controller/pull/696
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/694
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/693
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/692
+* [FEATURE] - Delection of Namespace Protection Webhook by @gambol99 in https://github.com/appvia/terranetes-controller/pull/697
+* [HELM] - Release v0.3.21 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/698
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.20...v0.3.21
+
+## Release v0.3.20
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.20/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.20/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.20/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.20/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.20/tnctl-windows-amd64.exe
+
+### ❇️ FEATURES
+* [FEATURE] - Namespace Protection by @gambol99 in https://github.com/appvia/terranetes-controller/pull/688
+* [FEATURE] - Check Namespace Status by @gambol99 in https://github.com/appvia/terranetes-controller/pull/689
+
+### 🐛 BUGS
+* [BUGFIX] - Terranetes Namespace Error Message by @gambol99 in https://github.com/appvia/terranetes-controller/pull/691
+
+### What's Changed
+* Bump k8s.io/apimachinery from 0.27.0 to 0.27.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/683
+* Bump k8s.io/code-generator from 0.27.0 to 0.27.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/684
+* [FEATURE] - Namespace Protection by @gambol99 in https://github.com/appvia/terranetes-controller/pull/688
+* [FEATURE] - Check Namespace Status by @gambol99 in https://github.com/appvia/terranetes-controller/pull/689
+* [HELM] - Release v0.3.20 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/690
+* [BUGFIX] - Terranetes Namespace Error Message by @gambol99 in https://github.com/appvia/terranetes-controller/pull/691
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.19...v0.3.20
+
+## Release v0.3.19
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.19/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.19/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.19/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.19/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.19/tnctl-windows-amd64.exe
+
+### ❇️ FEATURES
+* [FEATURE] - Default Providers by @gambol99 in https://github.com/appvia/terranetes-controller/pull/676
+
+### What's Changed
+
+* Bump k8s.io/apimachinery from 0.26.3 to 0.27.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/678
+* Bump github.com/prometheus/client_golang from 1.14.0 to 1.15.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/677
+* [FEATURE] - Default Providers by @gambol99 in https://github.com/appvia/terranetes-controller/pull/676
+* [BUILD] - Golang Version 1.19-1.20 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/679
+* [HELM] - Release v0.3.19 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/680
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.18...v0.3.19
+
+## Release v0.3.18
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.18/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.18/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.18/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.18/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.18/tnctl-windows-amd64.exe
+
+### What's Changed
+* [HELM] - Release v0.3.17 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/653
+* [HELM] - Release v0.3.18 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/675
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.17...v0.3.18
+
 ## Release v0.3.17
 
 ### Terranetes CLI (tnctl)
 
-* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-amd64
-* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-darwin-arm64
-* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-amd64
-* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-linux-arm64
-* https://github.com/appvia/terranetes-controller/releases/download/v0.3.16/tnctl-windows-amd64.exe
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.17/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.17/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.17/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.17/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.3.17/tnctl-windows-amd64.exe
 
 ### What's Changed#
 * [HELM] - Release for v0.3.16 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/611
