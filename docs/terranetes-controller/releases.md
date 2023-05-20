@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Releases
 
-## Release v0.3.22
+## Release v0.3.23
 
 ### Terranetes CLI (tnctl)
 
