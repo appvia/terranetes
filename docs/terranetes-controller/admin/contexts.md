@@ -91,7 +91,7 @@ The `spec.preload` in the [Provider](../reference/providers.terraform.appvia.io.
 Once this information has been defined, a [Context](../reference/contexts.terraform.appvia.io.md) resource be automatically provisioned and preloaded with details, as such;
 
 ```yaml
-[jest@starfury terranetes-controller]$ k get contexts.terraform.appvia.io default  -o yaml
+$ k get contexts.terraform.appvia.io default  -o yaml
 apiVersion: terraform.appvia.io/v1alpha1
 kind: Context
 metadata:
@@ -152,23 +152,42 @@ Contexts can be referenced from any [Configuration](../reference/configurations.
     name: bucket
   spec:
     module: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.10.1
-
     providerRef:
       name: aws
-
-    # Allows you to source in terraform inputs from one of more kubernetes secrets
     valueFrom:
-      -
-        # Retrieve the value from a specific context
-        context: default
-        # Is the key with the context resource which we should use. The translates
-        # to spec.variables.KEY.value
-        key: vpc
-        # Is the name which the value should be presented to terraform as
+      - context: default
+        key: vpc_id
         name: vpc_id
-        # Indicates the value, or context is not found is optional and will not fail the
-        # terraform run
-        optional: true
 ```
 
 The `spec.valueFrom` requires the [Context](../reference/contexts.terraform.appvia.io.md) name, the key is the name of the variable in the context and the name is the variable you need to present this as to the terraform module. The optional field simply means both the context and any value reference, if they don't exist, can continue without failure. By default, anything missing (context or value) will defer the [Configuration](../reference/configurations.terraform.appvia.io.md) until they are present.
+
+## Using a Custom Preload
+
+Terranetes comes prebuilt with a loader to extract details from the cloud vendor, but perhaps it doesn't contain the details you need. You can solve this in two ways
+
+a) Configuration can reference multiple [Context](../reference/contexts.terraform.appvia.io.md) resources, so you can provision with additional details / values.
+b) Override the preload image in the controller and run your own custom loader.
+
+The first one is simple and can achieved in multiple ways; manually, ci, helm and so forth. The second option, overloading the controller's preload images requires you update the `--preload-image` argument. In the helm chart, this can be done via
+
+```yaml
+controller:
+  images:
+    preload: IMAGE:TAG
+```
+
+Note, the entrypoint when using this image is currently hardcoded, so you have to ensure in the image we have an executable at `/bin/preload`. The following arguments will also be passed, via environment variables to the execution
+
+* `CLOUD` is the cloud vendor designation from the [Provider](../reference/providers.terraform.appvia.io.md) the preload is configured on i.e. `spec.provider`.
+* `CLUSTER` is the cluster name from the preload configuration i.e `spec.preload.cluster`.
+* `CONTEXT` is the name of the context (`spec.preload.context`) defined in the [Provider](../reference/providers.terraform.appvia.io.md) configuration.
+* `PROVIDER` is the name of the provider the preload was configured on `metadata.name` on the [Provider](../reference/providers.terraform.appvia.io.md) resource.
+* `REGION` is the cloud region configured in the [Provider](../reference/providers.terraform.appvia.io.md) preload configuration i.e `spec.preload.region`.
+
+When using a custom loader the executable is responsible for two things
+
+* Retrieving the cloud details and constructing a valid [Context](../reference/contexts.terraform.appvia.io.md) resource.
+* Creating or updating the `CONTEXT` in the Kubernetes cluster itself.
+
+The controller is responsible for ensuring execution occurs, handing jobs fails and configuring the job with [Provider](../reference/providers.terraform.appvia.io.md) credentials.
