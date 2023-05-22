@@ -10,6 +10,11 @@ source_repositories:
     cr_paths:
       - docs/crds
     metadata:
+      contexts.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
       configurations.terraform.appvia.io:
         owner:
           - https://github.com/orgs/appvia/teams/product
