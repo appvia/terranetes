@@ -88,4 +88,17 @@ controller:
   backendTemplate: backend-s3
 ```
 
+:::tip
+**Note:** if you are using the helm chart >= v0.6.0, the format has changed to the below format
+:::
+
+```yaml
+backend:
+  name: backend-s3
+  # optional: but will create the backend.name kubernetes secret based on this
+  # content in 'template'
+  template: |
+    TEMPLATE_CONTENT
+```
+
 If you are deploying the controller yourself, update the `--backend-template=backend-s3` command line flag.
