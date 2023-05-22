@@ -317,6 +317,24 @@ sidebar_position: 1
 
 <div class="property depth-3">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].context">.spec.valueFrom[*].context</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Context is the context is the name of the terraform context where the value should be retrieved from</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].key">.spec.valueFrom[*].key</h3>
 </div>
 <div class="property-body">
@@ -327,6 +345,24 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>Key is the key in the secret which we should used for the value</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.valueFrom[*].name">.spec.valueFrom[*].name</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Name is the name which we use when injecting the value into the terraform code i.e. the secret maye contain data.DB_HOST but you call this database_hostname. Note, for backwards compatiability if no name is provided, we using the key at the name</p>
 
 </div>
 
@@ -358,7 +394,7 @@ sidebar_position: 1
 <div class="property-body">
 <div class="property-meta">
 <span class="property-type">string</span>
-<span class="property-required">Required</span>
+
 </div>
 
 <div class="property-description">

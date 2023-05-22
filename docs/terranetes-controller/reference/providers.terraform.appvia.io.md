@@ -119,6 +119,114 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload">.spec.preload</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Preload defines the preload options for this the provider is being used to preload data from the cloud provider.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload.cluster">.spec.preload.cluster</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Cluster is the name of the kubernetes cluster we use to pivot the data around</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload.context">.spec.preload.context</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Context is the context name of the Context we should create from the preload implementation</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload.enabled">.spec.preload.enabled</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">boolean</span>
+
+</div>
+
+<div class="property-description">
+<p>Enabled indicates if the preloader is enabled</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload.interval">.spec.preload.interval</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Interval is the interval to run the preloader</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.spec.preload.region">.spec.preload.region</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Region is the cloud region the cluster is location in</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.provider">.spec.provider</h3>
 </div>
 <div class="property-body">
@@ -731,6 +839,24 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>Type of condition in CamelCase or in foo.example.com/CamelCase. &mdash; Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.lastPreloadTime">.status.lastPreloadTime</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>LastPreloadTime is the last time the provider was used to run a preload job</p>
 
 </div>
 
