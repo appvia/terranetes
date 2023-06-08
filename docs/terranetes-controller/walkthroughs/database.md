@@ -138,9 +138,10 @@ spec:
   writeConnectionSecretToRef:
     name: database
     keys:
-      - db_instance:database_hostname
-      - db_username:database_username
-      - db_password:database_password
+      - db_instance_address:database_hostname
+      - db_instance_username:database_username
+      - db_instance_password:database_password
+      - db_instance_port:database_port
 
   variables:
     allocated_storage: 5
@@ -202,8 +203,9 @@ You can verify access via
 kubectl -n apps exec -ti $(kubectl -n apps get pod --label app=frontend) sh
 ```
 
-And access the cluster via `mysql` cli
+And access the cluster via `mysql` cli by running the below command and entering the database user password when prompted.
 
 ```shell
-mysql -h ${DATABASE_HOSTNAME} -u ${DATABASE_USERNAME} -p ${DATABSE_PASSWORD}
+mysql -h ${DATABASE_HOSTNAME} -P ${DATABASE_PORT} -u ${DATABASE_USERNAME} -p
+Enter password:
 ```
