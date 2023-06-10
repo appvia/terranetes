@@ -71,3 +71,7 @@ spec:
     secrets:
       - auth_key
 ```
+
+:::caution
+Note, terranetes controller had a bug prior to v0.3.30 in regard to default secrets. The `setup` stage, which is responsible retrieving the `spec.module` (terraform code) did not have access to the secret; thus if your using the feature to support private repository access, you'll have issues in the delete. This was fixed [here](https://github.com/appvia/terranetes-controller/pull/812)
+:::
