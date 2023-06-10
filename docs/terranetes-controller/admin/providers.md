@@ -108,6 +108,7 @@ Injected identities are known by a few names depending on the cloud provider you
 * Azure - [pod identity](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
 
 In all cases these perform the same task:
+
 * One or more roles are configured in the cloud provider with defined permissions.
 * A binding (cloud vendor dependent) is provisioned that gives a [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in Kubernetes the ability to retrieve short-term credentials for a defined Role.
 * The cloud vendor generates ephemeral credentials and returns them to the workload.
@@ -151,6 +152,66 @@ When the pod is created:
 2. It checks for a binding between the service account and the defined IAM role.
 3. If such a binding exists, it generates credentials and injects them via a secret as environment variables into the pod.
 
+### Configure Azure AAD Pod Identity
+
+In order to use Azure's Pod identity service we need to
+
+1. Ensure the [Provider](../reference/providers.terraform.appvia.io.md) msi configuration
+
+```yaml
+apiVersion: terraform.appvia.io/v1alpha1
+kind: Provider
+metadata:
+  name: azurerm
+spec:
+  # Anything in configuration section is converting to HCL and configured the provider
+  configuration:
+    use_msi: true
+    features: {}
+  source: injected
+  provider: azurerm
+```
+
+:::caution
+Ensure you have added the `use_msi: true` on the Provider configuration otherwise the AzureRM provider will attempt to fallback to the `az` CLI and complain the binary is not found
+:::
+
+2. Provision the Azure Identity in the subscription (https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/)
+3. Provision the Azure Identity in the controller namespace
+
+```yaml
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzureIdentity
+metadata:
+  annotations:
+    aadpodidentity.k8s.io/Behavior: namespaced
+  generation: 3
+  name: terranetes-controller
+  namespace: terraform-system
+spec:
+  clientID: CLIENT_ID
+  resourceID: /subscriptions/SUBSCRIPTION/resourcegroups/RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/IDENTITY
+  type: 0
+```
+
+4. Provision the binding to the pods
+
+```yaml
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzureIdentityBinding
+metadata:
+  name: terranetes-controller
+  namespace: terraform-system
+spec:
+  azureIdentity: IDENTITY
+  selector: terranetes-executor
+```
+
+:::caution
+Details on binding can be found [here](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/), but essentially it's used to filter the pods in the namespace and provide the permissions to the pods that match the labels - i.e. the pod must have label of the same name and value.
+
+As of <= v0.3.30 the pod selector is not configurable in the controller to ensure you use `terranetes-executor` on the binding.
+:::
 
 #### Service Account Permissions
 
