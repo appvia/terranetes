@@ -17,14 +17,14 @@ metadata:
   name: permitted-modules
 spec:
   constraints:
-    selector:
-      namespace:
-        matchLabels: {}
-        matchExpressions: []
-      resource:
-        matchLabels: {}
-        matchExpressions: []
     modules:
+      selector:
+        namespace:
+          matchLabels: {}
+          matchExpressions: []
+        resource:
+          matchLabels: {}
+          matchExpressions: []
       allowed:
         - "https://github.com/appvia/.*"
 ```
@@ -61,13 +61,13 @@ metadata:
   name: default
 spec:
   constraints:
-    selector:
-      namespace:
-        matchExpressions:
-          - key: kubernetes.io/metadata.name
-            operator: In
-            values: [infra, ci]
     modules:
+      selector:
+        namespace:
+          matchExpressions:
+            - key: kubernetes.io/metadata.name
+              operator: In
+              values: [infra, ci]
       allowed:
         - "https://github.com/elsewhere/.*"
 ```
