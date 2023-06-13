@@ -166,8 +166,9 @@ metadata:
 spec:
   # Anything in configuration section is converting to HCL and configured the provider
   configuration:
+    subscription_id: AZURE_SUBSCRIPTION_ID
+    tenant_id: AZURE_TENANT_ID
     use_msi: true
-    features: {}
   source: injected
   provider: azurerm
 ```
