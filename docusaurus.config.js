@@ -14,7 +14,7 @@ const config = {
   trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/appvia-logo.svg',
+  favicon: 'img/favicon-docs.svg',
   organizationName: 'appvia',
   projectName: 'terranetes',
   i18n: {
@@ -68,7 +68,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Appvia',
+        title: '',
         logo: {
           alt: 'Appvia Logo',
           src: '/img/appvia-logo.svg',

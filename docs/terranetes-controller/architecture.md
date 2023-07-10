@@ -6,6 +6,6 @@ sidebar_position: 3
 
 The following diagram demos the architecture for the terraform controller.
 
-![Architecture](/img/terranetes-controller-arch.jpg)
+![Architecture](/img/terranetes-controller-arch.png)
 
 
