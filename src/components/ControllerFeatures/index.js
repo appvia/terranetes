@@ -1,11 +1,15 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 
 const FeatureList = [
   {
     title: 'Self Service Cloud Resources',
-    Svg: require('@site/static/img/self-serve.svg').default,
+    imageLight: '/img/self-serve.svg',
+    imageDark: '/img/self-serve-dark.svg',
     description: (
       <>
         Allows developers and teams to self-serve their application dependencies
@@ -15,7 +19,8 @@ const FeatureList = [
   },
   {
     title: 'Enforce Security Policy Checks',
-    Svg: require('@site/static/img/security.svg').default,
+    imageLight: '/img/security.svg',
+    imageDark: '/img/security-dark.svg',
     description: (
       <>
         Platform teams may enforce technical controls to verify resources meet
@@ -26,7 +31,8 @@ const FeatureList = [
   },
   {
     title: 'Predicted Cost Management',
-    Svg: require('@site/static/img/costs.svg').default,
+    imageLight: '/img/costs.svg',
+    imageDark: '/img/costs-dark.svg',
     description: (
       <>
         Integrates with cost management tools, allowing developers to view and
@@ -36,11 +42,21 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ title, imageLight, imageDark, description }) {
+  const imageUrl1 = useBaseUrl(imageDark);
+  const imageUrl2 = useBaseUrl(imageLight);
+
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <ThemedImage
+          className={styles.featureSvg}
+          sources={{
+            light: imageUrl2,
+            dark: imageUrl1,
+          }}
+          alt="Feature Image"
+        />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -49,6 +65,7 @@ function Feature({Svg, title, description}) {
     </div>
   );
 }
+
 
 export default function Features() {
   return (
