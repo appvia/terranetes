@@ -70,9 +70,9 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          alt: 'Appvia Logo',
-          src: '/img/appvia-logo.svg',
-          href: 'https://appvia.io',
+          alt: 'Terranetes Logo',
+          src: '/img/logo.svg',
+          href: 'https://terranetes.io/',
         },
         items: [
           {
