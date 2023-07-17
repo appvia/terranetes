@@ -13,7 +13,7 @@ The following diagram demos the architecture for the terraform controller.
   alt="Docusaurus themed image"
   sources={{
     light: useBaseUrl('/img/terranetes-controller-arch.png'),
-    dark: useBaseUrl('/img/terranetes-controller-arch.png'),
+    dark: useBaseUrl('/img/terranetes-controller-arch-dark.png'),
   }}
 />
 
