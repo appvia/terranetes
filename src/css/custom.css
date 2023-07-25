@@ -34,10 +34,45 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+[data-theme='dark'] footer {
+  background-color: #212020; /* Set your desired dark mode background color here */
+  color: #ddd; /* Set your desired text color for dark mode */
+}
+
+[data-theme='dark'] footer a {
+  color: #96a49c; /* Set your desired link color for dark mode */
+}
+
+[data-theme='dark'] footer .footer__title {
+  color: #9eaba4; /* Set your desired link color for dark mode */
+}
+
+[data-theme='dark'] .navbar {
+  background-color: #212020; /* Set your desired dark mode background color here */
+  color: #ddd; /* Set your desired text color for dark mode */
+}
+
+[data-theme='dark'] .navbar a {
+  color: #96a49c; /* Set your desired link color for dark mode */
+}
+
+
+/* Logo styles for dark mode */
+[data-theme='dark'] .navbar__logo {
+  background-image: url(/img/logo.svg); /* Use the dark mode logo */
+  /* Other logo styles for dark mode */
+}
+
+/* Logo styles for dark mode */
+[data-theme='dark'] .navbar__items{
+  color: #96a49c; /* Set your desired link color for dark mode */
+  /* Other logo styles for dark mode */
+}
+
 html[data-theme='dark'] {
   --ifm-color-primary: #fdbe9f;
   --ifm-property-header-background-color: #f09235;
-  --ifm-property-required-background-color: red;
+  --ifm-property-required-background-color: rgb(102, 99, 99);
   --ifm-property-type-background-color: green;
 }
 

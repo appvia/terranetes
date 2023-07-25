@@ -72,6 +72,7 @@ const config = {
         logo: {
           alt: 'Terranetes Logo',
           src: '/img/logo.svg',
+          srcDark: '/img/logo-dark.svg',
           href: 'https://terranetes.io/',
         },
         items: [
