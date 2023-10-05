@@ -1,9 +1,9 @@
 ---
-title: "tnctl retry"
+title: "tnctl retry configuration"
 ---
-## tnctl retry
+## tnctl retry configuration
 
-Attempts to trigger the resource to retry
+Attempts to restart a configuration
 
 ### Synopsis
 
@@ -23,10 +23,16 @@ Restart the Configuration but do not watch the logs:
 $ tnctl retry NAME --watch=false
 
 
+```
+tnctl retry configuration [OPTIONS] NAME [flags]
+```
+
 ### Options
 
 ```
-  -h, --help   help for retry
+  -h, --help               help for configuration
+  -n, --namespace string   The namespace the resource resides (default "default")
+  -w, --watch              Watch the logs after restarting the resource (default true)
 ```
 
 ### Options inherited from parent commands
@@ -38,7 +44,5 @@ $ tnctl retry NAME --watch=false
 
 ### SEE ALSO
 
-* [tnctl](../tnctl)	 - Terranetes CLI tool
-* [tnctl retry cloudresource](../tnctl_retry_cloudresource)	 - Attempts to restart a cloud resource
-* [tnctl retry configuration](../tnctl_retry_configuration)	 - Attempts to restart a configuration
+* [tnctl retry](../tnctl_retry)	 - Attempts to trigger the resource to retry
 

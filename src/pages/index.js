@@ -1,99 +1,98 @@
-import React, { useEffect, useState } from 'react'
-import classNames from 'classnames'
-import styles from './index.module.css'
-import Layout from '@theme/Layout'
-import Link from '@docusaurus/Link'
-import { useColorMode } from '@docusaurus/theme-common'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import { useLatestVersion } from '@docusaurus/plugin-content-docs/client'
-import Translate, { translate } from '@docusaurus/Translate'
-import { DeployTerranetesController } from '@theme/Command'
+import React, {useEffect, useState} from 'react';
+import classNames from 'classnames';
+import styles from './index.module.css';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import {useColorMode} from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {useLatestVersion} from '@docusaurus/plugin-content-docs/client';
+import Translate, {translate} from '@docusaurus/Translate';
+import {DeployTerranetesController} from '@theme/Command';
 
 // See translations for label and description
 
 function Cards() {
   const cards = [
     {
-      label: translate({ message: 'Self Service' }),
+      label: translate({message: 'Self Service'}),
       description: translate({
         message:
-          "Enable Developers to get the Cloud resources they need immediately, without going through external teams",
+          'Enable Developers to get the Cloud resources they need immediately, without going through external teams',
       }),
-      link: '/terranetes-controller/developer/configuration',
-      linkText: translate({ message: 'Learn More' }),
+      link: '/terranetes-controller/developer/provision',
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/control.svg',
     },
     {
-      label: translate({ message: 'Security' }),
+      label: translate({message: 'Security'}),
       description: translate({
         message:
           'Protect Cloud Credentials and enforce Checkov policies on Cloud resource configuration',
       }),
       link: '/terranetes-controller/category/administration',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/security.svg',
     },
     {
-      label: translate({ message: 'Simplicity' }),
+      label: translate({message: 'Simplicity'}),
       description: translate({
         message:
           'Keep the Terraform Configuration simple to use and easily consume existing modules',
       }),
       link: '/terranetes-controller/developer/tnctl',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/simplicity.svg',
     },
     {
-      label: translate({ message: 'Cost Estimates' }),
+      label: translate({message: 'Cost Estimates'}),
       description: translate({
         message:
-          "Directly see cost estimates for your Terraform Plan runs prior to creating the resources",
+          'Directly see cost estimates for your Terraform Plan runs prior to creating the resources',
       }),
       link: '/terranetes-controller/admin/costs',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/cost.png',
     },
     {
-      label: translate({ message: 'Approval Workflows' }),
+      label: translate({message: 'Approval Workflows'}),
       description: translate({
         message:
           'Approve changes before application, supporting Terraform Plan and Apply workflows',
       }),
-      link: '/terranetes-controller/developer/configuration/#approving-a-plan',
-      linkText: translate({ message: 'Learn More' }),
+      link: '/terranetes-controller/developer/provision/#approving-a-plan',
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/approval.svg',
     },
     {
-      label: translate({ message: 'Drift Detection' }),
+      label: translate({message: 'Drift Detection'}),
       description: translate({
         message:
           'Automatically detect any upstream changes in the cloud provider and ensure the Terraform State is inline with the resources it manages',
       }),
       link: '/terranetes-controller/developer/drift',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/drift.svg',
     },
     {
-      label: translate({ message: 'GitOps' }),
+      label: translate({message: 'GitOps'}),
       description: translate({
         message:
           'Leverage FluxCD as a Source for your Terraform Configuration resources',
       }),
       link: '/terranetes-controller/developer/flux',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/gitops.png',
     },
     {
-      label: translate({ message: 'Private Sources' }),
+      label: translate({message: 'Private Sources'}),
       description: translate({
-        message:
-          'Enable the use and consumption of private repositories',
+        message: 'Enable the use and consumption of private repositories',
       }),
       link: '/terranetes-controller/developer/private',
-      linkText: translate({ message: 'Learn More' }),
+      linkText: translate({message: 'Learn More'}),
       imageUrl: 'img/index/private_sources.png',
     },
-  ]
+  ];
 
   return (
     <section className={classNames(styles.cardContainer)}>
@@ -103,10 +102,7 @@ function Cards() {
             <h2>{card.label}</h2>
             <p>{card.description}</p>
             <div className={classNames(styles.cardSpacer)}></div>
-            <Link
-              className={'button button--primary'}
-              href={card.link}
-            >
+            <Link className={'button button--primary'} href={card.link}>
               {card.linkText}
             </Link>
           </div>
@@ -116,28 +112,28 @@ function Cards() {
         </div>
       ))}
     </section>
-  )
+  );
 }
 
 function DynamicHeaderImage() {
-  const { colorMode } = useColorMode()
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const {colorMode} = useColorMode();
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Pre-fetch images
   useEffect(() => {
-    const images = []
+    const images = [];
 
-    const darkLogo = (new Image().src = 'img/index/terranetes_dark.svg')
-    images.push(darkLogo)
+    const darkLogo = (new Image().src = 'img/index/terranetes_dark.svg');
+    images.push(darkLogo);
 
-    const lightLogo = (new Image().src = 'img/index/terranetes_light.svg')
-    images.push(lightLogo)
-  }, [])
+    const lightLogo = (new Image().src = 'img/index/terranetes_light.svg');
+    images.push(lightLogo);
+  }, []);
 
   // // Set dark mode correctly
   useEffect(() => {
-    setIsDarkMode(colorMode === 'dark')
-  }, [colorMode])
+    setIsDarkMode(colorMode === 'dark');
+  }, [colorMode]);
 
   return (
     <img
@@ -147,12 +143,12 @@ function DynamicHeaderImage() {
           : '/img/index/terranetes_light.svg'
       }
     />
-  )
+  );
 }
 
 export default function App() {
-  const context = useDocusaurusContext()
-  const latestVersion = useLatestVersion()
+  const context = useDocusaurusContext();
+  const latestVersion = useLatestVersion();
 
   return (
     <Layout
@@ -163,7 +159,7 @@ export default function App() {
       })}
     >
       <header className={classNames('hero', styles.hero)}>
-      <div className={classNames(styles.heroBefore)}>
+        <div className={classNames(styles.heroBefore)}>
           <div className={classNames(styles.heroSpaceContainer)}>
             <img
               className={classNames(styles.heroSpace)}
@@ -181,7 +177,8 @@ export default function App() {
           </span>
           <div className={classNames(styles.heroSubtitle, 'hero__subtitle')}>
             <Translate>
-              Enabling developers to securely self-serve Cloud dependencies in a controlled manner.
+              Enabling developers to securely self-serve Cloud dependencies in a
+              controlled manner.
             </Translate>
           </div>
 
@@ -218,5 +215,6 @@ export default function App() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }
+

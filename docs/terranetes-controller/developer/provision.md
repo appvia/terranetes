@@ -2,11 +2,46 @@
 sidebar_position: 1
 ---
 
-# Provisioning a Terraform Module
+# Provisioning a Resource
 
-## Example configuration resource
+There are two interfaces for provisioning cloud resources in terranetes
 
-On the consumption side the only resource required is the [Configuration](../reference/configurations.terraform.appvia.io.md) CRD. Below is an example:
+* The original [Configuration](../reference/configurations.terraform.appvia.io.md) CRD.
+* The newer model of a [CloudResource](../reference/cloudresources.terraform.appvia.io.md).
+
+The difference is largely around simplicity and control. While [Configurations](../reference/configurations.terraform.appvia.io.md) are essentially a one-to-one mapping to the terraform module, the [CloudResources](../reference/cloudresources.terraform.appvia.io.md) interface expose only a subset of the options, allowing platform teams to set defaults, inline their best practices, security or organizational policy. This arrangement has the added benefit of removing cognitive load surrounding the myriad of options a terraform module provides.
+
+## Example CloudResource
+
+Assuming [CloudResources](../reference/cloudresources.terraform.appvia.io.md) is being used,
+
+### 1. Search the service currently available
+
+Query the cluster to discovery the resources available to self-serve.
+
+```shell
+$ kubectl get plans
+NAME       LATEST   AGE
+database   v0.0.1   3s
+```
+
+### 2. View latest revision of the service
+
+```shell
+kubectl get revision $(kubectl get plan database -o json | jq .status.latest.name -r) -o yaml
+```
+
+The above will show you the options available on the plan.
+
+### 3. Create a CloudResource from a revision
+
+```shell
+tnctl create cloudresource database
+```
+
+## Example Configuration resource
+
+Alternatively, if you are using [Configurations](../reference/configurations.terraform.appvia.io.md). Below is an example:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -134,11 +169,10 @@ We use the resource outputs as the keys in the connection secret, so if a resour
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
-kind: Configuration
+kind: Configuration|CloudResource
 metadata:
   name: bucket
 spec:
-  module: https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v3.1.0
   providerRef:
     name: aws
   writeConnectionSecretToRef:
@@ -162,16 +196,22 @@ $ tnctl logs -n NAMESPACE NAME
 
 By default, unless the `spec.enableAutoApproval` is set to true, all Configurations require a manual approval. You can do this by toggling an annotation on the Configuration itself.
 
-To approve the Configuration `bucket`:
+To approve the Configuration or CloudResource `bucket`:
 
 ```shell
-$ kubectl -n apps annotate configurations bucket "terraform.appvia.io/apply"=true --overwrite
+$ kubectl -n apps annotate configuration bucket "terraform.appvia.io/apply"=true --overwrite
+```
+
+Or
+
+```shell
+$ kubectl -n apps annotate cloudresource bucket "terraform.appvia.io/apply"=true --overwrite
 ```
 
 Or if using the [tnctl](docs/terranetes-controller/developer/tnctl.md) cli, you can type
 
 ```shell
-$ tnctl approve -n NAMESPACE NAME
+$ tnctl approve cloudresource|configuration -n NAMESPACE NAME
 ```
 
 ## Deleting the resource

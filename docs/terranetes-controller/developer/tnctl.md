@@ -115,7 +115,7 @@ A faster alternative is to use the [logs](docs/terranetes-controller/cli/tnctl_l
 2. If the kubectl plugin integration has been enabled, you can use `kubectl tnctl logs [-n NAMESPACE] NAME [-f|--follow]`
 
 ```bash
-$ tnctl logs -n apps bucket -f
+$ tnctl logs [cloudresource|configuration] -n apps bucket -f
 [info] waiting for the job to be scheduled
 [info] watching build: bucket, generation: 1 for the job to be scheduled
 ........
@@ -136,13 +136,13 @@ use this backend unless the backend configuration changes.
 
 You can the use
 
-1. `tnctl describe -n NAMESPACE [NAME]`
-2. `kubectl tnctl describe [-n NAMESPACE] [NAME]`
+1. `tnctl describe [cloudresource|configuration] -n NAMESPACE [NAME]`
+2. `kubectl tnctl describe [cloudresource|configuration] [-n NAMESPACE] [NAME]`
 
 to provide insight into costs and policy.
 
 ```bash
-[jest@starfury terranetes-controller]$ bin/tnctl describe -n apps bucket
+[jest@starfury terranetes-controller]$ bin/tnctl describe [cloudresource|configuration] -n apps bucket
 Name:         bucket
 Namespace:    apps
 Created:      2022-08-09T09:59:28Z

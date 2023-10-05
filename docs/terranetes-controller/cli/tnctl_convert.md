@@ -25,5 +25,7 @@ tnctl convert COMMAND [flags]
 ### SEE ALSO
 
 * [tnctl](../tnctl)	 - Terranetes CLI tool
-* [tnctl convert configuration](../tnctl_convert_configuration)	 - Convert configuration yaml into a terraform module
+* [tnctl convert cloudresource](../tnctl_convert_cloudresource)	 - Used to convert cloudresource back to terraform
+* [tnctl convert configuration](../tnctl_convert_configuration)	 - Converts configuration back to a terraform module
+* [tnctl convert revision](../tnctl_convert_revision)	 - Used to convert revision back to terraform
 

@@ -27,16 +27,19 @@ tnctl [flags]
 
 ### SEE ALSO
 
-* [tnctl approve](../tnctl_approve)	 - Approves a terraform configuration for release
-* [tnctl build](../tnctl_build)	 - Can be used to package up the terraform module for consumption
+* [tnctl apply](../tnctl_apply)	 - Used to apply from a file or stdin
+* [tnctl approve](../tnctl_approve)	 - Approves either a configuration or cloudresource
 * [tnctl completion](../tnctl_completion)	 - Generate the autocompletion script for the specified shell
 * [tnctl config](../tnctl_config)	 - Used to manage the CLI configuration
 * [tnctl convert](../tnctl_convert)	 - Used to convert between different formats
+* [tnctl create](../tnctl_create)	 - Used to create a resource
+* [tnctl delete](../tnctl_delete)	 - Used to delete resource by file or resource name
 * [tnctl describe](../tnctl_describe)	 - Used to describe the current state of the configuration
+* [tnctl get](../tnctl_get)	 - Used to retrieve a list of resources
 * [tnctl kubectl](../tnctl_kubectl)	 - Kubectl plugin related commands
-* [tnctl logs](../tnctl_logs)	 - Displays the latest logs for the given Configuration name
-* [tnctl retry](../tnctl_retry)	 - Attempts to restart a configuration
+* [tnctl logs](../tnctl_logs)	 - Displays the latest logs for the resource
+* [tnctl retry](../tnctl_retry)	 - Attempts to trigger the resource to retry
 * [tnctl search](../tnctl_search)	 - Searches for cloud resources to consume
 * [tnctl state](../tnctl_state)	 - Used to manage the Terraform Configuration state secrets
-* [tnctl workflow](../tnctl_workflow)	 - Can be used to generate a skelton CI pipeline
+* [tnctl verify](../tnctl_verify)	 - Used to verify and validate resources
 

@@ -2,7 +2,7 @@
 sidebar_position: 3
 sidebar_class_name: green
 ---
-# Configuration Contexts
+# Contexts
 
 [Contexts](../reference/contexts.terraform.appvia.io.md) provide a means to share common configuration between [Configurations](../reference/configurations.terraform.appvia.io.md). The resource type is Cluster scoped and can be used by any Configuration in the cluster.
 
@@ -46,6 +46,10 @@ spec:
 The resource contains a map of variables; note each variable MUST have a `description` and `value`, with the value being any simple (integer, boolean, string) or complex type (maps, list, maps or maps and so forth).
 
 ## Configure Preloading
+
+:::warning
+Currently the cloud which has support for automatic preloading is **AWS**. Other providers are on the roadmap, but they have not been implemented yet.
+:::
 
 Terranetes has the ability to populate a [Context](../reference/contexts.terraform.appvia.io.md) automatically; retrieving details about the cluster the controller resides and populating them into a [Context](../reference/contexts.terraform.appvia.io.md). Currently this feature is limited to AWS only.
 
