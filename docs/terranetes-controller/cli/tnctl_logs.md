@@ -3,24 +3,24 @@ title: "tnctl logs"
 ---
 ## tnctl logs
 
-Displays the latest logs for the given Configuration name
+Displays the latest logs for the resource
 
 ### Synopsis
 
 
+Retrieves and follows the logs from a cloudresource or native configuration
 
+Viewing the logs for a configuration
+$ tnctl logs configuration NAME --follow
 
-```
-tnctl logs NAME [OPTIONS] [flags]
-```
+Viewing the logs for a cloudresource
+$ tnctl logs cloudresource NAME --follow
+
 
 ### Options
 
 ```
-  -f, --follow             Follow the logs
-  -h, --help               help for logs
-  -n, --namespace string   The namespace of the Configuration resource (default "default")
-      --stage string       Select the stage to show logs for, else defaults to the current Configuration state
+  -h, --help   help for logs
 ```
 
 ### Options inherited from parent commands
@@ -33,4 +33,6 @@ tnctl logs NAME [OPTIONS] [flags]
 ### SEE ALSO
 
 * [tnctl](../tnctl)	 - Terranetes CLI tool
+* [tnctl logs cloudresource](../tnctl_logs_cloudresource)	 - Displays the latest logs for the given resource
+* [tnctl logs configuration](../tnctl_logs_configuration)	 - Displays the latest logs for the given resource
 

@@ -4,7 +4,7 @@ source_repositories:
   - url: https://github.com/appvia/terranetes-controller
     organization: appvia
     short_name: terranetes-controller
-    commit_reference: master
+    commit_reference: develop
     crd_paths:
       - charts/terranetes-controller/crds
     cr_paths:
@@ -15,7 +15,17 @@ source_repositories:
           - https://github.com/orgs/appvia/teams/product
         topics:
           - terraform
+      cloudresources.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
       configurations.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
+      plans.terraform.appvia.io:
         owner:
           - https://github.com/orgs/appvia/teams/product
         topics:
@@ -26,6 +36,11 @@ source_repositories:
         topics:
           - terraform
       providers.terraform.appvia.io:
+        owner:
+          - https://github.com/orgs/appvia/teams/product
+        topics:
+          - terraform
+      revisions.terraform.appvia.io:
         owner:
           - https://github.com/orgs/appvia/teams/product
         topics:

@@ -1,21 +1,21 @@
 ---
-title: configurations.terraform.appvia.io
-linkTitle: Configuration
+title: cloudresources.terraform.appvia.io
+linkTitle: CloudResource
 sidebar_position: 1
 ---
-# Configuration
+# CloudResource
 
 
-<p class="crd-description">Configuration is the schema for terraform definitions in terraform controller</p>
+<p class="crd-description">CloudResource is the schema for terraform definitions in terraform controller</p>
 <dl class="crd-meta">
 <dt class="fullname">Full name:</dt>
-<dd class="fullname">configurations.terraform.appvia.io</dd>
+<dd class="fullname">cloudresources.terraform.appvia.io</dd>
 <dt class="groupname">Group:</dt>
 <dd class="groupname">terraform.appvia.io</dd>
 <dt class="singularname">Singular name:</dt>
-<dd class="singularname">configuration</dd>
+<dd class="singularname">cloudresource</dd>
 <dt class="pluralname">Plural name:</dt>
-<dd class="pluralname">configurations</dd>
+<dd class="pluralname">cloudresources</dd>
 <dt class="scope">Scope:</dt>
 <dd class="scope">Namespaced</dd>
 <dt class="versions">Versions:</dt>
@@ -92,7 +92,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ConfigurationSpec defines the desired state of a terraform</p>
+<p>CloudResourceSpec defines the desired state of a terraform</p>
 
 </div>
 
@@ -191,34 +191,16 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
-<h3 class="property-path" id="v1alpha1-.spec.module">.spec.module</h3>
-</div>
-<div class="property-body">
-<div class="property-meta">
-<span class="property-type">string</span>
-<span class="property-required">Required</span>
-</div>
-
-<div class="property-description">
-<p>Module is the URL to the source of the terraform module. The format of the URL is a direct implementation of terraform&rsquo;s module reference. Please see the following repository for more details <a href="https://github.com/hashicorp/go-getter">https://github.com/hashicorp/go-getter</a></p>
-
-</div>
-
-</div>
-</div>
-
-<div class="property depth-1">
-<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.spec.plan">.spec.plan</h3>
 </div>
 <div class="property-body">
 <div class="property-meta">
 <span class="property-type">object</span>
-
+<span class="property-required">Required</span>
 </div>
 
 <div class="property-description">
-<p>Plan is an optional reference to a plan this configuration is associated with. If not set and a policy exists to enforce a plan, the configuration will be rejected.</p>
+<p>Plan is the reference to the plan which this cloud resource is associated with. This field is required, and needs both the name and version the plan revision to use</p>
 
 </div>
 
@@ -555,7 +537,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>ConfigurationStatus defines the observed state of a terraform</p>
+<p>CloudResourceStatus defines the observed state of a terraform</p>
 
 </div>
 
@@ -744,6 +726,474 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationName">.status.configurationName</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>ConfigurationName is the of the configuration this cloudresource is managing on behalf of</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus">.status.configurationStatus</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Configuration is the state taken from the underlying configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions">.status.configurationStatus.conditions</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">array</span>
+
+</div>
+
+<div class="property-description">
+<p>Conditions represents the observations of the resource&rsquo;s current state.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*]">.status.configurationStatus.conditions[*]</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Condition is the current observed condition of some aspect of a resource</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].detail">.status.configurationStatus.conditions[*].detail</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Detail is any additional human-readable detail to understand this condition, for example, the full underlying error which caused an issue</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].lastTransitionTime">.status.configurationStatus.conditions[*].lastTransitionTime</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>LastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].message">.status.configurationStatus.conditions[*].message</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Message is a human readable message indicating details about the transition. This may be an empty string.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].name">.status.configurationStatus.conditions[*].name</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Name is a human-readable name for this condition.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].observedGeneration">.status.configurationStatus.conditions[*].observedGeneration</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">integer</span>
+
+</div>
+
+<div class="property-description">
+<p>ObservedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].reason">.status.configurationStatus.conditions[*].reason</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Reason contains a programmatic identifier indicating the reason for the condition&rsquo;s last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].status">.status.configurationStatus.conditions[*].status</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Status of the condition, one of True, False, Unknown.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-4">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.conditions[*].type">.status.configurationStatus.conditions[*].type</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+<span class="property-required">Required</span>
+</div>
+
+<div class="property-description">
+<p>Type of condition in CamelCase or in foo.example.com/CamelCase. &mdash; Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.costs">.status.configurationStatus.costs</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>Costs is the predicted costs of this configuration. Note this field is only populated when the integration has been configured by the administrator.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.costs.enabled">.status.configurationStatus.costs.enabled</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">boolean</span>
+
+</div>
+
+<div class="property-description">
+<p>Enabled indicates if the cost integration was enabled when this configuration was last executed.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.costs.hourly">.status.configurationStatus.costs.hourly</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Hourly is the hourly estimated cost of the configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.costs.monthly">.status.configurationStatus.costs.monthly</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Monthly is the monthly estimated cost of the configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.driftTimestamp">.status.configurationStatus.driftTimestamp</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>DriftTimestamp is the timestamp of the last drift detection</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastReconcile">.status.configurationStatus.lastReconcile</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>LastReconcile describes the generation and time of the last reconciliation</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastReconcile.generation">.status.configurationStatus.lastReconcile.generation</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">integer</span>
+
+</div>
+
+<div class="property-description">
+<p>Generation is the generation reconciled on the last reconciliation</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastReconcile.time">.status.configurationStatus.lastReconcile.time</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Time is the last time the resource was reconciled</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastSuccess">.status.configurationStatus.lastSuccess</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">object</span>
+
+</div>
+
+<div class="property-description">
+<p>LastSuccess descibes the generation and time of the last reconciliation which resulted in a Success status</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastSuccess.generation">.status.configurationStatus.lastSuccess.generation</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">integer</span>
+
+</div>
+
+<div class="property-description">
+<p>Generation is the generation reconciled on the last reconciliation</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-3">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.lastSuccess.time">.status.configurationStatus.lastSuccess.time</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>Time is the last time the resource was reconciled</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.resourceStatus">.status.configurationStatus.resourceStatus</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>ResourceStatus indicates the status of the resources and if the resources are insync with the configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.resources">.status.configurationStatus.resources</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">integer</span>
+
+</div>
+
+<div class="property-description">
+<p>Resources is the number of managed cloud resources which are currently under management. This field is taken from the terraform state itself.</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-2">
+<div class="property-header">
+<h3 class="property-path" id="v1alpha1-.status.configurationStatus.terraformVersion">.status.configurationStatus.terraformVersion</h3>
+</div>
+<div class="property-body">
+<div class="property-meta">
+<span class="property-type">string</span>
+
+</div>
+
+<div class="property-description">
+<p>TerraformVersion is the version of terraform which was last used to run this configuration</p>
+
+</div>
+
+</div>
+</div>
+
+<div class="property depth-1">
+<div class="property-header">
 <h3 class="property-path" id="v1alpha1-.status.costs">.status.costs</h3>
 </div>
 <div class="property-body">
@@ -808,24 +1258,6 @@ sidebar_position: 1
 
 <div class="property-description">
 <p>Monthly is the monthly estimated cost of the configuration</p>
-
-</div>
-
-</div>
-</div>
-
-<div class="property depth-1">
-<div class="property-header">
-<h3 class="property-path" id="v1alpha1-.status.driftTimestamp">.status.driftTimestamp</h3>
-</div>
-<div class="property-body">
-<div class="property-meta">
-<span class="property-type">string</span>
-
-</div>
-
-<div class="property-description">
-<p>DriftTimestamp is the timestamp of the last drift detection</p>
 
 </div>
 
@@ -978,7 +1410,7 @@ sidebar_position: 1
 
 <div class="property depth-1">
 <div class="property-header">
-<h3 class="property-path" id="v1alpha1-.status.terraformVersion">.status.terraformVersion</h3>
+<h3 class="property-path" id="v1alpha1-.status.updateAvailable">.status.updateAvailable</h3>
 </div>
 <div class="property-body">
 <div class="property-meta">
@@ -987,7 +1419,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>TerraformVersion is the version of terraform which was last used to run this configuration</p>
+<p>UpdateAvailable indicates if there is a new version of the plan available</p>
 
 </div>
 

@@ -1,9 +1,9 @@
 ---
-title: "tnctl approve"
+title: "tnctl approve cloudresource"
 ---
-## tnctl approve
+## tnctl approve cloudresource
 
-Approves either a configuration or cloudresource
+Approves a cloudresource for release
 
 ### Synopsis
 
@@ -20,10 +20,15 @@ Approve one or more cloudresource
 $ tnctl approve cloudresource NAME
 
 
+```
+tnctl approve cloudresource [OPTIONS] NAME [flags]
+```
+
 ### Options
 
 ```
-  -h, --help   help for approve
+  -h, --help               help for cloudresource
+  -n, --namespace string   Namespace of the resource/s (default "default")
 ```
 
 ### Options inherited from parent commands
@@ -35,7 +40,5 @@ $ tnctl approve cloudresource NAME
 
 ### SEE ALSO
 
-* [tnctl](../tnctl)	 - Terranetes CLI tool
-* [tnctl approve cloudresource](../tnctl_approve_cloudresource)	 - Approves a cloudresource for release
-* [tnctl approve configuration](../tnctl_approve_configuration)	 - Approves a configuration for release
+* [tnctl approve](../tnctl_approve)	 - Approves either a configuration or cloudresource
 

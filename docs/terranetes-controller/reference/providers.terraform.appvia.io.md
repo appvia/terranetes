@@ -128,7 +128,7 @@ sidebar_position: 1
 </div>
 
 <div class="property-description">
-<p>Preload defines the preload options for this the provider is being used to preload data from the cloud provider.</p>
+<p>Preload defines the configuration for the preloading of contextual data from the cloud vendor.</p>
 
 </div>
 

@@ -105,57 +105,80 @@ a) Lets create a namespace for our application
 kubectl create namespace apps
 ```
 
-b) Lets provision a Database via a Configuration
+b) As the Platform Team lets provision a revision
 
 ```shell
-export DATABASE_NAME="demo"
 
 cat <<EOF | kubectl
 ---
 apiVersion: terraform.appvia.io/v1alpha1
-kind: Configuration
+kind: Revision
 metadata:
   name: database
   namespace: apps
 spec:
-  module: https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v5.9.0
+  plan:
+    name: database-mysql
+    categories: [mysql, database, aws]
+    description: Provides a MySQL database
+    revision: v0.0.1
 
-  # We are going to consume the contextual data from the context
-  valueFrom:
-    - context: default
-      # We will place the database on the private subnets
-      key: private_subnet_ids
-      # We will map to this the following in the module
-      name: subnet_ids
+  inputs:
+    - key: identifier
+      description: Is the cloud resource name for the database instance
+      required: true
+    - key: db_name
+      description: Is the name of the database we should create in the instances
+      required: true
+      default:
+        value: demo
+    - key: backup_retention_period
+      description: The days to retain backups for
+      type: number
+      default:
+        value: 7
+    - key: allocated_storage
+      description: The database size in GB as a integer
+      default:
+        value: 5
 
-    - context: default
-      # Nodegroups in our infra are using the cluster security
-      # group
-      key: eks_cluster_security_group_ids
-      # We map this to the following in the module
-      name: vpc_security_group_ids
+  configuration:
+    module: https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v5.9.0
 
-  writeConnectionSecretToRef:
-    name: database
-    keys:
-      - db_instance_address:database_hostname
-      - db_instance_username:database_username
-      - db_instance_password:database_password
-      - db_instance_port:database_port
+    # We are going to consume the contextual data from the context
+    valueFrom:
+      - context: default
+        # We will place the database on the private subnets
+        key: private_subnet_ids
+        # We will map to this the following in the module
+        name: subnet_ids
 
-  variables:
-    allocated_storage: 5
-    create_db_subnet_group: true
-    db_name: ${DATABASE_NAME}
-    engine: mysql
-    engine_version: '5.7'
-    family: mysql5.7
-    identifier: ${DATABASE_NAME}
-    instance_class: db.t2.large
-    major_engine_version: '5.7'
-    port: 3306
-    skip_final_snapshot: true
-    username: root
+      - context: default
+        # Nodegroups in our infra are using the cluster security
+        # group
+        key: eks_cluster_security_group_ids
+        # We map this to the following in the module
+        name: vpc_security_group_ids
+
+      writeConnectionSecretToRef:
+        name: database
+        keys:
+          - db_instance_address:database_hostname
+          - db_instance_username:database_username
+          - db_instance_password:database_password
+          - db_instance_port:database_port
+
+      variables:
+        allocated_storage: 5
+        create_db_subnet_group: true
+        engine: mysql
+        engine_version: '5.7'
+        family: mysql5.7
+        instance_class: db.t2.large
+        major_engine_version: '5.7'
+        port: 3306
+        skip_final_snapshot: true
+        username: root
 
     parameters:
       - name: character_set_client
@@ -164,7 +187,26 @@ spec:
         value: utf8mb4
 ```
 
-c) Our application can consume the cloud resource
+c) Our application requests a CloudResource
+
+```shell
+cat <<EOF | kubectl apply -n apps -f -
+apiVersion: terraform.appvia.io/v1alpha1
+kind: CloudResource
+metadata:
+  name: database
+  labels:
+    app: database
+spec:
+  plan:
+    name: database-mysql
+    revision: v0.0.1
+  variables:
+    allocated_storage: 10
+    identifier: demo
+  writeConnectionSecretToRef:
+    name: database
+```
 
 Note we are just using a `mariadb` container here to verify access, as a replacement for application.
 

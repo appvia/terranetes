@@ -1,9 +1,9 @@
 ---
-title: "tnctl describe"
+title: "tnctl describe cloudresource"
 ---
-## tnctl describe
+## tnctl describe cloudresource
 
-Used to describe the current state of the configuration
+Used to describe the current state of the resources
 
 ### Synopsis
 
@@ -19,10 +19,16 @@ Describe a cloudresource in a namespace
 $ tnctl describe cloudresource -n apps NAME
 
 
+```
+tnctl describe cloudresource [OPTIONS] NAME [flags]
+```
+
 ### Options
 
 ```
-  -h, --help   help for describe
+  -h, --help                 help for cloudresource
+  -n, --namespace string     Namespace of the resource/s (default "default")
+      --show-passed-checks   Indicates we should show passed checks (default true)
 ```
 
 ### Options inherited from parent commands
@@ -34,7 +40,5 @@ $ tnctl describe cloudresource -n apps NAME
 
 ### SEE ALSO
 
-* [tnctl](../tnctl)	 - Terranetes CLI tool
-* [tnctl describe cloudresource](../tnctl_describe_cloudresource)	 - Used to describe the current state of the resources
-* [tnctl describe configuration](../tnctl_describe_configuration)	 - Used to describe the current state of the resources
+* [tnctl describe](../tnctl_describe)	 - Used to describe the current state of the configuration
 

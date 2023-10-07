@@ -3,16 +3,22 @@ title: "tnctl convert configuration"
 ---
 ## tnctl convert configuration
 
-Convert configuration yaml into a terraform module
+Converts configuration back to a terraform module
 
 ```
-tnctl convert configuration PATH [flags]
+tnctl convert configuration [OPTIONS] [NAME|-f FILE] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for configuration
+  -f, --file string         Path to the configuration file
+  -h, --help                help for configuration
+      --include-checkov     Include checkov in the output (default true)
+      --include-provider    Include provider in the output (default true)
+      --include-terraform   Include terraform in the output (default true)
+  -n, --namespace string    Namespace of the resource (default "default")
+  -p, --path string         The path to write the files to (default ".")
 ```
 
 ### Options inherited from parent commands
