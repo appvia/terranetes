@@ -4,6 +4,106 @@ sidebar_position: 2
 
 # Releases
 
+## Release v0.4.0
+
+### Terranetes CLI (tnctl)
+
+* https://github.com/appvia/terranetes-controller/releases/download/v0.4.0/tnctl-darwin-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.4.0/tnctl-darwin-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.4.0/tnctl-linux-amd64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.4.0/tnctl-linux-arm64
+* https://github.com/appvia/terranetes-controller/releases/download/v0.4.0/tnctl-windows-amd64.exe
+
+### What's Changed
+
+This release introduces the concept of a CloudResource. Currently Configuration CRDs are one to one mappings to the Terraform module, throwing a myriad of options at the consumer. CloudResources & Revision augments the consumer interface to a vastly reduced entry point, removing the cognitive load on the developers (consumers), and allowing the platform team to instil their version of best practice, defaults and organizational policy before consumption.
+
+For more details see https://terranetes.appvia.io/terranetes-controller/admin/cloudresource/
+
+### Features
+* [FEATURE] - Added the new user model of CloudResources & Revisions, scoping the interface to the resource via a strict version controlled blueprint by @gambol99 in https://github.com/appvia/terranetes-controller/pull/824
+* [FEATURE] - Added Revision Command to provide a entrypoint for provisioning revisions by the platform team by @gambol99 in https://github.com/appvia/terranetes-controller/pull/847
+* [FEATURE] - Added a new CLI command to verify a Revision is runnable by @gambol99 in https://github.com/appvia/terranetes-controller/pull/866
+* [FEATURE] - Added a Create CloudResource Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/899
+* [FEATURE] - Adding Convenience Aliases for Delete & Apply by @gambol99 in https://github.com/appvia/terranetes-controller/pull/868
+* [FEATURE] - CLI Get Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/854
+* [FEATURE] - Cloud Resources Reconciles on Plan Changes by @gambol99 in https://github.com/appvia/terranetes-controller/pull/856
+* [FEATURE] - Additional EKS Preload Values by @gambol99 in https://github.com/appvia/terranetes-controller/pull/911
+* [FEATURE] - Cloud Resource Update Available by @gambol99 in https://github.com/appvia/terranetes-controller/pull/852
+* [CLI] - Create Workflow Command by @gambol99 in https://github.com/appvia/terranetes-controller/pull/853
+* [FEATURE] - Added to the Convert Command the ability to render into a Revision by @gambol99 in https://github.com/appvia/terranetes-controller/pull/855
+* [FEATURE] - Revisions in Use Metric by @gambol99 in https://github.com/appvia/terranetes-controller/pull/867
+* [FEATURE] - Update Proection for Revisions in Use by @gambol99 in https://github.com/appvia/terranetes-controller/pull/851
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/992
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/993
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/999
+controller/pull/1011
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1009
+* [IMAGES] - Terraform Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1010
+* [IMAGES] - Infracost Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1027
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1026
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1035
+* [IMAGES] - Checkov Image Update by @github-actions in https://github.com/appvia/terranetes-controller/pull/1042
+* [WF-3359] UpdateReadme by @celesteg1 in https://github.com/appvia/terranetes-controller/pull/979
+* [HELM] - Helm Release v0.4.0 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1050
+
+### Documentation
+* [BUILD] - Code Owners File by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1031
+* [DOCS] - Adding Examples by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1045
+* [DOCS] - Updating Examples by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1051
+
+### BugFixes
+* [E2E] - Fixing Diagnostics by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1047
+* [E2E] - Pod Name Retry by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1048
+* [E2E] - Fixing Typo by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1049
+* [CLI] - Create Cloud Resource CLI by @gambol99 in https://github.com/appvia/terranetes-controller/pull/1052
+
+### Dependencies
+* [DEPS] - Updating Controller Runtime v0.16.0 by @gambol99 in https://github.com/appvia/terranetes-controller/pull/985
+* Bump k8s.io/client-go from 0.28.0 to 0.28.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/990
+* Bump k8s.io/apiextensions-apiserver from 0.28.0 to 0.28.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/989
+* Bump github.com/aws/aws-sdk-go from 1.44.331 to 1.44.332 by @dependabot in https://github.com/appvia/terranetes-controller/pull/987
+* Bump k8s.io/cli-runtime from 0.28.0 to 0.28.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/988
+* Bump github.com/aws/aws-sdk-go from 1.44.332 to 1.44.334 by @dependabot in https://github.com/appvia/terranetes-controller/pull/994
+* Bump github.com/aws/aws-sdk-go from 1.44.334 to 1.45.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/995
+* Bump sigs.k8s.io/controller-runtime from 0.16.0 to 0.16.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/996
+* Bump github.com/aws/aws-sdk-go from 1.45.0 to 1.45.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/997
+* Bump golang.org/x/oauth2 from 0.11.0 to 0.12.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1000
+* Bump github.com/aws/aws-sdk-go from 1.45.1 to 1.45.5 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1004
+* Bump golang.org/x/tools from 0.12.0 to 0.13.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1001
+* Bump github.com/aws/aws-sdk-go from 1.45.5 to 1.45.6 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1005
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1006
+* Bump docker/build-push-action from 4.1.1 to 4.2.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1007
+* Bump github.com/evanphx/json-patch from 5.6.0+incompatible to 5.7.0+incompatible by @dependabot in https://github.com/appvia/terranetes-
+* Bump k8s.io/code-generator from 0.28.1 to 0.28.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1016
+* Bump github.com/aws/aws-sdk-go from 1.45.6 to 1.45.9 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1017
+* Bump k8s.io/cli-runtime from 0.28.1 to 0.28.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1015
+* Bump k8s.io/apiextensions-apiserver from 0.28.1 to 0.28.2 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1019
+* Bump github.com/aws/aws-sdk-go from 1.45.9 to 1.45.10 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1018
+* Bump docker/login-action from 2 to 3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1024
+* Bump docker/setup-buildx-action from 2 to 3 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1023
+* Bump docker/build-push-action from 4.2.1 to 5.0.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1022
+* Bump docker/metadata-action from 4.6.0 to 5.0.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1021
+* Bump github.com/aws/aws-sdk-go from 1.45.10 to 1.45.11 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1020
+* Bump github.com/onsi/ginkgo/v2 from 2.12.0 to 2.12.1 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1029
+* Bump github.com/aws/aws-sdk-go from 1.45.11 to 1.45.13 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1028
+* Bump github.com/aws/aws-sdk-go from 1.45.13 to 1.45.14 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1030
+* Bump github.com/tidwall/gjson from 1.16.0 to 1.17.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1032
+* Bump github.com/aws/aws-sdk-go from 1.45.14 to 1.45.15 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1033
+* Bump github.com/aws/aws-sdk-go from 1.45.15 to 1.45.16 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1034
+* Bump github.com/aws/aws-sdk-go from 1.45.16 to 1.45.17 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1036
+* Bump github.com/aws/aws-sdk-go from 1.45.17 to 1.45.20 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1041
+* Bump github.com/onsi/gomega from 1.27.10 to 1.28.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1040
+* Bump github.com/prometheus/client_golang from 1.16.0 to 1.17.0 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1038
+* Bump github.com/aws/aws-sdk-go from 1.45.20 to 1.45.22 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1044
+* Bump github.com/aws/aws-sdk-go from 1.45.22 to 1.45.23 by @dependabot in https://github.com/appvia/terranetes-controller/pull/1046
+
+
+## New Contributors
+* @celesteg1 made their first contribution in https://github.com/appvia/terranetes-controller/pull/979
+
+**Full Changelog**: https://github.com/appvia/terranetes-controller/compare/v0.3.31...v0.4.0
+
 ## Release v0.3.23
 
 ### Terranetes CLI (tnctl)
