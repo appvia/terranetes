@@ -84,7 +84,8 @@ Lets create a namespace, and consume the revision.
 ```bash
 # Create the namespace
 $ kubectl create namespace apps
-# Ensure you change the name of the bucket in the variables
+
+# Ensure you change any 'CHANGE_ME' variables in the example
 $ vim cloudresource.yaml
 
 #  Create the cloudresource
@@ -96,7 +97,7 @@ $ kubectl -n apps logs -f <POD_ID>
 ```
 
 :::info
-You can use the `tnctl -n NAMESPACE logs <CLOUDRESOURCE> -f|--follow` to find and watch the logs from a build, instead of kubectl commands.
+You can use the `tnctl logs cloudresource --namespace apps bucket --follow` to find and watch the logs from a build, instead of kubectl commands.
 :::
 
 ## Approve the plan
@@ -104,7 +105,7 @@ You can use the `tnctl -n NAMESPACE logs <CLOUDRESOURCE> -f|--follow` to find an
 By default, unless the `spec.enableAutoApproval` is true, all changes must be approved before acting on. An annotation is used to approve the previous plan.
 
 :::info
-If you are using the `tnctl` cli, you can approve changes via `tnctl approve -n NAMESPACE NAME`
+If you are using the `tnctl` cli, you can approve changes via `tnctl approve cloudresource --namespace apps bucket`
 :::
 
 ```bash
@@ -134,11 +135,22 @@ For a complete summary of [CloudResources](reference/cloudresources.terraform.ap
 
 You can delete the cloud resource like any other Kubernetes resource
 
-```shell
-$ kubectl -n apps delete cloudresource bucket
+```bash
+kubectl -n apps delete cloudresource bucket --wait=false
 ```
 
 Tailing the logs from the watcher will allow you to view the execution.
+
+```
+POD_NAME=$(kubectl -n apps get pods -l terraform.appvia.io/stage=destroy --no-headers | cut -d' ' -f1)
+kubectl -n apps logs ${POD_NAME} -f
+```
+
+Or via [tnctl](../terranetes-controller/developer/tnctl.md)
+
+```bash
+tnctl logs cloudresource -n apps bucket -f
+```
 
 [tn_chart]: https://github.com/appvia/terranetes-controller/tree/master/charts/terranetes-controller
 [ex_provider]: https://github.com/appvia/terranetes-controller/blob/master/examples/provider.yaml
