@@ -2,10 +2,11 @@
 sidebar_position: 4
 sidebar_class_name: green
 ---
+
 # Cloud Resources
 
 :::tip
-This feature is only available from >= v0.3.32 releases
+This feature is only available from >= v0.4.0 releases
 :::
 
 Terranetes supports two interfaces to provisioning cloud resources; [Configurations](../reference/configurations.terraform.appvia.io.md) which are the legacy implementation and the [CloudResources](../reference/cloudresources.terraform.appvia.io.md). While [Configurations](../reference/configurations.terraform.appvia.io.md) provides a one-to-one mapping to the Terraform module, [CloudResources](../reference/cloudresources.terraform.appvia.io.md) takes a more managed approach. Rather the exposing the entirety of options to the consumer, [CloudResources](../reference/configurations.terraform.appvia.io.md) pick and choose which attributes are exposed, thus reducing the heavy lifting by the users and well and ensuring options do not diverge from a known path.
@@ -18,12 +19,12 @@ Note, while the user facing interface is the [CloudResource](../reference/cloudr
 
 [Revisions](../reference/revisions.terraform.appvia.io.md) are the templates for [CloudResources](../reference/cloudresources.terraform.appvia.io.md), each of these are versioned assets which has been curated and tested against, containing the defaults the organization requires and exposing only the functionality which is contextual. The basic gist is;
 
-* [Revisions](../reference/revisions.terraform.appvia.io.md) point to a terraform module.
-* They contain all the default options which the platform wants defaults to in the module.
-* They contain all the options which they want exposed to the consumer.
-* Versions can track the upstream terraform module, or move independently of it.
-* All [CloudResources](../reference/cloudresources.terraform.appvia.io.md) reference back to a [Revision](../reference/revisions.terraform.appvia.io.md) in the cluster.
-* To upgrade a [CloudResource](../reference/cloudresources.terraform.appvia.io.md) consumer update the [Revision](../reference/revisions.terraform.appvia.io.md) it points to.
+- [Revisions](../reference/revisions.terraform.appvia.io.md) point to a terraform module.
+- They contain all the default options which the platform wants defaults to in the module.
+- They contain all the options which they want exposed to the consumer.
+- Versions can track the upstream terraform module, or move independently of it.
+- All [CloudResources](../reference/cloudresources.terraform.appvia.io.md) reference back to a [Revision](../reference/revisions.terraform.appvia.io.md) in the cluster.
+- To upgrade a [CloudResource](../reference/cloudresources.terraform.appvia.io.md) consumer update the [Revision](../reference/revisions.terraform.appvia.io.md) it points to.
 
 The following depicts the relations between Plans (a collection of [Revisions](../reference/revisions.terraform.appvia.io.md)), [CloudResources](../reference/cloudresources.terraform.appvia.io.md) and the [Configuration](../reference/configurations.terraform.appvia.io.md) it manages.
 
@@ -51,10 +52,10 @@ spec:
     revision: v0.0.3
 ```
 
-* **name**: is probably the most important field here, as all [Revisions](../reference/revisions.terraform.appvia.io.md) are grouped by this field. [Revisions](../reference/revisions.terraform.appvia.io.md) with the same `spec.plan.name` are logically grouped into a [Plan](../reference/plans.terraform.appvia.io.md). Plans order these Revisions using semvar. So when a [CloudResource](../reference/cloudresources.terraform.appvia.io.md) references a Plan `database`, without specifying a version; it looks up the [Plan](../reference/plans.terraform.appvia.io.md) and retrieves the latest version. If it specifies a version, it looks up the [Plan](../reference/plans.terraform.appvia.io.md) and checks a [Revision](../reference/revisions.terraform.appvia.io.md) of said version exists.
-* **categories**: is a collection of tags associated to the revision, these are user facing and largely used for searching.
-* **description**: provides a human readable description of the intended use for the [Revision](../reference/revisions.terraform.appvia.io.md)
-* **revision**: is semvar version associated to this revision.
+- **name**: is probably the most important field here, as all [Revisions](../reference/revisions.terraform.appvia.io.md) are grouped by this field. [Revisions](../reference/revisions.terraform.appvia.io.md) with the same `spec.plan.name` are logically grouped into a [Plan](../reference/plans.terraform.appvia.io.md). Plans order these Revisions using semvar. So when a [CloudResource](../reference/cloudresources.terraform.appvia.io.md) references a Plan `database`, without specifying a version; it looks up the [Plan](../reference/plans.terraform.appvia.io.md) and retrieves the latest version. If it specifies a version, it looks up the [Plan](../reference/plans.terraform.appvia.io.md) and checks a [Revision](../reference/revisions.terraform.appvia.io.md) of said version exists.
+- **categories**: is a collection of tags associated to the revision, these are user facing and largely used for searching.
+- **description**: provides a human readable description of the intended use for the [Revision](../reference/revisions.terraform.appvia.io.md)
+- **revision**: is semvar version associated to this revision.
 
 ### Inputs
 
@@ -176,4 +177,3 @@ $ tnctl verify revision revision.yaml
 :::tip
 The default validation checks the codebase but not the terraform plan. For a more complete validation we'd recommend passing read-only credentials and using the `--use-terraform-plan` flag, exporting the usual environment variable such as AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and so forth.
 :::
-
