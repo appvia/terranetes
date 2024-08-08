@@ -59,7 +59,7 @@
 
 /* Logo styles for dark mode */
 [data-theme='dark'] .navbar__logo {
-  background-image: url(/img/logo.svg); /* Use the dark mode logo */
+  background-image: url(/img/index/terranetes-dark.svg); /* Use the dark mode logo */
   /* Other logo styles for dark mode */
 }
 

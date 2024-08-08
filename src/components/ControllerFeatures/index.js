@@ -8,8 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 const FeatureList = [
   {
     title: 'Self Service Cloud Resources',
-    imageLight: '/img/self-serve.svg',
-    imageDark: '/img/self-serve-dark.svg',
+    imageLight: '/img/index/features/self-service.svg',
+    imageDark: '/img/index/features/self-service.svg',
     description: (
       <>
         Allows developers and teams to self-serve their application dependencies
@@ -19,8 +19,8 @@ const FeatureList = [
   },
   {
     title: 'Enforce Security Policy Checks',
-    imageLight: '/img/security.svg',
-    imageDark: '/img/security-dark.svg',
+    imageLight: '/img/index/features/security.svg',
+    imageDark: '/img/index/features/security.svg',
     description: (
       <>
         Platform teams may enforce technical controls to verify resources meet
@@ -31,8 +31,8 @@ const FeatureList = [
   },
   {
     title: 'Predicted Cost Management',
-    imageLight: '/img/costs.svg',
-    imageDark: '/img/costs-dark.svg',
+    imageLight: '/img/index/features/cost-estimates.svg',
+    imageDark: '/img/index/features/cost-estimates.svg',
     description: (
       <>
         Integrates with cost management tools, allowing developers to view and

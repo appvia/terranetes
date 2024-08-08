@@ -5,7 +5,6 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import {useColorMode} from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {useLatestVersion} from '@docusaurus/plugin-content-docs/client';
 import Translate, {translate} from '@docusaurus/Translate';
 import {DeployTerranetesController} from '@theme/Command';
 
@@ -21,7 +20,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/provision',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/control.svg',
+      imageUrl: 'img/index/features/self-service.svg',
     },
     {
       label: translate({message: 'Security'}),
@@ -31,7 +30,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/category/administration',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/security.svg',
+      imageUrl: 'img/index/features/security.svg',
     },
     {
       label: translate({message: 'Simplicity'}),
@@ -41,7 +40,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/tnctl',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/simplicity.svg',
+      imageUrl: 'img/index/features/simplicity.svg',
     },
     {
       label: translate({message: 'Cost Estimates'}),
@@ -51,7 +50,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/admin/costs',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/cost.png',
+      imageUrl: 'img/index/features/cost-estimates.svg',
     },
     {
       label: translate({message: 'Approval Workflows'}),
@@ -61,7 +60,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/provision/#approving-a-plan',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/approval.svg',
+      imageUrl: 'img/index/features/approval-workflows.svg',
     },
     {
       label: translate({message: 'Drift Detection'}),
@@ -71,7 +70,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/drift',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/drift.svg',
+      imageUrl: 'img/index/features/drift-detection.svg',
     },
     {
       label: translate({message: 'GitOps'}),
@@ -81,7 +80,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/flux',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/gitops.png',
+      imageUrl: 'img/index/features/gitops.svg',
     },
     {
       label: translate({message: 'Private Sources'}),
@@ -90,7 +89,7 @@ function Cards() {
       }),
       link: '/terranetes-controller/developer/private',
       linkText: translate({message: 'Learn More'}),
-      imageUrl: 'img/index/private_sources.png',
+      imageUrl: 'img/index/features/private-sources.svg',
     },
   ];
 
@@ -123,10 +122,10 @@ function DynamicHeaderImage() {
   useEffect(() => {
     const images = [];
 
-    const darkLogo = (new Image().src = 'img/index/terranetes_dark.svg');
+    const darkLogo = (new Image().src = 'img/index/terranetes-dark.svg');
     images.push(darkLogo);
 
-    const lightLogo = (new Image().src = 'img/index/terranetes_light.svg');
+    const lightLogo = (new Image().src = 'img/index/terranetes-light.svg');
     images.push(lightLogo);
   }, []);
 
@@ -139,16 +138,17 @@ function DynamicHeaderImage() {
     <img
       src={
         isDarkMode
-          ? '/img/index/terranetes_dark.svg'
-          : '/img/index/terranetes_light.svg'
+          ? '/img/index/terranetes-dark.svg'
+          : '/img/index/terranetes-light.svg'
       }
+      width="597" height="130"
+      alt="Appvia Terranetes Controller"
     />
   );
 }
 
 export default function App() {
   const context = useDocusaurusContext();
-  const latestVersion = useLatestVersion();
 
   return (
     <Layout
@@ -163,12 +163,16 @@ export default function App() {
           <div className={classNames(styles.heroSpaceContainer)}>
             <img
               className={classNames(styles.heroSpace)}
-              src="/img/index/hero_space_left.svg"
+              src="/img/index/hero-space-left.svg"
             />
           </div>
           <img
             className={classNames(styles.heroPackage)}
-            src="/img/index/terraform_logo.svg"
+            src="/img/index/terraform.svg"
+          />
+          <img
+            className={classNames(styles.heroPackage2)}
+            src="/img/index/opentofu.svg"
           />
         </div>
         <div className={classNames(styles.heroContainer)}>
@@ -188,7 +192,7 @@ export default function App() {
 
           <Link
             className={classNames('button button--primary button--lg')}
-            to={latestVersion.path + '/quick_start'}
+            to={'/terranetes-controller/quick_start'}
           >
             <Translate>Quick Start</Translate>
           </Link>
@@ -196,12 +200,12 @@ export default function App() {
         <div className={classNames(styles.heroAfter)}>
           <img
             className={classNames(styles.heroPackage)}
-            src="/img/index/kubernetes_logo.svg"
+            src="/img/index/kubernetes.svg"
           />
           <div className={classNames(styles.heroSpaceContainer)}>
             <img
               className={classNames(styles.heroSpace)}
-              src="/img/index/hero_space_right.svg"
+              src="/img/index/hero-space-right.svg"
             />
           </div>
         </div>
