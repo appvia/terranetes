@@ -14,7 +14,7 @@ Let's assume we have a terraform module hosted in a private Github repository. H
 2. Create a Kubernetes secret in the namespace containing the SSH private key.
 
     ```shell
-    $ kubectl -n apps create secret generic ssh --from-file=SSH_KEY_AUTH=id.rsa
+    $ kubectl -n apps create secret generic ssh --from-file=SSH_AUTH_KEY=id.rsa
     ```
 
 3. Update the Terraform module configuration resource, setting the `spec.auth.name: [NAME]` to the name of the secret:

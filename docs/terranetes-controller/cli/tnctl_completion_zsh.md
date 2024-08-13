@@ -16,13 +16,13 @@ to enable it.  You can execute the following once:
 
 To load completions in your current shell session:
 
-	source <(tnctl completion zsh)
+	source \<(tnctl completion zsh)
 
 To load completions for every new session, execute once:
 
 #### Linux:
 
-	tnctl completion zsh > "${fpath[1]}/_tnctl"
+	tnctl completion zsh > "$\{fpath[1]}/_tnctl"
 
 #### macOS:
 

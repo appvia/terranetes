@@ -16,7 +16,7 @@ Generate a workflow for module
 $ tnctl workflow create PATH
 
 You can override the location of the template via the configuration
-file ${HOME}/.tnctl/config.yaml (or TNCTL_CONFIG). Just add the
+file $\{HOME}/.tnctl/config.yaml (or TNCTL_CONFIG). Just add the
 following
 
 ---

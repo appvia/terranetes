@@ -211,7 +211,7 @@ spec:
 :::caution
 Details on binding can be found [here](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/), but essentially it's used to filter the pods in the namespace and provide the permissions to the pods that match the labels - i.e. the pod must have label of the same name and value.
 
-As of <= v0.3.30 the pod selector is not configurable in the controller to ensure you use `terranetes-executor` on the binding.
+As of \<= v0.3.30 the pod selector is not configurable in the controller to ensure you use `terranetes-executor` on the binding.
 :::
 
 #### Service Account Permissions
