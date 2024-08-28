@@ -5,13 +5,13 @@
  */
 
 :root {
-  --ifm-color-primary: #3578e5;
-  --ifm-color-primary-dark: #788a80;
-  --ifm-color-primary-darker: #718278;
-  --ifm-color-primary-darkest: #5d6b63;
-  --ifm-color-primary-light: #96a49c;
-  --ifm-color-primary-lighter: #9eaba4;
-  --ifm-color-primary-lightest: #b5bfb9;
+  --ifm-color-primary: #1578E4;
+  --ifm-color-primary-dark: #66ADF8;
+  --ifm-color-primary-darker: #66ADF8;
+  --ifm-color-primary-darkest: #66ADF8;
+  --ifm-color-primary-light: #66ADF8;
+  --ifm-color-primary-lighter: #66ADF8;
+  --ifm-color-primary-lightest: #66ADF8;
   --ifm-code-font-size: 95%;
   --ifm-footer-background-color: #ffffff;
   --ifm-footer-color: #fdbe9f;
@@ -20,42 +20,75 @@
   --ifm-property-header-background-color: #e6ecf2;
   --ifm-property-required-background-color: #f5bfbf;
   --ifm-property-type-background-color: lightgray;
+  --ifm-color-content: #022859;
+  --ifm-hero-text-color: #022859;
+  --prism-color: #022859;
+  --ifm-menu-color: #022859;
+  --ifm-toc-link-color: #022859;
+}
+
+.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+  color: #022859 !important;
+}
+
+[data-theme='dark'] .codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+  color: #fff !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #fff;
+  --ifm-color-primary-dark: #66ADF8;
+  --ifm-color-primary-darker: #66ADF8;
+  --ifm-color-primary-darkest: #66ADF8;
+  --ifm-color-primary-light: #66ADF8;
+  --ifm-color-primary-lighter: #66ADF8;
+  --ifm-color-primary-lightest: #66ADF8;
+  --ifm-color-content: #fff;
+  --ifm-hero-text-color: #fff;
+  --prism-color: #fff;
+  --ifm-menu-color: #fff;
+  --ifm-toc-link-color: #fff;
 }
 
 [data-theme='dark'] footer {
   background-color: #212020; /* Set your desired dark mode background color here */
-  color: #ddd; /* Set your desired text color for dark mode */
+  color: #fff; /* Set your desired text color for dark mode */
+}
+
+.darkToggleIcon_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+  color: #fff; /* Set your desired link color for dark mode */
+}
+
+[data-theme='dark'] footer .theme-doc-footer-edit-meta-row {
+  background-color: #1b1b1d;
+  color: #fff; /* Set your desired link color for dark mode */
 }
 
 [data-theme='dark'] footer a {
-  color: #96a49c; /* Set your desired link color for dark mode */
+  color: #fff; /* Set your desired link color for dark mode */
 }
 
 [data-theme='dark'] footer .footer__title {
-  color: #9eaba4; /* Set your desired link color for dark mode */
+  color: #fff; /* Set your desired link color for dark mode */
 }
 
 [data-theme='dark'] .navbar {
   background-color: #212020; /* Set your desired dark mode background color here */
-  color: #ddd; /* Set your desired text color for dark mode */
+  color: #fff; /* Set your desired text color for dark mode */
 }
 
 [data-theme='dark'] .navbar a {
-  color: #96a49c; /* Set your desired link color for dark mode */
+  color: #fff; /* Set your desired link color for dark mode */
 }
 
+.body {
+  color: #022859;
+}
+
+[data-theme='dark'] .button {
+  color: #fff;
+}
 
 /* Logo styles for dark mode */
 [data-theme='dark'] .navbar__logo {
@@ -70,8 +103,8 @@
 }
 
 html[data-theme='dark'] {
-  --ifm-color-primary: #fdbe9f;
-  --ifm-property-header-background-color: #f09235;
+  --ifm-color-primary: #1578E4;
+  --ifm-property-header-background-color: #1578E4;
   --ifm-property-required-background-color: rgb(102, 99, 99);
   --ifm-property-type-background-color: green;
 }
@@ -159,9 +192,6 @@ dl.crd-meta {
   margin-right: 10px;
 }
 
-.crd-schema-version {
-}
-
 .property {
   margin-bottom: 1em;
 }
@@ -213,7 +243,7 @@ dl.crd-meta {
 .navbar__title,
 .navbar__link,
 .navbar__items {
-  color: #000;
+  color: #022859;
 }
 
 .navbar__items--right > :last-child {
@@ -228,7 +258,7 @@ dl.crd-meta {
 .footer,
 .footer__title,
 .footer__link-item {
-  color: black;
+  color: #022859;
 }
 
 .hero_src-pages-index-module {

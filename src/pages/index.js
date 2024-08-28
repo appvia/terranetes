@@ -141,7 +141,7 @@ function DynamicHeaderImage() {
           ? '/img/index/terranetes-dark.svg'
           : '/img/index/terranetes-light.svg'
       }
-      width="597" height="130"
+      height="100"
       alt="Appvia Terranetes Controller"
     />
   );
@@ -159,30 +159,16 @@ export default function App() {
       })}
     >
       <header className={classNames('hero', styles.hero)}>
-        <div className={classNames(styles.heroBefore)}>
-          <div className={classNames(styles.heroSpaceContainer)}>
-            <img
-              className={classNames(styles.heroSpace)}
-              src="/img/index/hero-space-left.svg"
-            />
-          </div>
-          <img
-            className={classNames(styles.heroPackage)}
-            src="/img/index/terraform.svg"
-          />
-          <img
-            className={classNames(styles.heroPackage2)}
-            src="/img/index/opentofu.svg"
-          />
-        </div>
         <div className={classNames(styles.heroContainer)}>
           <span className={classNames(styles.heroImage)}>
             <DynamicHeaderImage />
           </span>
           <div className={classNames(styles.heroSubtitle, 'hero__subtitle')}>
             <Translate>
-              Enabling developers to securely self-serve Cloud dependencies in a
-              controlled manner.
+              Enabling developers to securely self-serve
+            </Translate><br />
+            <Translate>
+              Cloud dependencies in a controlled manner
             </Translate>
           </div>
 
@@ -196,16 +182,19 @@ export default function App() {
           >
             <Translate>Quick Start</Translate>
           </Link>
-        </div>
-        <div className={classNames(styles.heroAfter)}>
-          <img
-            className={classNames(styles.heroPackage)}
-            src="/img/index/kubernetes.svg"
-          />
-          <div className={classNames(styles.heroSpaceContainer)}>
+          <br />
+          <div className={classNames(styles.productLogos)}>
             <img
-              className={classNames(styles.heroSpace)}
-              src="/img/index/hero-space-right.svg"
+              className={classNames(styles.heroPackage)}
+              src="/img/index/terraform.svg"
+            />
+            <img
+              className={classNames(styles.heroPackage)}
+              src="/img/index/kubernetes.svg"
+            />
+            <img
+              className={classNames(styles.heroPackage)}
+              src="/img/index/opentofu.svg"
             />
           </div>
         </div>
