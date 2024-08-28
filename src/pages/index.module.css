@@ -73,14 +73,6 @@
   object-position: left;
 }
 
-.heroPackage {
-  height: 30%;
-}
-
-.heroPackage2 {
-  height: 30%;
-}
-
 @media (max-width: 1200px) {
   .heroPackage {
     display: none;
