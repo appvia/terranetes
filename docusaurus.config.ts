@@ -136,6 +136,7 @@ const config: Config = {
     ],
   ],
   plugins: [
+    /*
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -146,6 +147,7 @@ const config: Config = {
         docsRouteBasePath: "terranetes-controller"
       }
     ],
+    */
     [
       '@docusaurus/plugin-content-docs',
       {
