@@ -17,13 +17,17 @@
     "@docusaurus/core": "^3.5.2",
     "@docusaurus/plugin-content-docs": "3.5.2",
     "@docusaurus/preset-classic": "3.5.2",
+    "@docusaurus/theme-classic": "3.5.2",
     "@docusaurus/theme-live-codeblock": "3.5.2",
     "@docusaurus/types": "^3.5.2",
+    "@docusaurus/utils": "^3.5.2",
+    "@easyops-cn/docusaurus-search-local": "^0.44.4",
     "@mdx-js/react": "^3.0.0",
+    "braces": "^3.0.3",
     "classnames": "2.5.1",
     "clsx": "^2.1.1",
     "core-js": "^3.39.0",
-    "docusaurus": "^1.14.7",
+    "gulp": "^5.0.0",
     "immer": ">=9.0.6",
     "loader-utils": ">=3.3.1",
     "prism-react-renderer": "^2.4.0",
@@ -32,8 +36,8 @@
     "shell-quote": ">=1.7.3"
   },
   "devDependencies": {
-    "@docusaurus/tsconfig": "3.5.1",
     "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/tsconfig": "3.5.1",
     "shell-quote": ">=1.7.3",
     "typescript": "~5.2.2"
   },
@@ -53,6 +57,7 @@
     ]
   },
   "resolutions": {
-    "webpack": "5.89.0"
+    "webpack": "5.89.0",
+    "graceful-fs": "^4.2.11"
   }
 }
