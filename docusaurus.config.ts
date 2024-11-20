@@ -19,11 +19,20 @@ const config: Config = {
   favicon: 'img/favicon-docs.svg',
   organizationName: 'appvia',
   projectName: 'terranetes',
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   themeConfig: {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
