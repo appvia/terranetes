@@ -5,15 +5,14 @@ import Features from '@site/src/components/ControllerFeatures';
 
 # What is Terranetes?
 
-The terranetes controller manages the life-cycle of terraform resources defined and built inside Kubernetes. This allows teams running workloads inside the cluster to self-serve application dependencies and reuse the wealth of terraform modules already written.
+The Terranetes controller orchestrates the lifecycle of Terraform resources within Kubernetes, enabling teams to autonomously provision application dependencies and leverage the extensive library of existing Terraform modules.
 
-There's a number of open source controllers you could use that will run Terraform in Kubernetes. All of them deliver the developer outcome, however, none address the "consequences" of delivering that outcome in the first place; the risks, costs, security implications, the general lack of checks and balances. What sets the Terranetes controller apart is its opinion you first enable the platform team to deliver the outcome in a safe environment before it can be self-served by developers. Providing platform engineers with all the knobs, dials and levers to control and mitigate those risks is the key differentiator for Terranetes controller.
+Among the available open source controllers that integrate Terraform with Kubernetes, the Terranetes controller stands out for its unique approach. While other solutions focus solely on delivering the desired developer outcome, Terranetes prioritizes the creation of a secure and controlled environment for platform teams to manage Terraform resources. This approach acknowledges the potential risks, costs, and security implications associated with self-service infrastructure provisioning, and addresses these concerns through a robust set of features. By empowering platform engineers with granular control over the Terraform lifecycle, Terranetes ensures that the benefits of infrastructure as code are realized while minimizing the risks and ensuring compliance with organizational standards.
 
 <Features/>
 
 ## Additional features
 
-* **Drift Detection:** Automatically detect any upstream changes in the cloud provider and ensure the terraform state is inline with the resources it manages.
-* **Module Security:** Gives platform teams the means to control which terraform modules are permitted. This enables the organization to lock down to an approved collection of modules.
-* **Targeted Configuration:** Gives platform teams the ability to inject environment-specific variables into the terraform modules consumed downstream. For example, you could inject cost centers or project IDs, or environment-specific configuration like cloud tags and so forth.
-
+* **Drift Detection:** Automatic detection of any changes in the cloud provider's upstream infrastructure, ensuring that the Terraform state remains synchronized with the resources under its management.
+* **Module Security:** Exercise control over the Terraform modules that are allowed for use. This facilitates the organization's ability to restrict usage to a curated set of approved modules, thereby enhancing security and compliance.
+* **Targeted Configuration:** Ability to dynamically inject environment-specific variables into the Terraform modules that are consumed downstream. This allows for the integration of environment-specific details such as cost centers, project IDs, or configuration parameters like cloud tags, ensuring a high degree of customization and adaptability.

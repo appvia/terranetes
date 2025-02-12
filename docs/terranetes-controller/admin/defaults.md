@@ -4,19 +4,19 @@ sidebar_position: 5
 
 # Injecting Defaults
 
-Currently via policies platform administrators have the ability to inject both variables and or secrets into developer Configurations, common use cases
+Through the implementation of policies, platform administrators are empowered to inject both variables and secrets into developer Configurations, addressing key use cases such as:
 
-* Removing the administrative headache from the developers around which values to use, or enforcing specific organizational defaults on upstream modules.
-* Sharing credentials, tokens across an collection of Configurations, for example access to private repositories.
+* Mitigating the administrative burden on developers by standardizing the values to be used or enforcing specific organizational defaults on upstream modules.
+* Facilitating the sharing of credentials and tokens across a collection of Configurations, exemplified by access to private repositories.
 
 ## Variables
 
-Default environments provide the ability to inject environment-specific variables into a configuration based on a selector. An example might be:
+The default environment enables the injection of environment-specific variables into a configuration, contingent upon a selector. This capability is particularly useful for:
 
-* Adding environment-specific options (e.g. VPC ID, tags, etc), elements that you don't want developers to have to deal with
-* Adding project-specific tags (e.g. cost center codes, project ID, etc)
+* Incorporating environment-specific parameters (such as VPC ID, tags, etc.), thereby alleviating the need for developers to manage these details
+* Assigning project-specific tags (like cost center codes, project ID, etc.), ensuring consistency across configurations
 
-You can configure these via a Policy resource. For example:
+To implement these variables, a Policy resource can be utilized. A sample configuration is provided below:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -46,12 +46,12 @@ spec:
 This feature is only available from v0.3.15 onwards
 :::
 
-A defaults policy can also be used to inject secrets into a job. A common use case would be for the platform team to provide transparent authentication. Lets take the following example.
+The `defaults` policy offers the capability to inject secrets into a job, facilitating transparent authentication for the platform team. A typical scenario for this feature involves the following:
 
-* We have a number of private repositories we want to allow the developers to consume.
-* We don't want the developers to have to deal with authenticating to these modules and thus the feature should be transparent to them.
-* We have already create a kubernetes secret in the controller namespace containing a ssh_key or personal access token used to source the modules.
-* We need to setup a policy which injects these secrets into the job so developers don't need to private authentication themselves.
+* The organization has a collection of private repositories that are intended for consumption by developers.
+* To ensure a seamless experience for developers, the authentication process for these modules should be transparent, eliminating the need for them to handle authentication directly.
+* A Kubernetes secret has been created within the controller namespace, containing either an SSH key or a personal access token, which is utilized for sourcing the modules.
+* It is necessary to configure a policy that injects these secrets into the job, thereby alleviating the need for developers to manage private authentication processes themselves.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -73,5 +73,5 @@ spec:
 ```
 
 :::caution
-Note, terranetes controller had a bug prior to v0.3.30 in regard to default secrets. The `setup` stage, which is responsible retrieving the `spec.module` (terraform code) did not have access to the secret; thus if your using the feature to support private repository access, you'll have issues in the delete. This was fixed [here](https://github.com/appvia/terranetes-controller/pull/812)
+Please be aware that prior to version v0.3.30, the terranetes controller had a bug related to default secrets. During the `setup` stage, which is responsible for retrieving the `spec.module` (terraform code), the secret was not accessible. This could lead to issues, especially when using the feature to support private repository access, as it could cause problems during deletion. This issue has been resolved and the fix can be found [here](https://github.com/appvia/terranetes-controller/pull/812)
 :::

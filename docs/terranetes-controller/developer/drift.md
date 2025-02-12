@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # Enabling Drift Protection
 
-Drift protection instructs the controller to periodically check for drift between the desired state and the upstream cloud provider; this could occur due to someone or something changing the configuration outside of the scope of terraform i.e. on the cloud console, API and so forth. The time frame is configured by the platform team, see [Drift Detection](docs/terranetes-controller/admin/drift.md) for details.
+Drift protection is a feature that enables the controller to perform periodic checks for discrepancies between the intended state and the actual state of resources in the upstream cloud provider. This is particularly useful in detecting changes made outside of the Terraform scope, such as through the cloud console or API. The frequency of these checks is determined by the platform team, and further information can be found in the [Drift Detection](docs/terranetes-controller/admin/drift.md) documentation.
 
-When a configuration is detected as out of sync the status of the resource is updated and a kubernetes event is raised.
+In the event that a configuration is identified as being out of sync, the status of the associated resource is updated, and a Kubernetes event is generated.
 
 ```bash
 $ kubectl -n apps get configurations.terraform.appvia.io
@@ -16,7 +16,7 @@ bucket   https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?re
 
 ## Enabling Drift Detection
 
-To enable drift detection on a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) set `spec.enableDriftDetection: true`.
+To activate drift detection for a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md), set `spec.enableDriftDetection` to `true`.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -27,6 +27,6 @@ spec:
   module: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.1.0
   providerRef:
     name: aws
-  # You can enable drift protection as so
+  # Drift protection can be enabled as follows
   enableDriftDetection: true
 ```

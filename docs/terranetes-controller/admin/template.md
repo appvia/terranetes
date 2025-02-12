@@ -3,21 +3,21 @@ sidebar_position: 90
 ---
 # Customize Job Template
 
-When a configuration is changed (i.e. for plan, apply or destroy), the controller uses a template to render the final job configuration, taking the options provided on the controller command line, custom policies and the terraform configuration itself. A batch job is created from all the options and ordered to execute the change. You can find the default template for this [here](https://github.com/appvia/terranetes-controller/blob/master/pkg/assets/job.yaml.tpl).
+The controller utilizes a template to generate the final job configuration when a configuration change is initiated, such as for plan, apply, or destroy operations. This template incorporates options specified on the controller command line, custom policies, and the Terraform configuration itself. The aggregated options are then used to create a batch job, which is subsequently executed to implement the change. The default template for this process can be accessed [here](https://github.com/appvia/terranetes-controller/blob/master/pkg/assets/job.yaml.tpl).
 
 ### Overriding the template
 
-While not required in the vast majority of cases this template can be overridden, allowing platform engineers to customize the pipeline. You might want to:
-* Add a notification on failed configuration, or send a notification when a configuration fails policy.
-* Add a new feature into the pipeline such as swapping out the default [checkov](https://www.checkov.io) for another policy engine.
+Although not necessary in most cases, the template can be overridden to allow platform engineers to tailor the pipeline to their specific needs. This customization may involve:
+* Implementing notifications for failed configurations or sending notifications when a configuration fails to comply with policy.
+* Integrating new features into the pipeline, such as replacing the default [checkov](https://www.checkov.io) policy engine with an alternative.
 
-You can change the template by uploading a configmap into the namespace where the controller lives:
+To modify the template, a ConfigMap must be uploaded into the namespace where the controller is deployed, with the following steps:
 
 ```shell
-# create the template configmap (note the key name of job.yaml)
+# Create the template ConfigMap, noting the key name 'job.yaml'
 $ kubectl -n terraform-system create configmap template --from-file=job.yaml=<PATH>
 
-# update the helm values to override the template
+# Update the Helm values to override the template
 controller:
   templates:
     job: <NAME_OF_CONFIG_MAP>

@@ -2,31 +2,31 @@
 sidebar_position: 1
 ---
 
-# Provisioning an Database in AWS
+# AWS Database Provisioning
 
-The following tries to encompass a walk-through of the feature set, from a platform admin and developer consumption for self-serving a database resource in the cloud.
+This guide provides a comprehensive walkthrough of the feature set, catering to both platform administrators and developers. It focuses on the self-service provisioning of a database resource in the cloud.
 
 ## Prerequisites
 
-This guide is assuming the following
+This guide assumes the following prerequisites have been met:
 
-* You have [installed](../quick_start.md) the terranetes-controller in a cluster.
-* You have the cluster name and region is resides in
-* You have [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed.
-* You have appropriate cloud credentials to provision an RDS in the account.
-* The nodegroups are using the EKS Cluster Security Group and not configured with custom groups _(though the data will be available in the context)_.
+* The terranetes-controller has been successfully [installed](../quick_start.md) within a cluster.
+* The cluster name and its residing region are known.
+* [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) is installed and available for use.
+* Appropriate cloud credentials are in place to facilitate the provisioning of an RDS instance within the account.
+* Nodegroups are configured to utilize the EKS Cluster Security Group, without custom group configurations. Note that context data will still be accessible.
 
 ## Introduction
 
-The guide tries to cover the step required from both a platform team perspective and developer consumption the cloud resource.
+This guide aims to comprehensively cover the steps required for both platform teams and developers to consume cloud resources.
 
 ## Platform Setup
 
 ### Provision a [Provider](../reference/providers.terraform.appvia.io.md)
 
-First we need to setup credentials to speak cloud. For the purposes of the guide we will assume the controller is using static credentials (i.e IAM access keys), though see [here](../admin/providers.md) for workload identity.
+To facilitate cloud communication, it is essential to establish credentials. For the purpose of this guide, we will utilize static credentials, specifically IAM access keys, although workload identity is also an option, as detailed in [here](../admin/providers.md).
 
-a) Lets start by create a kubernetes secret contains the IAM credentials
+a) Create a Kubernetes secret containing the IAM credentials.
 
 ```shell
 $ kubectl -n terraform-system create secret generic aws \
@@ -35,12 +35,12 @@ $ kubectl -n terraform-system create secret generic aws \
   --from-literal=AWS_REGION=<REGION>
 ```
 
-b) Provision a [Provider](../reference/providers.terraform.appvia.io.md) to use the credentials
+b) Provision a [Provider](../reference/providers.terraform.appvia.io.md) to utilize the credentials.
 
-We will also use this [Provider](../reference/providers.terraform.appvia.io.md) to preload any [contextual data](../admin/contexts.md) for us.
+This [Provider](../reference/providers.terraform.appvia.io.md) will also preload any [contextual data](../admin/contexts.md) for us.
 
 ```shell
-# Lets export the name of the cluster and the region it's running
+# Exporting the name of the cluster and the region it's running in
 export CLUSTER_NAME=test
 export CLUSTER_REGION=eu-west-2
 
@@ -74,13 +74,13 @@ spec:
 EOF
 ```
 
-Note, once the [Provider](../reference/providers.terraform.appvia.io.md) has gone healthy, the [contextual data](../admin/contexts.md) will be loaded make available via [Context](../reference/contexts.terraform.appvia.io.md) specified above `spec.preload.context`
+Upon successful deployment of the [Provider](../reference/providers.terraform.appvia.io.md), the [contextual data](../admin/contexts.md) is loaded and made accessible through the [Context](../reference/contexts.terraform.appvia.io.md) specified in `spec.preload.context`.
 
-You can see the data via `kubectl get contexts.terraform.appvia.io default -o yaml`. Which will have loads, details on the cluster, networking, routing tables and so forth.
+To view the data, execute the command `kubectl get contexts.terraform.appvia.io default -o yaml`, which will display comprehensive information about the cluster, including networking and routing tables.
 
-c) Setup a policy to limit which modules can be provisioned within the cluster
+c) Establish a policy to restrict the provisioning of modules within the cluster
 
-For the purposes of the guide I want to limit to a single terraform module, used to provision database. I can of course scope this to one or more modules or make it namespace specific; see [here](../admin/policy/intro.md) for details.
+For the purpose of this guide, we will limit the provisioning to a single Terraform module, specifically designed for database provisioning. It is possible to extend this limitation to include one or more modules or make it namespace-specific, as detailed in [here](../admin/policy/intro.md).
 
 ```shell
 cat <<EOF | kubectl apply -f -
@@ -97,15 +97,15 @@ spec:
 
 ## Developer Consumption
 
-From the developer perspective, I have an application which has a dependency on a MySQL database, and understand i'll be passed database the endpoint, username and password via environments variables, in this case mounted from a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#using-a-secret)
+As a developer, I am responsible for an application that relies on a MySQL database. I understand that I will receive the database endpoint, username, and password via environment variables, which will be mounted from a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#using-a-secret).
 
-a) Lets create a namespace for our application
+a) Let's create a namespace for our application
 
 ```shell
 kubectl create namespace apps
 ```
 
-b) As the Platform Team lets provision a revision
+b) As the Platform Team, let's provision a revision
 
 ```shell
 
@@ -187,7 +187,7 @@ spec:
         value: utf8mb4
 ```
 
-c) Our application requests a CloudResource
+c) The application initiates a request for a CloudResource
 
 ```shell
 cat <<EOF | kubectl apply -n apps -f -
@@ -208,7 +208,7 @@ spec:
     name: database
 ```
 
-Note we are just using a `mariadb` container here to verify access, as a replacement for application.
+In order to validate the accessibility of the cloud resource database, a sample application deployment has been provided below. This deployment is designed to securely mount the database access credentials from a secret, which is dynamically generated by the CloudResource resource mentioned above. The application itself is represented by a `mariadb` container, which serves as the primary interface for interacting with the database. 
 
 ```shell
 cat <<EOF | kubectl apply -n apps -f -
@@ -239,13 +239,13 @@ spec:
               name: database
 ```
 
-You can verify access via
+To validate the accessibility of the cloud resource database, execute the following command:
 
 ```shell
 kubectl -n apps exec -ti $(kubectl -n apps get pod --label app=frontend) sh
 ```
 
-And access the cluster via `mysql` cli by running the below command and entering the database user password when prompted.
+To access the database, execute the following command using the `mysql` CLI, and enter the password for the database user when prompted.
 
 ```shell
 mysql -h ${DATABASE_HOSTNAME} -P ${DATABASE_PORT} -u ${DATABASE_USERNAME} -p

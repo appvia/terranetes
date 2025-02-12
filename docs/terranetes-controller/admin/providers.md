@@ -2,17 +2,16 @@
 sidebar_position: 1
 sidebar_class_name: green
 ---
-# Configure Providers
+# Configuring Providers
 
-Credentials to access the cloud are represented by [Providers](../reference/providers.terraform.appvia.io.md) in the controller, a cluster scoped resource. When defining a terraform module developers reference a provider using `spec.providerRef`, tying together the resource and credentials.
+In the context of the controller, cloud access credentials are embodied by the [Provider](../reference/providers.terraform.appvia.io.md) Custom Resource Definition (CRD), a cluster-scoped resource. When defining a Terraform module, developers reference a provider using the `spec.providerRef` field, thereby establishing a connection between the resource and the corresponding credentials.
 
 :::important
-Note, credentials never leave the controller namespace, removing the risk of exposure.
-:::
+It is essential to note that credentials are confined within the controller namespace, effectively mitigating the risk of exposure.
 
-## Use a provider
+## Utilizing a Provider
 
-To reference a Provider apply the following Terraform configuration:
+To effectively reference a Provider within your Terraform configuration, the provider name must be referenced via `spec.providerRef.name`:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -28,13 +27,13 @@ spec:
 
 ### Default Provider
 
-In order to remove the need for developers to discover Providers, platform administrators can set a [Provider](../reference/providers.terraform.appvia.io.md) to be default. Under these condition any [Configuration](../reference/configurations.terraform.appvia.io.md) which has not defined the `spec.providerRef.name` will have the default Provider automatically injected for them.
+To simplify the process for developers, platform administrators can designate a [Provider](../reference/providers.terraform.appvia.io.md) as the default. This configuration ensures that any [Configuration](../reference/configurations.terraform.appvia.io.md) lacking a specified `spec.providerRef.name` will automatically utilize the default Provider.
 
 :::important
-Note, this feature is only available from >= v0.3.19 release
+Please note that this feature is only available starting from the v0.3.19 release.
 :::
 
-In order to configure an [Provider](../reference/providers.terraform.appvia.io.md) as default, add the annotation `terranetes.appvia.io/default-provider: "true"` as before. Note, only one [Provider](../reference/providers.terraform.appvia.io.md) can be configured as 'default' at a time.
+To mark a [Provider](../reference/providers.terraform.appvia.io.md) as the default, administrators should apply the annotation `terranetes.appvia.io/default-provider: "true"`. It is crucial to understand that only one [Provider](../reference/providers.terraform.appvia.io.md) can be designated as the default at any given time.
 
 ```yaml
 ---
@@ -47,22 +46,22 @@ metadata:
 spec:
 ```
 
-## Configure credentials
+## Credential Configuration Options
 
-In [Providers](../reference/providers.terraform.appvia.io.md) we currently support these options for configuring credentials:
+The [Provider](../reference/providers.terraform.appvia.io.md) resource supports two primary methods for configuring credentials:
 
-* `spec.source: secret` References a kubernetes secret and mounts as environment variables into the executor.
-* `spec.source: injected` Runs the executor with a defined service account. This is used to support pod identity or IRSA in AWS.
+1. **Secret-based Credentials**: Specified by `spec.source: secret`, this approach references a Kubernetes secret, which is then mounted as environment variables within the executor. This method is suitable for static credentials.
+2. **Injected Credentials**: Identified by `spec.source: injected`, this option runs the executor with a predefined service account. This configuration is particularly useful for supporting pod identity or IRSA (Identity and Resource Access Management Service) in AWS environments.
 
-These are described below.
+A detailed explanation of these credential configuration options is provided below.
 
-### Configure by secret
+### Configuring Providers Using Secrets
 
 :::tip
-Static credentials are the easiest to get going, but moving forward we highly recommend using pod identity and offloading credentials management to the cloud provider.
+While static credentials offer a straightforward approach to getting started, we strongly recommend adopting pod identity and delegating credentials management to the cloud provider for enhanced security and manageability.
 :::
 
-All the terraform providers support configuration using environment variables, e.g., for AWS you can use `AWS_REGION`, `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`. Simply create a Kubernetes secret in the controller namespace (defaults to `terraform-system`) with these environment variables defined:
+Terraform providers universally support configuration through environment variables. For instance, when working with AWS, you can utilize `AWS_REGION`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`. To implement this, create a Kubernetes secret within the controller namespace (defaulting to `terraform-system`) that defines these environment variables:
 
 ```shell
 $ kubectl -n terraform-system create secret generic aws \
@@ -72,17 +71,17 @@ $ kubectl -n terraform-system create secret generic aws \
 ```
 
 :::important
-Static credentials secrets must exist within the same namespace as the terraform controller itself. This is due to the fact the credentials are mounted into the job as environment variables.
+It is crucial to note that static credentials secrets must reside within the same namespace as the Terraform controller itself. This is because the credentials are mounted into the job as environment variables.
 :::
 
-The process is the same for all the providers:
+This process applies uniformly to all supported providers:
 * [Amazon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 * [Google Cloud](https://registry.terraform.io/providers/hashicorp/google/latest)
 * [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-Presently we support using `google`, `aws` and `azurerm` as providers. The controller is not limited to these, but for additional providers you'll have to define them yourself in the module.
+Currently, we support the use of `google`, `aws`, and `azurerm` as providers. Although the controller is not limited to these providers, any additional providers must be defined within the module.
 
-Once the secret is provisioned you can create a Provider for it:
+After provisioning the secret, you can create a Provider for it:
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -99,64 +98,64 @@ spec:
     name: aws
 ```
 
-### Configure injected identity
+### Configuring Injected Identity
 
-Injected identities are known by a few names depending on the cloud provider you are using. On
+Injected identity configurations are referred to by different names depending on the cloud provider in use. Specifically:
 
-* AWS - [IRSA](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html)
-* Google - [workload identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity)
-* Azure - [pod identity](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
+* Amazon Web Services (AWS) - [IRSA](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-enable-IAM.html)
+* Google Cloud Platform - [workload identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity)
+* Microsoft Azure - [pod identity](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
 
-In all cases these perform the same task:
+Across all these cloud providers, the injected identity mechanism serves a common purpose:
 
-* One or more roles are configured in the cloud provider with defined permissions.
-* A binding (cloud vendor dependent) is provisioned that gives a [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in Kubernetes the ability to retrieve short-term credentials for a defined Role.
-* The cloud vendor generates ephemeral credentials and returns them to the workload.
+* One or more roles are defined within the cloud provider, each with explicitly assigned permissions.
+* A cloud provider-specific binding is established, granting a Kubernetes [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) the capability to obtain short-lived credentials for a specified role.
+* The cloud provider generates ephemeral credentials and supplies them to the workload.
 
-Under this scenario all credentials management is offloaded to the cloud vendor and ensures the credentials used are short-lived and expire, thus improving the overall security.
+This approach effectively delegates all credentials management to the cloud provider, ensuring that the credentials utilized are transient and expire, thereby enhancing overall security.
 
-Configuring injected identities is cloud dependent and the complete details are beyond the scope of this document.
+The process of configuring injected identities is specific to each cloud provider, and the detailed procedures are outside the scope of this document.
 
-### Configure IRSA for Amazon Web Services
+### Configuring IRSA for Amazon Web Services
 
-1. Before using IRSA in EKS, you must configure an OIDC connector. For details, see [Technical overview](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-technical-overview.html).
+To utilize IRSA with EKS, it is essential to first configure an OIDC connector. For a detailed explanation, refer to the [Technical Overview](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-technical-overview.html).
 
-    :::tip
-    If you can build your clusters via Terraform, take a look at https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-role-for-service-accounts-eks
-    :::
+:::tip
+For clusters created using Terraform, consider utilizing the Terraform module at https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-role-for-service-accounts-eks.
+:::
 
-2. Update your helm values in a similar way to the example below. The important values here are the annotations for the service account used by the executor; this must contain the ARN for the role to be used.
+Next, update your Helm values as shown in the example below. The crucial aspect is the annotation for the service account employed by the executor, which must include the ARN of the role to be utilized.
 
 ```yaml
 rbac:
-  # Indicates we should create all the necessary rbac resources
+  # Indicates the creation of all necessary RBAC resources
   create: true
   # ServiceAccount for the controller
   controller:
-    # indicates we should create the terranetes-controller service account
+    # Indicates the creation of the terranetes-controller service account
     create: true
-    # annotations is a collection of annotations which should be added to the ServiceAccount
+    # annotations is a collection of annotations to be added to the ServiceAccount
     annotations: {}
 
   # Configuration for the terraform executor service account
   executor:
-    # indicates we should create the terraform-executor service account
+    # Indicates the creation of the terraform-executor service account
     create: true
-    # annotations is a collection of annotations which should be added to the ServiceAccount
+    # annotations is a collection of annotations to be added to the ServiceAccount
     annotations:
       eks.amazonaws.com/role-arn: arn:aws:iam::<AWS_ACCOUNT_ID>:role/<NAME_OF_ROLE>
 ```
 
-When the pod is created:
-1. The EKS controlplane sees the annotation on the service account.
-2. It checks for a binding between the service account and the defined IAM role.
-3. If such a binding exists, it generates credentials and injects them via a secret as environment variables into the pod.
+Upon pod creation:
+1. The EKS control plane identifies the annotation on the service account.
+2. It verifies the existence of a binding between the service account and the specified IAM role.
+3. If a binding is found, it generates credentials and injects them via a secret as environment variables into the pod.
 
-### Configure Azure AAD Pod Identity
+### Configuring Azure AAD Pod Identity
 
-In order to use Azure's Pod identity service we need to
+To effectively utilize Azure's Pod identity service, the following steps must be undertaken:
 
-1. Ensure the [Provider](../reference/providers.terraform.appvia.io.md) msi configuration
+1. **Ensure Provider MSI Configuration**: It is essential to configure the Provider with the `use_msi: true` setting to enable the use of Managed Service Identity (MSI) for authentication. This configuration is crucial to prevent the AzureRM provider from attempting to fallback to the `az` CLI, which may result in errors due to the absence of the binary.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -164,7 +163,6 @@ kind: Provider
 metadata:
   name: azurerm
 spec:
-  # Anything in configuration section is converting to HCL and configured the provider
   configuration:
     subscription_id: AZURE_SUBSCRIPTION_ID
     tenant_id: AZURE_TENANT_ID
@@ -173,12 +171,8 @@ spec:
   provider: azurerm
 ```
 
-:::caution
-Ensure you have added the `use_msi: true` on the Provider configuration otherwise the AzureRM provider will attempt to fallback to the `az` CLI and complain the binary is not found
-:::
-
-2. Provision the Azure Identity in the subscription (https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/)
-3. Provision the Azure Identity in the controller namespace
+2. **Provision Azure Identity in Subscription**: Follow the standard walkthrough for provisioning Azure Identity in the subscription, as outlined in the Azure documentation (https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/).
+3. **Provision Azure Identity in Controller Namespace**: Create an AzureIdentity resource in the controller namespace to manage the identity for the pods within that namespace.
 
 ```yaml
 apiVersion: aadpodidentity.k8s.io/v1
@@ -195,7 +189,7 @@ spec:
   type: 0
 ```
 
-4. Provision the binding to the pods
+4. **Provision Binding to Pods**: Create an AzureIdentityBinding resource to associate the AzureIdentity with the pods that require access to the Azure resources. This binding is crucial for filtering pods in the namespace and granting them the necessary permissions.
 
 ```yaml
 apiVersion: aadpodidentity.k8s.io/v1
@@ -209,18 +203,16 @@ spec:
 ```
 
 :::caution
-Details on binding can be found [here](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/), but essentially it's used to filter the pods in the namespace and provide the permissions to the pods that match the labels - i.e. the pod must have label of the same name and value.
+Details on binding can be found [here](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/).
 
 As of \<= v0.3.30 the pod selector is not configurable in the controller to ensure you use `terranetes-executor` on the binding.
 :::
 
 #### Service Account Permissions
 
-:::important
-The following is important when using or creating additional service accounts for a Provider. For example lets assume you create another service account 'admin' in the terraform-system namespace and reference that service account in a Provider which uses that account for IRSA.
-:::
+It is crucial to ensure the correct Role-Based Access Control (RBAC) permissions are in place when utilizing or creating additional service accounts for a Provider. This is particularly important when referencing a service account in a Provider that leverages IRSA, such as 'admin' in the terraform-system namespace.
 
-By default the service account the terraform controller uses to execute jobs is `terraform-executor`. If you require additional service accounts for Providers i.e for use with `spec.source: injected` or simply needing to use another service account; you need to ensure the correct RBAC permissions. The terraform job is using kubernetes secrets to store the terraform state and leases for locking. So the following needs to be in place.
+By default, the terraform controller employs the service account 'terraform-executor' to execute jobs. If you require additional service accounts for Providers, for instance, to use with `spec.source: injected` or to utilize another service account, it is essential to establish the correct RBAC permissions. The terraform job relies on Kubernetes secrets to store the terraform state and leases for locking purposes. Therefore, the following permissions must be configured:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -262,7 +254,7 @@ rules:
       - watch
 ```
 
-And a binding to the service account.
+Additionally, a RoleBinding is required to associate the Role with the service account.
 
 ```yaml
   ---
@@ -280,15 +272,13 @@ subjects:
     namespace: terraform-system
 ```
 
-Without this the terraform execution will simply fail on access denied on secrets and or leases.
+The absence of these permissions will result in terraform execution failures due to access denied errors on secrets and/or leases.
 
 ## Configure RBAC for providers
 
 Providers support the ability to filter who can use them. When a [`spec.selector`](../reference/providers.terraform.appvia.io.md#v1alpha1-.spec.selector) is defined on the provider, any configuration referencing it must pass the filter, otherwise it will fail.
 
-:::important
-By default an empty `spec.selector` dictates all [Configurations](../reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide limited scope credentials to all teams.
-:::
+It is important to note that by default an empty `spec.selector` dictates all [Configurations](../reference/configurations.terraform.appvia.io.md) in the cluster can use it. This is useful to provide limited scope credentials to all teams.
 
 Using the `spec.selector` field you can scope the credentials based on namespace and resource labels. For example you could add a [Provider](../reference/providers.terraform.appvia.io.md) for system namespaces only:
 
@@ -312,13 +302,13 @@ spec:
     name: admin
 ```
 
-At the same time you could provide another limited set of permissions to all cluster users by removing the selector.
+Concurrently, you can offer a distinct set of limited permissions to all cluster users by omitting the selector.
 
-This feature could also be used to map to different pod identity roles in the cloud vendor, or different service account mapped to [Vault](https://www.vaultproject.io/).
+This feature also enables the mapping of different pod identity roles to cloud vendors or distinct service accounts linked to [Vault](https://www.vaultproject.io/).
 
 ## Provider Configuration
 
-You can incorporate additional configuration into the [Provider](docs/terranetes-controller/reference/providers.terraform.appvia.io.md) via the `spec.configuration`. For instance the Azure provider comes with a [features](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) which can be configured in the provider as such
+The `spec.configuration` field within the [Provider](docs/terranetes-controller/reference/providers.terraform.appvia.io.md) resource allows for the integration of supplementary configuration settings. A notable example is the Azure provider, which includes a [features](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) block that can be specifically tailored within the provider configuration.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1

@@ -4,20 +4,22 @@ sidebar_position: 1
 
 # Terranetes CLI
 
-Terranetes comes bundled with a [tnctl](docs/terranetes-controller/cli/tnctl.md) command _(see [Releases](docs/terranetes-controller/releases.md) for downloads)_ which has ability to search for cloud resources. The [search](docs/terranetes-controller/cli/tnctl_search.md) subcommand supports iterating through
+The Terranetes platform includes a comprehensive command-line interface tool, [tnctl](docs/terranetes-controller/cli/tnctl.md), which facilitates cloud resources lifecycle management. The [search](docs/terranetes-controller/cli/tnctl_search.md) subcommand is specifically designed to traverse and index resources from prominent sources, including:
 
-* [Terraform registry](https://registry.terraform.io).
-* [Github](https://github.com) repositories and releases of any organization and or user.
+* The [Terraform registry](https://registry.terraform.io), a central hub for Terraform modules.
+* [Github](https://github.com) repositories and releases, encompassing a wide range of organizations and users.
+
+For access to the tnctl tool, please refer to the [Releases](docs/terranetes-controller/releases.md) section for download instructions.
 
 ## How to search
 
-Once one or more sources have been configured you can search for cloud resources via
+Upon configuring one or more sources, you can initiate a search for cloud resources using the following command:
 
 ```shell
 tnctl search [TERMS]
 ```
 
-Looking for a `database` module on `aws`.
+For instance, to search for a `database` module specifically on `aws`, you would execute:
 
 ```shell
 $ tnctl search database
@@ -49,70 +51,76 @@ Downloads:  16436
 Terraform module which creates AWS DMS (Database Migration Service) resources
 ```
 
-Next you will be prompted to choose the
+Subsequently, you will be prompted to select the following:
 
 * Tagged version
-* Asked for any **required** inputs _(i.e. names, storages size and so forth)_
+* Provide any **required** inputs _(e.g., names, storage sizes, etc.)_
 
-The final piece will render a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) CRD ready to be consumed in your deployment pipeline.
+Ultimately, this process will generate a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) CRD, ready for integration into your deployment pipeline.
 
 ## Adding Sources
 
-You can add a source to the [tnctl](docs/terranetes-controller/cli/tnctl.md) command via [tnctl config sources](docs/terranetes-controller/cli/tnctl_config_sources.md) command. For example to add
+To integrate additional sources with the [tnctl](docs/terranetes-controller/cli/tnctl.md) command, utilize the [tnctl config sources](docs/terranetes-controller/cli/tnctl_config_sources.md) command. This allows for the incorporation of new sources, as exemplified by the following process.
 
 ### Adding your Github organization
+
+To incorporate your Github organization as a source for Terraform modules, execute the following command:
 
 ```shell
 tnctl config sources add https://github.com/appvia
 ```
 
 :::important
-If any of the terraform modules are in private repositories you must export your Github token via export GITHUB_TOKEN=TOKEN
+If any of the Terraform modules are located within private repositories, it is essential to set your Github token as an environment variable using the command `export GITHUB_TOKEN=TOKEN`. This step is crucial for ensuring access to private repositories.
 :::
 
 ### Adding the Terraform Registry
 
-You can add the Terraform registry via
+To integrate the Terraform registry, execute the following command:
 
 ```shell
 tnctl config sources add https://registry.terraform.io
 ```
 
-Alternately you can scope the registry to a specific namespace
+Alternatively, you can specify a particular namespace within the Terraform registry by using the following command:
 
 ```shell
 tnctl config sources add https://registry.terraform.io/namespaces/terraform-aws-modules
 ```
 
 :::tip
-You can add as many sources are you needs. The [search](docs/terranetes-controller/cli/tnctl_search.md) will aggregate the results and present it findings as one.
+It is possible to add multiple sources as needed. The [search](docs/terranetes-controller/cli/tnctl_search.md) functionality will consolidate the results and present them in a unified manner.
 :::
 
 ## Integrate with Kubectl
 
-You can integrate tnctl with Kubectl i.e. `kubectl tnctl COMMAND`.
+To integrate tnctl with Kubectl, execute the following steps to enable the use of `kubectl tnctl COMMAND`.
 
 :::important
-Kubectl can recognize plugins based on the name. Lets assume you place an executable script in your `$PATH` named `kubectl-hello-world`. This script can be called via `$ kubectl hello world`. All the `tnctl kubectl plugin` does it create an collection of these alias scripts i.e kubectl-tnctl-describe, kubectl-tnctl-logs and so forth in the desired location.
+Kubectl is capable of recognizing plugins based on their naming convention. For example, if you place an executable script named `kubectl-hello-world` in your `$PATH`, it can be invoked using the command `$ kubectl hello world`. The `tnctl kubectl plugin` generates a collection of such alias scripts, including `kubectl-tnctl-describe`, `kubectl-tnctl-logs`, and others, in a specified location.
 :::
 
-1. Run the `tnctl kubectl plugin -d DIRECTORY` command. The directory here is the location of where the alias scripts should be located.
-2. Ensure the alias scripts are included in your environment `$PATH`
-3. Ensure the `tnctl` is included in your environment `$PATH`.
-4. You can now use kubectl directory _(note tab completion is configured via kubectl, please review their docs)_.
+To complete the integration:
+
+1. Execute the `tnctl kubectl plugin -d DIRECTORY` command, specifying the directory where the alias scripts should be located.
+2. Ensure the generated alias scripts are included in your environment's `$PATH`.
+3. Verify that `tnctl` is also included in your environment's `$PATH`.
+4. You can now utilize the integrated functionality with Kubectl. (see how to set tab completion [here](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/)).
+
+By following these steps, you will be able to leverage the capabilities of tnctl directly within your Kubectl workflow.
 
 ## Watching Logs
 
-When a Configuration is run a pod is created in the namespace used to watch the logs. You can perform the
+When a Configuration is executed, a pod is created in the designated namespace to monitor the logs. To access these logs, follow these steps:
 
-1. Retrieve the pods via `kubectl get pods`
-2. Find the appropriate pod based on the Configuration name and generation.
-3. Watch the logs via `kubectl logs NAME -f`
+1. Retrieve the list of pods using the command `kubectl get pods`.
+2. Identify the relevant pod based on the Configuration name and generation.
+3. Monitor the logs by executing the command `kubectl logs NAME -f`.
 
-A faster alternative is to use the [logs](docs/terranetes-controller/cli/tnctl_logs.md]
+For a more efficient approach, consider using the [tcnl logs](docs/terranetes-controller/cli/tnctl_logs.md) command.
 
-1. Type `tnctl logs -n NAMESPACE NAME [-f--follow]`
-2. If the kubectl plugin integration has been enabled, you can use `kubectl tnctl logs [-n NAMESPACE] NAME [-f|--follow]`
+1. Execute `tnctl logs -n NAMESPACE NAME [-f--follow]`.
+2. If the kubectl plugin integration is enabled, you can use `kubectl tnctl logs [-n NAMESPACE] NAME [-f|--follow]`.
 
 ```bash
 $ tnctl logs [cloudresource|configuration] -n apps bucket -f
@@ -132,14 +140,15 @@ Successfully configured the backend "kubernetes"! Terraform will automatically
 use this backend unless the backend configuration changes.
 ...
 ```
+
 ## Describing Configurations
 
-You can the use
+To gain detailed insights into costs and policy, you can utilize the following commands:
 
 1. `tnctl describe [cloudresource|configuration] -n NAMESPACE [NAME]`
 2. `kubectl tnctl describe [cloudresource|configuration] [-n NAMESPACE] [NAME]`
 
-to provide insight into costs and policy.
+These commands facilitate the retrieval of comprehensive information about costs and policy associated with cloud resources or configurations within a specified namespace.
 
 ```bash
 [jest@starfury terranetes-controller]$ bin/tnctl describe [cloudresource|configuration] -n apps bucket
