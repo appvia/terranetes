@@ -4,16 +4,16 @@ sidebar_position: 4
 
 # Using Flux as Source
 
-Flux is a flexible and popular framework used for [Gitops](https://en.wikipedia.org/wiki/DevOps#GitOps). You can take advantage of any Flux install while still retaining the full feature set of the terraform controller.
+Flux is a widely adopted and adaptable framework utilized for [Gitops](https://en.wikipedia.org/wiki/DevOps#GitOps). Leveraging any Flux installation, you can fully utilize the feature set of the terraform controller.
 
 :::important
-The following has assumed you have installed the [source-controller](https://github.com/fluxcd/source-controller) and any dependant components in the cluster already.
+The following instructions assume that you have already installed the [source-controller](https://github.com/fluxcd/source-controller) and any dependent components in the cluster.
 :::
 
-Lets rework our common example to take advantage of Flux and source our terraform module via the source controller.
+Let's optimize our standard example to capitalize on Flux and source our terraform module through the source controller.
 
 ```yaml
-apiVersion: terraform.appvia.io/v1alpha1m .
+apiVersion: terraform.appvia.io/v1alpha1
 kind: Configuration
 metadata:
   name: bucket
@@ -30,7 +30,7 @@ spec:
     bucket: [BUCKET_NAME]
 ```
 
-1. Now instead of pulling the terraform module direct as above we can use a [GitRepostory](https://fluxcd.io/docs/components/source/gitrepositories/) to represent the source module.
+1. Instead of directly pulling the terraform module as shown above, we can utilize a [GitRepository](https://fluxcd.io/docs/components/source/gitrepositories/) to represent the source module.
 
 ```yaml
 apiVersion: source.toolkit.fluxcd.io/v1beta2
@@ -49,7 +49,7 @@ spec:
 $ kubectl get gitrepositories bucket -o yaml
 ```
 
-3. Look into the status of the resource
+3. Examine the status of the resource.
 
 ```yaml
 status:
@@ -59,12 +59,12 @@ status:
   url: http://source-controller.source-system.svc.cluster.local./gitrepository/apps/terraform-aws-s3-bucket.git/latest.tar.gz
 ```
 
-4. Note the URL will change depending on which namespace the source controller was installed and any branch references.
+4. Note that the URL will vary depending on the namespace in which the source controller was installed and any branch references.
 
-5. Update you [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resource to use the above URL. Note we have to force the protocol type by prefixing it with `http::`
+5. Update your [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resource to use the above URL. Note that we have to force the protocol type by prefixing it with `http::`
 
 ```yaml
-apiVersion: terraform.appvia.io/v1alpha1m .
+apiVersion: terraform.appvia.io/v1alpha1
 kind: Configuration
 metadata:
   name: bucket
@@ -72,8 +72,8 @@ spec:
   module: http::http://source-controller.source-system.svc.cluster.local/gitrepository/apps/terraform-aws-s3-bucket.git/latest.tar.gz
 ```
 
-The controller will retrieve the extract the archive for you.
+The controller will retrieve and extract the archive for you.
 
 :::important
-These steps don't need to be performed sequentially. Once you know the expected format of the URL the source controller is going to give you can apply the resources all at once.
+These steps do not need to be performed sequentially. Once you know the expected format of the URL that the source controller is going to provide, you can apply the resources all at once.
 :::

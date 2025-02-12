@@ -6,11 +6,11 @@ sidebar_position: 1
 
 💬 _"In essence an opinion on a piece of paper"_
 
-Providing functionality and features isn't complicated; open source overflows with solutions to things. But providing a **way of working** is more useful. Workflows is a stamp of opinion of how devops can iterate, review and publish modules and developers can find, search and consume cloud resources. The workflow isn't revolutionary, it's deliberately simple. If you already have a good process feel free to ignore. Use it as a template, that's fine too. Or even better yet, raise a pull request and improve it.
+Implementing functionality and features is a relatively straightforward task, as open source solutions abound. However, establishing a **standardized approach to work** is of greater value. The workflow outlined here embodies a deliberate opinion on how DevOps teams can effectively iterate, review, and publish modules, as well as how developers can efficiently discover, search for, and utilize cloud resources. This workflow is intentionally designed to be straightforward, not revolutionary. If you already have a well-established process in place, you are welcome to disregard this workflow or use it as a starting point for further refinement. Alternatively, we encourage you to contribute to its improvement by submitting a pull request.
 
-## What were the goals?
+## Motivations
 
-The following provides a glance overview of what we were trying to achieve.
+This section offers a concise overview of the objectives we aimed to accomplish.
 
 #### 🟢 **An agnostic pipeline**
 
@@ -18,19 +18,21 @@ It shouldn't matter if the terraform module is consumed by another pipeline or t
 
 #### 🟢 **Fail early, fail fast**
 
-Technical controls are often too late in the game, i.e. at runtime. Admission control is a prime example of this, blocking the request on submission. At best this becomes an irritation and waste of time, as a user moves back and forth trying to bring the deployment inline with compliance. At worst it's potential downtime as you apply in one environment just to fail in another. While the technical control is always there we want to ensure those same checks are performed in the pipeline, known upfront and fail early.
+Implementing technical controls at runtime, such as admission control, can lead to inefficiencies and potential downtime. This approach often results in a reactive process, where deployments are blocked upon submission, causing frustration and wasted time as users attempt to rectify compliance issues. Moreover, this can lead to service disruptions when deployments fail in different environments. To mitigate these issues, it is essential to integrate these technical controls into the pipeline, enabling early detection and resolution of compliance issues, thereby promoting a proactive and efficient development process.
 
 #### 🟢 **Bake nothing into the product**
 
-The workflow is there to 'encourage' good practice, act as a template rather then pigeon hole teams in.
+This workflow is designed to promote best practices, serving as a flexible template that guides teams without imposing rigid constraints.
 
 #### 🟢 **An opinionated workflow**
 
-Stitching together a good foundation, community tools and pipeline to iterate a terraform from creation, review and through to consumption. Were not reinventing the wheel just providing an out of the box solution.
+This workflow integrates a solid foundation, community tools, and a pipeline to facilitate the iteration of Terraform modules from creation to review and ultimately, consumption. Rather than reinventing the wheel, it offers a comprehensive, out-of-the-box solution.
 
-#### 🟢 **Distribution is a problem**
+#### 🟢 **Distribution Challenges**
 
-Work in any large organization and duplication becomes a issue, with numerous modules rehashing the same functionality over and over. Before you know it you've got 20 modules all provisioning an S3 bucket. Beyond the comically waste of time, you now have a maintenance penality not to mention a lack of governance.
+In large organizations, duplication of effort can become a significant issue, as multiple modules may be created to perform the same function. This can lead to a proliferation of modules, each provisioning similar resources, such as S3 buckets. This duplication not only results in a waste of time and resources but also introduces maintenance complexities and governance challenges.
 
-* Which is being used, where?
-* Which is compliant, follows company guidelines and so forth.
+Key questions that arise from this scenario include:
+
+* Which modules are currently in use, and where are they deployed?
+* Are these modules compliant with organizational guidelines and standards?

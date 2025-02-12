@@ -53,11 +53,11 @@ Retrieve a demo revision that creates an S3 bucket (see [revision.yaml][ex_revis
 wget https://raw.githubusercontent.com/appvia/terranetes-controller/master/examples/revision.yaml
 ```
 
-Next, lets create a [Revision](../terranetes-controller/reference/revisions.terraform.appvia.io.md) for the resource.
+Next, let's create a [Revision](../terranetes-controller/reference/revisions.terraform.appvia.io.md) for the resource.
 
 ```bash
 # View the contains of the revision for the s3 bucket
-$ cat revision.yaml # demo for provisioning an s3 bucket
+$ cat revision.yaml
 
 # Apply the revision
 $ kubectl apply -f revision.yaml
@@ -69,7 +69,7 @@ $ kubectl get plan
 
 ## Provision a Cloud Resource
 
-Lets retrieve the cloud resource example from [here][ex_cloudresource]
+Let's retrieve the cloud resource example from [here][ex_cloudresource]
 
 ```bash
 wget https://raw.githubusercontent.com/appvia/terranetes-controller/master/examples/cloudresource.yaml
@@ -79,13 +79,13 @@ wget https://raw.githubusercontent.com/appvia/terranetes-controller/master/examp
 You can also run `tnctl create cloudresource` to generate a CloudResource CRD from a Revision
 :::
 
-Lets create a namespace, and consume the revision.
+Let's create a namespace, and consume the revision.
 
 ```bash
 # Create the namespace
 $ kubectl create namespace apps
 
-# Ensure you change any 'CHANGE_ME' variables in the example
+# Ensure you change any 'CHANGE_ME' placeholders in the example
 $ vim cloudresource.yaml
 
 #  Create the cloudresource
@@ -102,7 +102,7 @@ You can use the `tnctl logs cloudresource --namespace apps bucket --follow` to f
 
 ## Approve the plan
 
-By default, unless the `spec.enableAutoApproval` is true, all changes must be approved before acting on. An annotation is used to approve the previous plan.
+By default, all changes require explicit approval before execution, unless the `spec.enableAutoApproval` property is set to `true`. This approval process is facilitated through the use of an annotation on the previous plan.
 
 :::info
 If you are using the `tnctl` cli, you can approve changes via `tnctl approve cloudresource --namespace apps bucket`
@@ -112,7 +112,7 @@ If you are using the `tnctl` cli, you can approve changes via `tnctl approve clo
 kubectl -n apps annotate cloudresources bucket "terraform.appvia.io/apply"=true --overwrite
 ```
 
-Another kubernetes job will be created to watch the execution of the terraform apply, you can view the logs via `kubectl -n apps get po | grep apply`, get the pod name and tail the logs `kubectl -n apps logs -f <NAME>`.
+Upon approval, a Kubernetes job is created to monitor the execution of the `terraform apply` process. To access the logs, execute `kubectl -n apps get po | grep apply` to identify the pod name, and then use `kubectl -n apps logs -f <NAME>` to tail the logs in real-time.
 
 :::important
 The actual terraform execution does not occur in the `apps` namespace, users simply have the ability to watch the output of the run. The job and the credentials never leave the platform teams namespace `terraform-system`
@@ -133,7 +133,7 @@ For a complete summary of [CloudResources](reference/cloudresources.terraform.ap
 
 ## Deleting the terraform resources
 
-You can delete the cloud resource like any other Kubernetes resource
+You can delete the cloud resource like any other Kubernetes resource.
 
 ```bash
 kubectl -n apps delete cloudresource bucket --wait=false
@@ -141,7 +141,7 @@ kubectl -n apps delete cloudresource bucket --wait=false
 
 Tailing the logs from the watcher will allow you to view the execution.
 
-```
+```bash
 POD_NAME=$(kubectl -n apps get pods -l terraform.appvia.io/stage=destroy --no-headers | cut -d' ' -f1)
 kubectl -n apps logs ${POD_NAME} -f
 ```

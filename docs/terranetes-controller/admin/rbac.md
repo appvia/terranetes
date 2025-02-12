@@ -4,9 +4,9 @@ sidebar_class_name: green
 ---
 # Kubernetes RBAC
 
-The following gives some guidance around the suggested roles and permissions in Kubernetes for consumers. In all cases, to remove duplication, the permissions are defined as a ClusterRole and bound locally within a namespace.
+The following provides comprehensive guidance on the recommended roles and permissions in Kubernetes for consumers. To ensure a streamlined and efficient approach, all permissions are defined as a ClusterRole and bound locally within a namespace.
 
-1. Create the ClusterRoles used to scoped the `terraform.appvia.io` resources.
+1. Create the ClusterRoles for Scoped `terraform.appvia.io` Resources
 
 ```yaml
 ---
@@ -59,7 +59,9 @@ rules:
       - patch
 ```
 
-2. Depending whether you are using CloudResource or Configuration, bind the appropriate role within the namespace
+2. Binding the Appropriate Role within the Namespace
+
+Depending on whether you are using `CloudResource` or `Configuration`, bind the appropriate role within the namespace.
 
 ```yaml
 ---
@@ -77,7 +79,7 @@ subjects:
     name: system:authenticated
 ```
 
-If you using [CloudResources](../reference/cloudresources.terraform.appvia.io.md) use the following role.
+If you are using [CloudResources](../reference/cloudresources.terraform.appvia.io.md), use the following role.
 
 ```yaml
 ---
@@ -89,10 +91,10 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: terranetes-cr-users
-subjects: [] <-- Add subjects
+subjects: [] # <-- Add subjects
 ```
 
-Else if your using [Configurations](../reference/configurations.terraform.appvia.io.md)
+If you are using [Configurations](../reference/configurations.terraform.appvia.io.md), use the following role.
 
 ```yaml
 ---
@@ -104,5 +106,5 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: terranetes-cfg-users
-subjects: [] <-- Add subjects
+subjects: [] # <-- Add subjects
 ```

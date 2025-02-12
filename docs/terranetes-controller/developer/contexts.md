@@ -4,23 +4,21 @@ sidebar_position: 3
 
 # Configuration Contexts
 
-Configuration [Contexts](../reference/contexts.terraform.appvia.io.md) are a means to share common configuration (inputs) between [Configurations](../reference/configurations.terraform.appvia.io.md) in the cluster.
+[Contexts](../reference/contexts.terraform.appvia.io.md) serve as a mechanism for sharing common configuration inputs across [Configurations](../reference/configurations.terraform.appvia.io.md) within a cluster. This feature, introduced in version v0.3.25, enables the platform team to provision contexts that can be referenced by any [Configuration](../reference/configurations.terraform.appvia.io.md) for a more streamlined and efficient configuration management process.
 
 :::tip
 This feature is only available from v0.3.25 onwards
 :::
 
-These are provisioned by the platform team, but can be referenced by any [Configuration](../reference/configurations.terraform.appvia.io.md)
-
 ## Viewing the Contexts
 
-You can list all the [Contexts](../reference/contexts.terraform.appvia.io.md) available via
+To enumerate all available [Contexts](../reference/contexts.terraform.appvia.io.md), execute the following command:
 
 ```shell
 $ kubectl get contexts
 ```
 
-The contains is a map of entities which contains both a `description` an d `value`, as such;
+A Context is comprised of variables, each of which is defined by a `description` and a `value`, as outlined below;
 
 ```yaml
 ---
@@ -56,9 +54,9 @@ spec:
 
 ## Referencing Context Values
 
-You can reference a [Context](../reference/contexts.terraform.appvia.io.md) value using the `spec.valueFrom` field in the [Configuration](../reference/configurations.terraform.appvia.io.md)
+To reference a [Context](../reference/contexts.terraform.appvia.io.md) value, utilize the `spec.valueFrom` field within the [Configuration](../reference/configurations.terraform.appvia.io.md). This allows for the integration of context values into your configurations.
 
-For instance if we have a module that requires knowledge of the VPC id, we can use
+For example, when a module necessitates knowledge of the VPC ID, you can leverage this mechanism to inject the required information.
 
 ```yaml
   ---
@@ -72,17 +70,17 @@ For instance if we have a module that requires knowledge of the VPC id, we can u
     providerRef:
       name: aws
     valueFrom:
-      - context: NAME_OF_CONTEXT
-        key: vpc
-        name: vpc_id
+      - context: NAME_OF_CONTEXT  # Referenced context name
+        key: vpc                  # Name of the context key that holds the value
+        name: vpc_id              # Terraform module input variable name
         optional: true
 ```
 
 ### Field Definitions
 
-* `context` is the name of the [Context](../reference/contexts.terraform.appvia.io.md) resource to reference.
-* `key` is the name of the variable inside the [Context](../reference/contexts.terraform.appvia.io.md) resource.
-* `name` is the name we present the value to the terraform module - i.e you might need `vpc_id` mapped to `network_id` or `vpc` in the module.
-* `optional` controls if the value or [Context](../reference/contexts.terraform.appvia.io.md) needs to exist, if true, any missing value is ignored.
+* `context` refers to the [Context](../reference/contexts.terraform.appvia.io.md) resource name that is being referenced.
+* `key` is the name of the variable within the [Context](../reference/contexts.terraform.appvia.io.md) resource.
+* `name` is the identifier used to present the value to the terraform module. For instance, `vpc_id` can be mapped to `network_id` or `vpc` in the module.
+* `optional` determines whether the value or [Context](../reference/contexts.terraform.appvia.io.md) needs to exist. If set to true, any missing value is ignored.
 
 

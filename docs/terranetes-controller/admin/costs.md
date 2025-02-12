@@ -4,13 +4,13 @@ sidebar_class_name: green
 ---
 # Expose Costs
 
-The costs integration allows developers to see their associated costs before applying the terraform. This controller currently uses [infracost](https://infracost.io) to extract the predicted costs of a configuration, exposing the cost within the status of the Kubernetes object. It is viewable by running `kubectl get configuration`.
+The cost integration feature enables developers to preview the associated costs before applying the terraform. This controller currently leverages [infracost](https://infracost.io) to predict the costs of a configuration, making the cost visible within the status of the Kubernetes object. This can be viewed by running `kubectl get configuration`.
 
 :::tip
-The costs here are predicted costs, not the actual costs/usage. While many costs can be calculated based on the resource specs alone, many other costs are based on usage. A simple example would be an S3 bucket that is free (predicted cost), but if you store 10TB inside it you will accumulate data storage costs that would not be visible based on your Terraform resource spec.
+The costs displayed are predictions, not actual costs or usage. While many costs can be calculated based on the resource specifications alone, others are based on usage. For example, an S3 bucket may be free (predicted cost), but if you store 10TB inside it, you will accumulate data storage costs that would not be visible based on your Terraform resource spec.
 :::
 
-To configure the integration:
+To set up the integration:
 
 1. Create a secret containing the Infracost API token.
     ```bash
@@ -33,8 +33,9 @@ To configure the integration:
 
 ## View the predicted costs
 
-The predicted cost of a [Configuration](../reference/configurations.terraform.appvia.io.md) is available on the CRD status and resource description.
+The predicted cost of a [Configuration](../reference/configurations.terraform.appvia.io.md) is accessible through the CRD status and resource description.
 
+To view the predicted costs, execute the following command:
 ```shell
 $ kubectl -n apps get configurations
 NAME        MODULE                                                                    SECRET   RESOURCES   ESTIMATED   AGE
@@ -43,9 +44,7 @@ instance1   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.
 instance2   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $136.288    61s
 instance3   https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git                        $660.72     61s
 ```
-
-You may retrieve the further detail from the status fields as below.
-
+For more detailed information on the costs, including hourly and monthly estimates, you can query the status fields as follows:
 ```shell
 $ k -n apps get configurations.terraform.appvia.io  instance0 -o json | jq -r .status.costs
 {

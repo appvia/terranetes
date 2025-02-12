@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Drift Detection
 
-Drift detection periodically runs a terraform plan on a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md), ensuring the expected state _(terraform state)_ and the actual cloud resources are in sync. Currently [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) must opt in for drift detection via their spec;
+Drift detection is a feature that periodically executes a Terraform plan on a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) to ensure that the expected state, as defined by the Terraform state, aligns with the actual cloud resources. To utilize drift detection, [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) must explicitly opt-in through their specification.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -16,57 +16,58 @@ spec:
   providerRef:
     namespace: terraform-system
     name: aws
-  # You can enable drift protection as so
+  # Enable drift detection
   enableDriftDetection: true
 ```
 
 ## Tuning Drift Detection
 
-From an administrative perspective the controller exposes two options:
+Administrators have the ability to fine-tune drift detection through the controller, which offers two key configuration options:
 
 ### Drift Intervals
 
-The `driftInterval` is the amount of time that must pass from the [Configuration's](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) last terraform plan (last transition time recorded within the status of the `Configuration` object), before a new check is run. By default this is `3h`, so every three hours that has passed from the last transition time for a given `Configuration` object, a drift check will be ran against this resource (providing it is within the [`driftThreshold`](#drift-threshold)).
+The `driftInterval` parameter specifies the duration that must elapse following the last Terraform plan execution (as recorded in the [Configuration](docs/terranetes-controller/reference/configurations.terraform.
+appvia.io.md) object's status) before a new drift detection check is initiated. The default value for this interval is `3h`, indicating that a drift check will be performed every three hours from the last transition time for a given `Configuration` object, provided it falls within the defined [`driftThreshold`](#drift-threshold).
 
 :::important
-The check is always from the last terraform plan run. So if the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) is altered within those 3 hours, the clocks restarts and will be 3 hours from then.
+It is essential to note that the drift check is always measured from the last Terraform plan execution. If the `Configuration` is modified within the specified interval, the timer resets, and the next drift check will occur three hours from the time of modification.
 :::
 
-You can configure the drift interval via the helm value `controller.driftInterval`; the format must be in minutes or hours, i.e. 10m or 10h
+The `driftInterval` can be customized through the Helm value `controller.driftInterval`, with the format specified in minutes or hours, such as `10m` or `10h`.
 
 ### Drift Threshold
 
-The `driftThreshold` is a configurable threshold used to ensure we dont overwhelm the cloud provider API with drift checks. These checks are performing a `terraform plan` afterall and thus API requests are sent out to the cloud provider, so a large collection of [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) all confirming at the same time could cause API timeouts and retries due to rate limiting.
+The `driftThreshold` parameter is a configurable value that serves as a safeguard against overwhelming the cloud provider's API with drift detection checks. Since these checks involve executing a `terraform plan`, they generate API requests to the cloud provider. Consequently, a large number of [Configurations](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) initiating drift checks simultaneously could lead to API timeouts and retries due to rate limiting.
 
-The threshold is a percentage, expressed as a float between 0 and 1. This sets the maximum number of [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) that can run a drift check at anyone time.
+The `driftThreshold` is expressed as a percentage, represented by a float value between 0 and 1. This percentage determines the maximum number of [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resources that can concurrently execute a drift check.
 
-This value takes into account **all `Configuration` resources**, not just those with `enableDriftDetection`, as the intention is to protect against Cloud API limits.
+Notably, this threshold considers **all `Configuration` resources**, including those without `enableDriftDetection`, to ensure protection against Cloud API limits.
 
 **Scenario 1:**
-- 10 `Configuration` resources
-- 1 resource currently in progress (terraform plan or apply is executing)
-- `driftThreshold: 0.2` (10 * 20% - maximum 2 resources)
-- **Result:** A resource with `enableDriftCheck` will execute a check because it is below the threshold
+- Total `Configuration` resources: 10
+- Resources currently undergoing Terraform operations (plan or apply): 1
+- `driftThreshold: 0.2` (equivalent to 20% of total resources, allowing a maximum of 2 resources)
+- **Outcome:** A `Configuration` with `enableDriftCheck` set to true will initiate a drift detection check, as the current number of resources in progress does not exceed the defined threshold.
 
 **Scenario 2:**
-- 10 `Configuration` Resources
-- 2 resources currently in progress (terraform plan or apply is executing)
-- `driftThreshold: 0.2` (10 * 20% - maximum 2 resources)
-- **Result:** A resource with `enableDriftCheck` will not execute a check because the threshold is currently met. It will be evaluated again after a fixed 5 minute interval.
+- Total `Configuration` resources: 10
+- Resources currently undergoing Terraform operations (plan or apply): 2
+- `driftThreshold: 0.2` (equivalent to 20% of total resources, allowing a maximum of 2 resources)
+- **Outcome:** A `Configuration` with `enableDriftCheck` set to true will not initiate a drift detection check at this time, as the current number of resources in progress has reached the defined threshold. The check will be re-evaluated after a fixed interval of 5 minutes.
 
 **Scenario 3:**
-- 10 `Configuration` Resources
-- 0 resources currently in progress (terraform plan or apply is executing)
-- `driftThreshold: 0.01` (10 * 1% - maximum 1 resource)
-- **Result:** A resource with `enableDriftCheck` will execute because none are currently in progress, and the maximum resources that can be run is rounded upwards to a value of 1.
+- Total `Configuration` resources: 10
+- Resources currently undergoing Terraform operations (plan or apply): 0
+- `driftThreshold: 0.1` (equivalent to 1% of total resources, allowing a maximum of 1 resource)
+- **Outcome:** A `Configuration` with `enableDriftCheck` set to true will initiate a drift detection check, as no resources are currently in progress and the maximum number of resources that can be run simultaneously is rounded up to 1.
 
 ### Selection Process
 
-The controller chooses a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) based on the following:
+The controller selects a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) for drift detection based on the following criteria:
 
-* Drift detection is enabled on the spec i.e. `spec.enableDriftDetection: true`.
-* The configuration has already ran successfully, i.e. a plan, approve and apply.
-* The last time a plan ran was >= drift interval.
-* Assuming the number of currently running terraform plan or apply actions is below the drift threshold, the configuration is selected.
+1. Drift detection is explicitly enabled within the configuration's specification, denoted by `spec.enableDriftDetection: true`.
+2. The configuration has successfully completed a Terraform lifecycle, encompassing plan, approval, and apply phases.
+3. The elapsed time since the last successful Terraform plan execution exceeds the defined drift interval.
+4. The current number of concurrent Terraform plan or apply operations does not exceed the drift threshold, ensuring that the cloud provider's API rate limits are not breached.
 
-The selection process is not ordered in any way, the controller makes a best effort approach, knowing eventually all the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resources will be run in the end.
+The controller's selection process operates on a best-effort basis, without a predefined order. This approach ensures that all eligible [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) resources will be evaluated for drift detection over time.

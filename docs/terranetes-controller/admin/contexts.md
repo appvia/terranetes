@@ -4,15 +4,15 @@ sidebar_class_name: green
 ---
 # Contexts
 
-[Contexts](../reference/contexts.terraform.appvia.io.md) provide a means to share common configuration between [Configurations](../reference/configurations.terraform.appvia.io.md). The resource type is Cluster scoped and can be used by any Configuration in the cluster.
+[Contexts](../reference/contexts.terraform.appvia.io.md) serve as a mechanism for sharing common configuration elements across [Configurations](../reference/configurations.terraform.appvia.io.md). This resource type is scoped at the cluster level, allowing any Configuration within the cluster to utilize it.
 
 :::tip
-This feature is only available from v0.3.25 onwards
+Please note that this feature is only accessible starting from version 0.3.25 and onwards.
 :::
 
 ## Create a Context
 
-You can create a [Context](../reference/contexts.terraform.appvia.io.md) like so.
+To create a [Context](../reference/contexts.terraform.appvia.io.md), follow the example below.
 
 ```yaml
 ---
@@ -26,34 +26,34 @@ spec:
   ## value can be any complex or simple type (boolean, int, map, object etc)
   #
   variables:
-    # Is the name of the variable
+    # The name of the variable
     vpc_id:
-      # Provides a description to the consumer of the input
-      description: Is the network identifier we are residing
-      # The value of the value
+      # A description for the consumer of the input
+      description: The network identifier we are residing in
+      # The value of the variable
       value: vpc-1223133113
     public_subnets_ids:
-      # Provides a description to the consumer of the input
+      # A description for the consumer of the input
       description: |
-        Is a collection of subnet id's which are publicly available i.e.
+        A collection of subnet id's which are publicly available, i.e.
         they are attached to an internet gateway
-      # The value of the value
+      # The value of the variable
       value:
         - subnet-12312312312
         - subnet-32332321312
 ```
 
-The resource contains a map of variables; note each variable MUST have a `description` and `value`, with the value being any simple (integer, boolean, string) or complex type (maps, list, maps or maps and so forth).
+The resource contains a map of variables; each variable MUST have a `description` and `value`, with the value being any simple (integer, boolean, string) or complex type (maps, list, maps of maps and so forth).
 
 ## Configure Preloading
 
 :::warning
-Currently the cloud which has support for automatic preloading is **AWS**. Other providers are on the roadmap, but they have not been implemented yet.
+At present, only the **AWS** cloud provider supports automatic preloading. While other providers are in the pipeline, they have not yet been implemented.
 :::
 
-Terranetes has the ability to populate a [Context](../reference/contexts.terraform.appvia.io.md) automatically; retrieving details about the cluster the controller resides and populating them into a [Context](../reference/contexts.terraform.appvia.io.md). Currently this feature is limited to AWS only.
+Terranetes is equipped with the capability to automatically populate a [Context](../reference/contexts.terraform.appvia.io.md) by retrieving details about the cluster where the controller is located and populating them into the [Context](../reference/contexts.terraform.appvia.io.md). This feature is currently limited to AWS.
 
-In order to use the feature we need to update the configuration of a [Provider](../reference/providers.terraform.appvia.io.md); It is the [Providers](../reference/providers.terraform.appvia.io.md) credentials which the preloading will use to retrieve the information from the cloud vendor.
+To leverage the preloading feature, it is necessary to modify the configuration of a [Provider](../reference/providers.terraform.appvia.io.md) by incorporating a `spec.preload` section. This section enables the preloading process to utilize the Provider's credentials for the purpose of retrieving information directly from the cloud vendor.
 
 ```yaml
 ---
@@ -62,11 +62,11 @@ kind: Provider
 metadata:
   name: aws
 spec:
-  # Source and be 'secret' or 'injected'. When using a 'secret' you
+  # The source can be 'secret' or 'injected'. When using 'secret', you
   # must specify the spec.secretRef which defines the name of the
   # secret in the controller namespace containing the credentials.
   source: secret
-  # Provider can be google, aws, azurerm, alicloud, azurestack, googleworkspace etc
+  # The provider can be google, aws, azurerm, alicloud, azurestack, googleworkspace etc
   provider: aws
   # Provides configuration for the contextual data preloader (currently only
   # available for aws)
@@ -85,14 +85,14 @@ spec:
     name: aws
 ```
 
-The `spec.preload` in the [Provider](../reference/providers.terraform.appvia.io.md) needs the following information.
+The `spec.preload` in the [Provider](../reference/providers.terraform.appvia.io.md) requires the following information.
 
 * `enabled` Indicates if we should preload any data into a [Context](../reference/contexts.terraform.appvia.io.md).
-* `cluster` Is the cloud name of the cluster we reside in i.e. the EKS cluster name.
+* `cluster` Is the cloud name of the cluster we reside in, i.e. the EKS cluster name.
 * `region` Is the cloud region the cluster (`spec.preload.cluster`) resides in.
 * `context` Is the name of the [Context](../reference/contexts.terraform.appvia.io.md) you wish to populate the values into.
 
-Once this information has been defined, a [Context](../reference/contexts.terraform.appvia.io.md) resource be automatically provisioned and preloaded with details, as such;
+Once this information has been defined, a [Context](../reference/contexts.terraform.appvia.io.md) resource will be automatically provisioned and preloaded with details, as shown below;
 
 ```yaml
 $ k get contexts.terraform.appvia.io default  -o yaml
@@ -146,7 +146,7 @@ spec:
 
 ## How to reference a Context
 
-Contexts can be referenced from any [Configuration](../reference/configurations.terraform.appvia.io.md) like so
+Contexts can be referenced from any [Configuration](../reference/configurations.terraform.appvia.io.md) as follows:
 
 ```yaml
   ---
@@ -159,21 +159,23 @@ Contexts can be referenced from any [Configuration](../reference/configurations.
     providerRef:
       name: aws
     valueFrom:
-      - context: default
+      - context: default # context to be used
         key: vpc_id
         name: vpc_id
 ```
 
-The `spec.valueFrom` requires the [Context](../reference/contexts.terraform.appvia.io.md) name, the key is the name of the variable in the context and the name is the variable you need to present this as to the terraform module. The optional field simply means both the context and any value reference, if they don't exist, can continue without failure. By default, anything missing (context or value) will defer the [Configuration](../reference/configurations.terraform.appvia.io.md) until they are present.
+The `spec.valueFrom` field in the Configuration CRD requires the name of the [Context](../reference/contexts.terraform.appvia.io.md) resource, the *key* being the name of the variable within the context, and the *name* representing the variable as it will be presented to the Terraform module. The *optional* field implies that both the context and any value reference can be omitted without causing a failure. By default, if either the context or the value is missing, the [Configuration](../reference/configurations.terraform.appvia.io.md) will be deferred until they are present.
 
-## Using a Custom Preload
+## Utilizing a Custom Preload
 
-Terranetes comes prebuilt with a loader to extract details from the cloud vendor, but perhaps it doesn't contain the details you need. You can solve this in two ways
+Terranetes comes preconfigured with a loader to extract details from the cloud vendor, but it may not contain all the necessary details. This can be addressed in two ways:
 
-a) Configuration can reference multiple [Context](../reference/contexts.terraform.appvia.io.md) resources, so you can provision with additional details / values.
-b) Override the preload image in the controller and run your own custom loader.
+a) A Configuration can reference multiple [Context](../reference/contexts.terraform.appvia.io.md) resources, allowing to use additional details or values.
+b) Override the preload image in the controller and run a custom loader.
 
-The first one is simple and can achieved in multiple ways; manually, ci, helm and so forth. The second option, overloading the controller's preload images requires you update the `--preload-image` argument. In the helm chart, this can be done via
+The first approach is straightforward and can be achieved through various means, including manual, CI, helm, and others. 
+
+The second option, overloading the controller's preload images, requires updating the `--preload-image` argument. In the helm chart, this can be accomplished via:
 
 ```yaml
 controller:
@@ -181,17 +183,17 @@ controller:
     preload: IMAGE:TAG
 ```
 
-Note, the entrypoint when using this image is currently hardcoded, so you have to ensure in the image we have an executable at `/bin/preload`. The following arguments will also be passed, via environment variables to the execution
+Note that the entrypoint when using this image is currently hardcoded, ensuring an executable at `/bin/preload`. The following arguments will also be passed, via environment variables, to the execution:
 
-* `CLOUD` is the cloud vendor designation from the [Provider](../reference/providers.terraform.appvia.io.md) the preload is configured on i.e. `spec.provider`.
-* `CLUSTER` is the cluster name from the preload configuration i.e `spec.preload.cluster`.
+* `CLOUD` is the cloud vendor designation from the [Provider](../reference/providers.terraform.appvia.io.md) the preload is configured on, i.e., `spec.provider`.
+* `CLUSTER` is the cluster name from the preload configuration, i.e., `spec.preload.cluster`.
 * `CONTEXT` is the name of the context (`spec.preload.context`) defined in the [Provider](../reference/providers.terraform.appvia.io.md) configuration.
-* `PROVIDER` is the name of the provider the preload was configured on `metadata.name` on the [Provider](../reference/providers.terraform.appvia.io.md) resource.
-* `REGION` is the cloud region configured in the [Provider](../reference/providers.terraform.appvia.io.md) preload configuration i.e `spec.preload.region`.
+* `PROVIDER` is the name of the provider the preload was configured on, `metadata.name` on the [Provider](../reference/providers.terraform.appvia.io.md) resource.
+* `REGION` is the cloud region configured in the [Provider](../reference/providers.terraform.appvia.io.md) preload configuration, i.e., `spec.preload.region`.
 
-When using a custom loader the executable is responsible for two things
+When utilizing a custom loader, the executable is responsible for two primary tasks:
 
 * Retrieving the cloud details and constructing a valid [Context](../reference/contexts.terraform.appvia.io.md) resource.
 * Creating or updating the `CONTEXT` in the Kubernetes cluster itself.
 
-The controller is responsible for ensuring execution occurs, handing jobs fails and configuring the job with [Provider](../reference/providers.terraform.appvia.io.md) credentials.
+The controller is responsible for ensuring the execution occurs, handling job failures, and configuring the job with [Provider](../reference/providers.terraform.appvia.io.md) credentials.

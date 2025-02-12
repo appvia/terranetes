@@ -5,17 +5,16 @@ sidebar_class_name: green
 
 # Introduction
 
-The controller comes with a number of controls and safeguards that the platform team can utilize to:
+The controller is equipped with a variety of controls and safeguards that the platform team can leverage to:
 
-* Enforce a security policy across the estate via [Checkov](https://www.checkov.io/).
-* Enforce the source of the terraform modules, for example locking down to only fetch terraform modules from your company's repositories.
-* Automatically inject environment-specific variables into the Configuration CRD, such as costs, project IDs, environment-specific labels or tags. This removes the need for teams consuming modules to know these details, and keeps the deployments environment agnostic.
+* Enforce a comprehensive security policy across the entire estate using [Checkov](https://www.checkov.io/).
+* Ensure the source of the terraform modules, for instance, by restricting the fetching of terraform modules to your company's repositories only.
+* Automatically inject environment-specific variables into the Configuration CRD, such as costs, project IDs, environment-specific labels or tags. This eliminates the need for teams consuming modules to be aware of these details, and maintains the environment agnostic nature of the deployments.
 
 ## Policy Resource
 
-Not wishing to create a plethora of resource types to define all mechanics of policy, all the policies handled by the controller are defined via the [Policy](docs/terranetes-controller/reference/policies.terraform.appvia.io.md) CRD.
+In an effort to avoid creating an excessive number of resource types to define all aspects of policy, the controller handles all policies through the [Policy](docs/terranetes-controller/reference/policies.terraform.appvia.io.md) CRD.
 
 :::tip
-You can define Policy resources multiple times, as the definitions are pulled together and aggregated.
+Policy resources can be defined multiple times, as the definitions are consolidated and aggregated.
 :::
-

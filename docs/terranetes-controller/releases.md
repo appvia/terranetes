@@ -16,7 +16,7 @@ sidebar_position: 2
 
 ### What's Changed
 
-This release introduces the concept of a CloudResource. Currently Configuration CRDs are one to one mappings to the Terraform module, throwing a myriad of options at the consumer. CloudResources & Revision augments the consumer interface to a vastly reduced entry point, removing the cognitive load on the developers (consumers), and allowing the platform team to instil their version of best practice, defaults and organizational policy before consumption.
+This release marks the introduction of the CloudResource concept, which significantly refines the consumer interface. Previously, Configuration CRDs were directly mapped to Terraform modules, presenting a wide range of options to the consumer. The integration of CloudResources and Revisions simplifies the entry point for consumers, alleviating the cognitive burden on developers and enabling the platform team to implement best practices, default settings, and organizational policies prior to consumption.
 
 For more details see https://terranetes.appvia.io/terranetes-controller/admin/cloudresource/
 

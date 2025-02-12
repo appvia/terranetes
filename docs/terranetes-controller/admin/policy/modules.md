@@ -26,19 +26,19 @@ spec:
           matchLabels: {}
           matchExpressions: []
       allowed:
-        - "https://github.com/appvia/.*"
+        - "https://github.com/appvia/.*"  # only allow specific org modules
 ```
 
-The allowed list (`spec.constraints.modules.allowed`) is a collection of Golang regexes which a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) must match at least one.
+The `spec.constraints.modules.allowed` list comprises a collection of Golang regex patterns that a [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md) must match at least one of.
 
-The policy may also include an optional selector (`spec.constraints.modules.selector`) that can be used to match against namespace and resource labels of the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md). As with all selectors in the controller, leaving this field empty implies you want to match against all. You can take advantage of the selectors by providing overrides.
+Additionally, the policy can optionally include a `spec.constraints.modules.selector` that enables matching against namespace and resource labels of the [Configuration](docs/terranetes-controller/reference/configurations.terraform.appvia.io.md). Consistent with all selectors within the controller, an empty field implies a match against all configurations. By providing specific overrides, you can leverage the selectors to target specific configurations.
 
-Lets use the following requirements.
+The following example policy configurations are designed to meet the specified requirements:
 
-* All teams may use terraform from the companies Github repositories at https://github.com/appvia
-* The teams using namespace `infra` and `ci` can use additional modules from https://github.com/elsewhere
+* Permit all teams to utilize terraform modules from the company's Github repositories at https://github.com/appvia
+* Allow teams operating within the `infra` and `ci` namespaces to access additional modules from https://github.com/elsewhere
 
-1. Create the default policy (i.e no selector)
+1. Establish the default policy (i.e., without a selector)
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
@@ -52,7 +52,7 @@ spec:
         - "https://github.com/appvia/.*"
 ```
 
-2. Create the additional policy for namespace `infra` and `ci`.
+2. Create an additional policy specifically for the `infra` and `ci` namespaces.
 
 ```yaml
 apiVersion: terraform.appvia.io/v1alpha1
