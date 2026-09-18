@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      # One PR for every outstanding security advisory in the npm tree.
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      # One PR for routine minor/patch drift, instead of one PR per dependency.
+      npm-minor-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
