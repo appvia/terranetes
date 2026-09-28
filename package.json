@@ -17,9 +17,9 @@
     "@docusaurus/plugin-client-redirects": "^3.10.2",
     "@docusaurus/plugin-google-tag-manager": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
-    "@easyops-cn/docusaurus-search-local": "^0.45.0",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "classnames": "^2.5.1",
-    "prism-react-renderer": "^2.1.0",
+    "prism-react-renderer": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
